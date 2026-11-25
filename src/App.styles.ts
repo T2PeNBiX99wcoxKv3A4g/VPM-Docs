@@ -92,7 +92,7 @@ export const TopBar = styled.header`
     display: flex;
     align-items: center;
     gap: 1.25rem;
-    padding: 0.7rem 1.5rem;
+    padding: 0.7rem max(1.5rem, calc((100vw - 118rem) / 2));
     background: var(--topbar);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
@@ -391,9 +391,9 @@ export const Layout = styled.div`
     grid-template-columns: 17rem minmax(0, 1fr);
     gap: 2rem;
     width: 100%;
-    max-width: 82rem;
+    max-width: 118rem;
     margin: 0 auto;
-    padding: 2rem 1.5rem 3rem;
+    padding: 2rem 2rem 3rem;
 
     @media ${mobile} {
         grid-template-columns: minmax(0, 1fr);
@@ -890,7 +890,7 @@ export const Footer = styled.footer`
     flex-wrap: wrap;
     gap: 0.75rem 1.5rem;
     justify-content: space-between;
-    padding: 1.2rem 1.5rem;
+    padding: 1.2rem max(1.5rem, calc((100vw - 118rem) / 2));
     border-top: 1px solid var(--border);
     color: var(--text-muted);
     font-size: 0.82rem;

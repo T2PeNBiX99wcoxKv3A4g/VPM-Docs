@@ -54,7 +54,27 @@ export const site = {
             "package": "io.github.ykysnk.utils",
             "repository": "https://github.com/T2PeNBiX99wcoxKv3A4g/VPM.Utils",
             "releases": "https://github.com/T2PeNBiX99wcoxKv3A4g/VPM.Utils/releases",
-            "groups": []
+            "groups": [
+                {
+                    "id": "starting",
+                    "docs": [
+                        "Overview",
+                        "Installation"
+                    ]
+                },
+                {
+                    "id": "guide",
+                    "docs": [
+                        "Editor-Helpers"
+                    ]
+                },
+                {
+                    "id": "reference",
+                    "docs": [
+                        "API"
+                    ]
+                }
+            ]
         },
         {
             "id": "yky-toolkit",
@@ -62,7 +82,29 @@ export const site = {
             "package": "io.github.ykysnk.yky-toolkit",
             "repository": "https://github.com/T2PeNBiX99wcoxKv3A4g/VPM.YKYToolKit",
             "releases": "https://github.com/T2PeNBiX99wcoxKv3A4g/VPM.YKYToolKit/releases",
-            "groups": []
+            "groups": [
+                {
+                    "id": "starting",
+                    "docs": [
+                        "Overview",
+                        "Installation"
+                    ]
+                },
+                {
+                    "id": "guide",
+                    "docs": [
+                        "UPM-Installer",
+                        "Import-Watcher",
+                        "Tools"
+                    ]
+                },
+                {
+                    "id": "reference",
+                    "docs": [
+                        "Transform-Inspector"
+                    ]
+                }
+            ]
         }
     ]
 } as const;

@@ -1,0 +1,43 @@
+# 概览
+
+本地化把 VPM 包的编辑器 UI 集中到一处：每个标签、按钮和工具提示都是一个键，每种语言是一个资源，负责把这些键映射到文本。该包仅在编辑器中运行，不会向世界发布任何内容。
+
+## 各部分如何配合
+
+| 组成 | 说明 |
+| --- | --- |
+| `BasicLocalization` | 每种语言一个资源。文件名就是语言 id（`en-US`、`ja-JP`），其 `displayName` 是选择器中显示的名称。 |
+| `BasicTranslate` | 资源中的一条记录：键、文本以及可选的工具提示。 |
+| 本地化 id | 把一个包的所有资源归到一起，例如 `io.github.ykysnk.yky-toolkit`。每种语言的资源都带有相同的 id。 |
+| `LocalizationHelper` | 按 id 查找键，并在语言变化时保持 UI 元素同步更新。 |
+
+包在每个编辑器程序集中声明一次 id：
+
+```csharp
+[assembly: LocalizationPackage("io.github.ykysnk.yky-toolkit")]
+```
+
+之后，扩展方法无需任何额外配置就知道该读取哪些资源：
+
+```csharp
+label.text = "label.my_window.title".S();
+```
+
+## 语言选择
+
+选中的语言按 id 存储在 `EditorPrefs` 中。切换语言会触发一个事件，所有通过 `UILocalize` 本地化、或通过 `UpdateRegister` 注册的元素都会立即重写，不必重新打开任何窗口。
+
+## 回退
+
+查找时先看选中的语言，再看英语：
+
+1. 选中语言中的文本，
+2. `en-US` 资源中的文本，
+3. 调用方传入的默认值，
+4. 键本身。
+
+缺少条目时不会抛出任何异常，所以只翻译了一半的包仍然能显示出可读的英文。
+
+## Unity 自带的字符串
+
+以 `unity:` 开头的键不由本包翻译。它们保存的是 Unity 编辑器字符串的英文文本，会被传给 `L10n.Tr`，由 Unity 将其翻译成编辑器语言。详见 [Unity-Keys](Unity-Keys)。

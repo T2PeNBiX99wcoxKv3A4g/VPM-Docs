@@ -18,10 +18,17 @@ docs/<project>/<language>/<Page>.md   the pages
 site.config.mjs                       projects, their languages, groups and links
 scripts/sync-content.mjs              generates src/generated/*.ts before dev/build
 src/                                  React app (Vite, styled-components, Sass)
+public/                               favicon.svg (source) and favicon.ico (generated from it)
 ```
 
 The page title is the `# Heading` of the Markdown file; the file name is the slug used in the URL
 (`#/<project>/<slug>`).
+
+## Search
+
+The field in the top bar searches every package (`Ctrl`/`Cmd`+`K` focuses it) and shows the page, its package and a
+snippet with the matched terms marked. `↑`/`↓`/`Enter`/`Esc` work as expected. A search can be linked to with
+`?q=<terms>`.
 
 ## Add a page
 
