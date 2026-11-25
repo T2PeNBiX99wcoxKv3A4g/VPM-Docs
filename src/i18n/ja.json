@@ -4,6 +4,7 @@
   "nav.releases": "リリース",
   "nav.github": "GitHub",
   "nav.menu": "メニュー",
+  "nav.close": "閉じる",
   "nav.projects": "パッケージ",
   "language.label": "言語",
   "home.intro": "パッケージを選ぶと、導入方法・エディタでの使い方・API が読めます。",

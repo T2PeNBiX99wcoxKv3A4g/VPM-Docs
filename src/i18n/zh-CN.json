@@ -4,6 +4,7 @@
   "nav.releases": "版本发布",
   "nav.github": "GitHub",
   "nav.menu": "菜单",
+  "nav.close": "关闭",
   "nav.projects": "包",
   "language.label": "语言",
   "home.intro": "选择一个包，查看安装步骤、编辑器用法与 API。",

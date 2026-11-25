@@ -55,6 +55,7 @@ import {
     SearchResultSnippet,
     SearchResultTitle,
     Sidebar,
+    TableWrap,
     Tagline,
     TopBar,
     TopNav,
@@ -150,6 +151,13 @@ function Markdown({source, project, anchorIds = []}: { source: string; project: 
                             </a>
                         );
                     },
+                    table({children}) {
+                        return (
+                            <TableWrap>
+                                <table>{children}</table>
+                            </TableWrap>
+                        );
+                    },
                 }}
             >
                 {rewriteLinks(source, project)}
@@ -176,6 +184,11 @@ export default function App() {
         window.addEventListener("hashchange", onHashChange);
         return () => window.removeEventListener("hashchange", onHashChange);
     }, []);
+
+    // Picking a page closes the menu: on a phone it sits above the page it navigates to.
+    useEffect(() => {
+        setNavOpen(false);
+    }, [route]);
 
     // Ctrl/Cmd+K focuses the search field from anywhere on the page.
     useEffect(() => {
@@ -275,7 +288,7 @@ export default function App() {
             <TopBar>
                 <ScrollProgress ref={progressRef} aria-hidden="true"/>
 
-                <Brand href="#/">
+                <Brand href="#/" title={site.name}>
                     <Icon $glyph="package" aria-hidden="true"/>
                     <span>{site.name}</span>
                 </Brand>
@@ -377,10 +390,10 @@ export default function App() {
                         type="button"
                         onClick={() => setNavOpen((open) => !open)}
                         aria-expanded={navOpen}
-                        aria-label={t("nav.menu")}
+                        aria-label={navOpen ? t("nav.close") : t("nav.menu")}
                     >
-                        <Icon $glyph="menu" aria-hidden="true"/>
-                        <NavToggleLabel>{t("nav.menu")}</NavToggleLabel>
+                        <Icon $glyph={navOpen ? "close" : "menu"} aria-hidden="true"/>
+                        <NavToggleLabel>{navOpen ? t("nav.close") : t("nav.menu")}</NavToggleLabel>
                     </NavToggle>
                 </Controls>
             </TopBar>

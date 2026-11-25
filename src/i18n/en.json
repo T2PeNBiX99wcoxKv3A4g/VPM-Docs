@@ -4,6 +4,7 @@
   "nav.releases": "Releases",
   "nav.github": "GitHub",
   "nav.menu": "Menu",
+  "nav.close": "Close",
   "nav.projects": "Packages",
   "language.label": "Language",
   "home.intro": "Pick a package to read its setup steps, editor usage and API.",

@@ -9,7 +9,7 @@ import menuIcon from "./icons/menu.svg";
 import packageIcon from "./icons/package.svg";
 import releasesIcon from "./icons/releases.svg";
 import searchIcon from "./icons/search.svg";
-import {mobile} from "./styles/media";
+import {mobile, narrow} from "./styles/media";
 
 /** Every icon file, keyed by the name used at the call site. */
 const glyphs = {
@@ -96,6 +96,12 @@ export const TopBar = styled.header`
     background: var(--topbar);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
+
+    @media ${mobile} {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 0.55rem 0.75rem;
+    }
 `;
 
 /** Reading progress, written to by a scroll handler (never re-rendered from React). */
@@ -123,6 +129,22 @@ export const Brand = styled.a`
     &:hover {
         text-decoration: none;
         color: var(--accent-strong);
+    }
+
+    @media ${mobile} {
+        flex: 0 1 auto;
+        min-width: 0;
+        font-size: 0.9rem;
+
+        span:last-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
+    @media ${narrow} {
+        max-width: 9rem;
     }
 `;
 
@@ -303,6 +325,10 @@ export const Controls = styled.div`
     display: flex;
     align-items: center;
     gap: 0.6rem;
+
+    @media ${mobile} {
+        gap: 0.45rem;
+    }
 `;
 
 export const LanguageLabel = styled.label`
@@ -314,6 +340,16 @@ export const LanguageLabel = styled.label`
 
     &:focus-within {
         color: var(--accent-strong);
+    }
+
+    @media ${mobile} {
+        gap: 0.25rem;
+    }
+
+    @media ${narrow} {
+        & > span:first-child {
+            display: none;
+        }
     }
 `;
 
@@ -341,7 +377,7 @@ export const LanguageSelect = styled.select`
     }
 
     @media ${mobile} {
-        max-width: 7.5rem;
+        max-width: 6rem;
     }
 `;
 
@@ -628,6 +664,14 @@ export const Hero = styled.section`
         border: none;
         padding: 0;
     }
+
+    @media ${mobile} {
+        padding: 1.25rem;
+
+        h1 {
+            font-size: 1.6rem;
+        }
+    }
 `;
 
 export const Tagline = styled.p`
@@ -782,6 +826,8 @@ export const DocIndex = styled.section`
 /* --- markdown ------------------------------------------------------------ */
 
 export const MarkdownBody = styled.div`
+    overflow-wrap: break-word;
+
     h1,
     h2,
     h3,
@@ -837,6 +883,12 @@ export const MarkdownBody = styled.div`
         border: 1px solid var(--border);
         font-family: var(--font-mono);
         font-size: 0.85em;
+        overflow-wrap: break-word;
+    }
+
+    th code,
+    td code {
+        white-space: nowrap;
     }
 
     pre {
@@ -850,6 +902,7 @@ export const MarkdownBody = styled.div`
             padding: 0;
             border: none;
             background: none;
+            overflow-wrap: normal;
         }
     }
 
@@ -865,6 +918,7 @@ export const MarkdownBody = styled.div`
         padding: 0.5rem 0.7rem;
         border: 1px solid var(--border);
         text-align: left;
+        overflow-wrap: break-word;
     }
 
     th {
@@ -880,6 +934,31 @@ export const MarkdownBody = styled.div`
         border: none;
         border-top: 1px solid var(--border);
         margin: 2rem 0;
+    }
+
+    @media ${mobile} {
+        table {
+            font-size: 0.85rem;
+        }
+
+        th,
+        td {
+            padding: 0.4rem 0.55rem;
+        }
+    }
+`;
+
+/**
+ * Tables are wide by nature; scrolling them here keeps the page itself from widening on a phone. The wrapper is
+ * rendered by the markdown table component in App.tsx.
+ */
+export const TableWrap = styled.div`
+    margin: 1rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    table {
+        margin: 0;
     }
 `;
 
@@ -898,5 +977,11 @@ export const Footer = styled.footer`
     nav {
         display: flex;
         gap: 1rem;
+    }
+
+    @media ${mobile} {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 0.9rem;
     }
 `;
