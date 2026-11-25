@@ -3,11 +3,11 @@
 このパッケージは 3 つのアセンブリで構成されています。以下に挙げるものはすべて public です。廃止されたメンバーも、まだ
 コンパイルできるため含めています。
 
-| アセンブリ | 名前空間 | 内容 |
-| --- | --- | --- |
-| `io.github.ykysnk.utils` | `io.github.ykysnk.utils` | `Utils`、`IUtilsEditorOnly`、`BasicEditorComponent` |
-| `io.github.ykysnk.utils.non-udon` | `io.github.ykysnk.utils.NonUdon` | `BooleanVector3`、`ColorHex` |
-| `io.github.ykysnk.utils.Editor` | `io.github.ykysnk.utils.Editor` とそのサブ名前空間 | インスペクターの基底、GUI ヘルパー、メニュー、UPM クライアント、ドロワー |
+| アセンブリ                        | 名前空間                                           | 内容                                                                     |
+|-----------------------------------|----------------------------------------------------|--------------------------------------------------------------------------|
+| `io.github.ykysnk.utils`          | `io.github.ykysnk.utils`                           | `Utils`、`IUtilsEditorOnly`、`BasicEditorComponent`                      |
+| `io.github.ykysnk.utils.non-udon` | `io.github.ykysnk.utils.NonUdon`                   | `BooleanVector3`、`ColorHex`                                             |
+| `io.github.ykysnk.utils.Editor`   | `io.github.ykysnk.utils.Editor` とそのサブ名前空間 | インスペクターの基底、GUI ヘルパー、メニュー、UPM クライアント、ドロワー |
 
 ## Utils
 
@@ -15,7 +15,8 @@
 
 Udon から安全に呼べる小さなヘルパー群です。色付き接頭辞でのログ出力と、いくつかの状態チェックがあります。
 
-接頭辞は `[prefix]` として `#D771C0` で描画されます。ログとアサーションのすべてのメンバーには `[HideInCallstack]` が付いているため、
+接頭辞は `[prefix]` として `#D771C0` で描画されます。ログとアサーションのすべてのメンバーには `[HideInCallstack]`
+が付いているため、
 コンソールの項目はこのファイルではなく呼び出し元を指します。
 
 ### Log(string prefix, object message)
@@ -155,7 +156,8 @@ public static bool IsPlaying { get; }
 public static int ToLayer(LayerMask mask)
 ```
 
-1 レイヤーだけのマスクのレイヤーインデックス、つまり最も上位に立っているビットの位置を返します。マスクが 0 の場合は 31 を返します
+1 レイヤーだけのマスクのレイヤーインデックス、つまり最も上位に立っているビットの位置を返します。マスクが 0 の場合は 31
+を返します
 （ビット走査の結果）。
 
 ```csharp
@@ -520,8 +522,10 @@ protected virtual void OnEnable()
 public override void OnInspectorGUI()
 ```
 
-シリアライズオブジェクトを更新し、`IsBaseOnOldInspectorGUI` が設定されていれば基底のインスペクターを描画し、その後 `Try.Run` の
-中で `OnErrorHandleInspectorGUI` を実行します。失敗時は任意でログを出し、`OnError` と `OnErrorEvent` を呼び、IMGUI のエラー UI を
+シリアライズオブジェクトを更新し、`IsBaseOnOldInspectorGUI` が設定されていれば基底のインスペクターを描画し、その後
+`Try.Run` の
+中で `OnErrorHandleInspectorGUI` を実行します。失敗時は任意でログを出し、`OnError` と `OnErrorEvent` を呼び、IMGUI のエラー
+UI を
 描画します。本体が変更を報告した場合は、変更されたプロパティを適用する前に `OnChange` が実行されます。
 
 ### CreateInspectorGUI()
@@ -530,7 +534,8 @@ public override void OnInspectorGUI()
 public override VisualElement? CreateInspectorGUI()
 ```
 
-`Try.Run` の中で `CreateErrorHandleInspectorGUI` を組み立てます。失敗時は例外を報告し、`BasicEditorErrorUI.uxml` の UI Toolkit
+`Try.Run` の中で `CreateErrorHandleInspectorGUI` を組み立てます。失敗時は例外を報告し、`BasicEditorErrorUI.uxml` の UI
+Toolkit
 エラー UI を返します。そのアセットを読み込めない場合は `CreateUxmlImportErrorUI()` を返します。
 
 ### CreateUxmlImportErrorUI()
@@ -621,7 +626,8 @@ protected virtual void OnError(Exception e, Type type)
 protected virtual void OnErrorHandleInspectorGUI()
 ```
 
-IMGUI のインスペクター本体を描画します。`OnInspectorGUI` ではなくこちらをオーバーライドしてください。例外は捕捉され、エラー UI に
+IMGUI のインスペクター本体を描画します。`OnInspectorGUI` ではなくこちらをオーバーライドしてください。例外は捕捉され、エラー
+UI に
 置き換えられます。
 
 ### CreateErrorHandleInspectorGUI()
@@ -668,7 +674,8 @@ public static GUIContent Label(string text, string? textTip = null)
 public static void Line(Color color, float space = 20f, float lineHeight = 1f)
 ```
 
-`color` の水平線を描画します。`space` の半分を上に、半分を下に取るため、垂直方向の合計は常に `space` になります。`lineHeight` は
+`color` の水平線を描画します。`space` の半分を上に、半分を下に取るため、垂直方向の合計は常に `space` になります。
+`lineHeight` は
 線の高さ（ピクセル）です。
 
 ### Line(float space = 20f, float lineHeight = 1f)
@@ -799,7 +806,8 @@ public static Task<T> Run<T>(Task<T> task)
 ありません。ウィンドウはコールバックで結果を報告して自身を閉じ、テキストはコンテキストメニューからコピーできます。
 
 ウィンドウは 500×250 に固定され、メインのエディタウィンドウの中央に `ShowUtility` で表示されます。まだ開いているダイアログは先に
-閉じられ、その保留中の結果はキャンセルとして報告されます。ボタンを押さずにウィンドウを閉じた場合もキャンセルです。`waitTime` を
+閉じられ、その保留中の結果はキャンセルとして報告されます。ボタンを押さずにウィンドウを閉じた場合もキャンセルです。
+`waitTime` を
 設定すると、Ok のキャプションがカウントダウンし、0 になるまでボタンは無効のままです。
 
 このクラスが宣言するメンバーはすべて private か internal なので、ダイアログは `EditorUtils.DisplayDialog` または
@@ -1291,52 +1299,52 @@ public static IEnumerable<MethodInfo> GetDeclaredMethods(Type? type)
 
 ### io.github.ykysnk.utils.Extensions
 
-| 型 | 目的 |
-| --- | --- |
-| `ComponentExtensions` | GameObject と Transform のヘルパーのコンポーネント版。 |
-| `DictionaryExtensions` | キーがない場合を既定値として扱う辞書の読み取り。 |
-| `FloatExtensions` | `float` のノイズ除去、許容誤差の判定、クランプ、丸め。 |
-| `GameObjectExtensions` | ヒエラルキーのパス、距離判定、インデックスによるコンポーネントアクセス。 |
-| `ListExtensions` | 境界チェック付きのインデックスアクセスと、リストや配列をその場で編集するヘルパー。 |
-| `StringExtensions` | `"Folder/Name/Extension"` のような区切り文字付き文字列の切り出しヘルパー。 |
-| `Texture2DExtensions` | テクスチャの GPU リサイズとアルファのトリミング。 |
-| `TransformExtensions` | ヒエラルキー名、ワールド/ローカルスケールの変換、非スケールの座標変換、距離判定。 |
-| `Vector3Extensions` | `Vector3` の距離、成分ごとの演算、クランプ、丸め、方向のヘルパー。 |
+| 型                     | 目的                                                                               |
+|------------------------|------------------------------------------------------------------------------------|
+| `ComponentExtensions`  | GameObject と Transform のヘルパーのコンポーネント版。                             |
+| `DictionaryExtensions` | キーがない場合を既定値として扱う辞書の読み取り。                                   |
+| `FloatExtensions`      | `float` のノイズ除去、許容誤差の判定、クランプ、丸め。                             |
+| `GameObjectExtensions` | ヒエラルキーのパス、距離判定、インデックスによるコンポーネントアクセス。           |
+| `ListExtensions`       | 境界チェック付きのインデックスアクセスと、リストや配列をその場で編集するヘルパー。 |
+| `StringExtensions`     | `"Folder/Name/Extension"` のような区切り文字付き文字列の切り出しヘルパー。         |
+| `Texture2DExtensions`  | テクスチャの GPU リサイズとアルファのトリミング。                                  |
+| `TransformExtensions`  | ヒエラルキー名、ワールド/ローカルスケールの変換、非スケールの座標変換、距離判定。  |
+| `Vector3Extensions`    | `Vector3` の距離、成分ごとの演算、クランプ、丸め、方向のヘルパー。                 |
 
 ### io.github.ykysnk.utils.NonUdon
 
-| 型 | 目的 |
-| --- | --- |
-| `DictionaryWrapper<TKey, TValue>` | Unity のシリアライズのために、辞書形式のデータを 2 つの並列リストとして保存するもの。 |
-| `HashUtils`, `HashType` | 小文字の 16 進ダイジェストによるテキストのハッシュ。 |
-| `JsonUtils` | 例外を投げたり null を返したりする代わりに失敗を報告する `JsonUtility` のラッパー。 |
-| `ListWrapper<T>` | 1 つのシリアライズフィールドの背後にあるリスト。インターフェース型のメンバーを保存できる。 |
-| `ReflectionUtils`, `ReflectionWrapper`, `Reflect` | キャッシュされたリフレクション検索、コンパイル済みデリゲート、連鎖可能なメンバーアクセス。 |
-| `ReflectionAccess`, `FieldAccess`, `PropertyAccess`, `MethodAccess` | `Reflect` を支えるアクセサ型。 |
-| `Result<T>`, `ResultExtensions`, `Try`, `Unit` | 失敗を持ち運ぶ結果、連鎖のヘルパー、例外を使わない実行。 |
-| `Wrapper` | `ListWrapper<T>` と `DictionaryWrapper<TKey, TValue>` の入口。 |
-| `ILogger`, `Logger<T>` | パッケージが前提とするログの表面と、その型ごとの実装。 |
-| `FieldGetter<T>`, `FieldSetter<T>`, `PropertyGetter<T>`, `PropertySetter<T>`, `WrapAction`, `WrapFunc` | リフレクションラッパーが使うデリゲート。 |
+| 型                                                                                                     | 目的                                                                                       |
+|--------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
+| `DictionaryWrapper<TKey, TValue>`                                                                      | Unity のシリアライズのために、辞書形式のデータを 2 つの並列リストとして保存するもの。      |
+| `HashUtils`, `HashType`                                                                                | 小文字の 16 進ダイジェストによるテキストのハッシュ。                                       |
+| `JsonUtils`                                                                                            | 例外を投げたり null を返したりする代わりに失敗を報告する `JsonUtility` のラッパー。        |
+| `ListWrapper<T>`                                                                                       | 1 つのシリアライズフィールドの背後にあるリスト。インターフェース型のメンバーを保存できる。 |
+| `ReflectionUtils`, `ReflectionWrapper`, `Reflect`                                                      | キャッシュされたリフレクション検索、コンパイル済みデリゲート、連鎖可能なメンバーアクセス。 |
+| `ReflectionAccess`, `FieldAccess`, `PropertyAccess`, `MethodAccess`                                    | `Reflect` を支えるアクセサ型。                                                             |
+| `Result<T>`, `ResultExtensions`, `Try`, `Unit`                                                         | 失敗を持ち運ぶ結果、連鎖のヘルパー、例外を使わない実行。                                   |
+| `Wrapper`                                                                                              | `ListWrapper<T>` と `DictionaryWrapper<TKey, TValue>` の入口。                             |
+| `ILogger`, `Logger<T>`                                                                                 | パッケージが前提とするログの表面と、その型ごとの実装。                                     |
+| `FieldGetter<T>`, `FieldSetter<T>`, `PropertyGetter<T>`, `PropertySetter<T>`, `WrapAction`, `WrapFunc` | リフレクションラッパーが使うデリゲート。                                                   |
 
 ### io.github.ykysnk.utils.Editor.Patches
 
-| 型 | 目的 |
-| --- | --- |
-| `IPatch`, `Patch<T>` | ひとまとまりとして適用されるパッチのグループ。サブクラスが入れ子のパッチメソッドのコンテナになる。 |
-| `IPatchLoader`, `PatchLoader<T>` | 1 つのアセンブリの入口。Harmony インスタンスを受け取り、パッチグループを実行する。 |
-| `IPatchMethod`, `PatchMethod<T>` | 1 つの Harmony パッチセット: 対象メソッドと prefix、postfix、transpiler、finalizer。 |
-| `IReversePatchMethod`, `ReversePatchMethod<T>` | スタブが別メソッド本体の呼び出し可能なコピーを受け取るリバースパッチ。 |
-| `ExportsPatchLoader` | エディタの読み込み時に実行するパッチローダー型を宣言するアセンブリ属性。 |
+| 型                                             | 目的                                                                                               |
+|------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| `IPatch`, `Patch<T>`                           | ひとまとまりとして適用されるパッチのグループ。サブクラスが入れ子のパッチメソッドのコンテナになる。 |
+| `IPatchLoader`, `PatchLoader<T>`               | 1 つのアセンブリの入口。Harmony インスタンスを受け取り、パッチグループを実行する。                 |
+| `IPatchMethod`, `PatchMethod<T>`               | 1 つの Harmony パッチセット: 対象メソッドと prefix、postfix、transpiler、finalizer。               |
+| `IReversePatchMethod`, `ReversePatchMethod<T>` | スタブが別メソッド本体の呼び出し可能なコピーを受け取るリバースパッチ。                             |
+| `ExportsPatchLoader`                           | エディタの読み込み時に実行するパッチローダー型を宣言するアセンブリ属性。                           |
 
 ### io.github.ykysnk.utils.Editor.HarmonyUtilities
 
-| 型 | 目的 |
-| --- | --- |
-| `CodeCursor` | transpiler の命令列を流し読みするカーソル。現在、次、履歴にアクセスできる。 |
-| `TranspilerExtensions` | `WithContext` を通して、各命令をその前後と一緒に列挙する。 |
+| 型                     | 目的                                                                        |
+|------------------------|-----------------------------------------------------------------------------|
+| `CodeCursor`           | transpiler の命令列を流し読みするカーソル。現在、次、履歴にアクセスできる。 |
+| `TranspilerExtensions` | `WithContext` を通して、各命令をその前後と一緒に列挙する。                  |
 
 ### io.github.ykysnk.utils.Editor.UIElements
 
-| 型 | 目的 |
-| --- | --- |
+| 型                    | 目的                                                                                        |
+|-----------------------|---------------------------------------------------------------------------------------------|
 | `BooleanVector3Field` | `BooleanVector3` を 3 つのトグルとして編集する UI Toolkit フィールド。UXML から作成できる。 |

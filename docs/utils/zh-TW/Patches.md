@@ -5,8 +5,10 @@
 ## 運作方式
 
 - 每個程式集有一個 `IPatchLoader`，擁有一個 Harmony 執行個體。
-- `PatchCore`（`[InitializeOnLoad]` 類別）會找出所有以 `[assembly: ExportsPatchLoader(typeof(...))]` 宣告的載入器，建立執行個體並呼叫 `Load`。
-- 載入器會執行一或多個 `Patch<T>` 群組。群組會先執行自己的 `Execute`，再執行其中巢狀的每個 `PatchMethod<T>` / `ReversePatchMethod<T>`。
+- `PatchCore`（`[InitializeOnLoad]` 類別）會找出所有以 `[assembly: ExportsPatchLoader(typeof(...))]` 宣告的載入器，建立執行個體並呼叫
+  `Load`。
+- 載入器會執行一或多個 `Patch<T>` 群組。群組會先執行自己的 `Execute`，再執行其中巢狀的每個 `PatchMethod<T>` /
+  `ReversePatchMethod<T>`。
 - 程式集重新載入前，載入器會被卸載，其 Harmony 執行個體會收到 `UnpatchAll`，因此修補永遠不會累積。
 
 拋出例外的載入器會被記錄並略過；其他載入器仍會執行。
@@ -55,7 +57,8 @@ internal sealed class MyGroup : Patch<MyGroup>
 ```
 
 - `TargetMethod` 是要修補的方法。當它為 `null` 時，修補會以警告略過，這也是處理選用相依性的方式，而不會讓整個載入器失敗。
-- 巢狀類別可以宣告 `Prefix`、`Postfix`、`Transpiler` 與 `Finalizer` 方法；它們是依名稱尋找的，因此可覆寫 `PrefixMethod` / `PostfixMethod` / `TranspilerMethod` / `FinalizerMethod` 來改用其他名稱。
+- 巢狀類別可以宣告 `Prefix`、`Postfix`、`Transpiler` 與 `Finalizer` 方法；它們是依名稱尋找的，因此可覆寫 `PrefixMethod` /
+  `PostfixMethod` / `TranspilerMethod` / `FinalizerMethod` 來改用其他名稱。
 - `Priority`、`Before`、`After` 與 `Enabled` 對應到 Harmony 的同名項目；`Enabled = false` 會略過修補而不接觸 Harmony。
 - `Log`、`LogWarning`、`LogError` 與 `Assert` 會以修補名稱為前置字串寫出，與套件其餘部分相同。
 
@@ -79,10 +82,10 @@ private sealed class ReadSettings : ReversePatchMethod<ReadSettings>
 
 有兩個輔助工具可以讓指令清單更容易走訪：
 
-| 輔助工具 | 用途 |
-| --- | --- |
-| `WithContext()` | 逐項產生每個指令及其前一個與後一個指令（`InstructionContext`）。 |
-| `CodeCursor` | 單次走訪的游標，提供 `Current`、`Next`（窺看一個指令）、`Previous` 與 `Index`。 |
+| 輔助工具        | 用途                                                                            |
+|-----------------|---------------------------------------------------------------------------------|
+| `WithContext()` | 逐項產生每個指令及其前一個與後一個指令（`InstructionContext`）。                |
+| `CodeCursor`    | 單次走訪的游標，提供 `Current`、`Next`（窺看一個指令）、`Previous` 與 `Index`。 |
 
 ```csharp
 foreach (var context in instructions.WithContext())
@@ -96,4 +99,5 @@ foreach (var context in instructions.WithContext())
 
 - 修補只在編輯器中生效；玩家組建中不會套用任何修補。
 - 選用依賴用 `ReflectionUtils.FindType` 解析；找不到時回傳 `null` 而不是擲回例外，因此外掛不存在時直接略過修補即可。
-- 每個程式集一次 `PatchAll` 就足夠：即使同一個程式集中有多個載入器，`PatchCore` 也只會呼叫一次，因此 `[HarmonyPatch]` 類別永遠不會被套用兩次。
+- 每個程式集一次 `PatchAll` 就足夠：即使同一個程式集中有多個載入器，`PatchCore` 也只會呼叫一次，因此 `[HarmonyPatch]`
+  類別永遠不會被套用兩次。

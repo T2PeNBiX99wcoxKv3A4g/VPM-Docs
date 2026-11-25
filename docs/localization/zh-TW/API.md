@@ -2,9 +2,9 @@
 
 ## 命名空間
 
-| 命名空間 | 程式集 | 範圍 |
-| --- | --- | --- |
-| `io.github.ykysnk.Localization` | `io.github.ykysnk.localization` | 執行階段 |
+| 命名空間                               | 程式集                                 | 範圍     |
+|----------------------------------------|----------------------------------------|----------|
+| `io.github.ykysnk.Localization`        | `io.github.ykysnk.localization`        | 執行階段 |
 | `io.github.ykysnk.Localization.Editor` | `io.github.ykysnk.localization.Editor` | 僅編輯器 |
 
 `BasicLocalization` 與 `BasicTranslate` 位於執行階段命名空間；本頁其他型別都只在編輯器中提供。
@@ -16,7 +16,8 @@
 public sealed class LocalizationPackageAttribute : Attribute
 ```
 
-宣告程式集的編輯器 UI 使用哪一個在地化。每個程式集宣告一次，放在 `using` 指示詞旁；之後 `LocalizationExtensions` 會自行解析正確的輔助物件，因此程式集既不需要包裝類別，也不需要輔助欄位。
+宣告程式集的編輯器 UI 使用哪一個在地化。每個程式集宣告一次，放在 `using` 指示詞旁；之後 `LocalizationExtensions`
+會自行解析正確的輔助物件，因此程式集既不需要包裝類別，也不需要輔助欄位。
 
 ```csharp
 [assembly: LocalizationPackage("io.github.ykysnk.yky-toolkit")]
@@ -80,7 +81,8 @@ public string SelectedLanguage { get; set; }
 
 目前選取的語言 ID，例如 `ja-JP`。這個值會保存在 `EditorPrefs` 的 `{localizationID}_Language` 下，預設為 `en-US`。
 
-指派時會切換語言，並改寫每個透過 `UILocalize` 或 `UpdateRegister` 在地化的元素。若這個 ID 沒有載入任何資產，getter 會拋出 `ArgumentException`；若語言不在 `Languages` 中，setter 也會拋出例外。
+指派時會切換語言，並改寫每個透過 `UILocalize` 或 `UpdateRegister` 在地化的元素。若這個 ID 沒有載入任何資產，getter 會拋出
+`ArgumentException`；若語言不在 `Languages` 中，setter 也會拋出例外。
 
 ```csharp
 helper.SelectedLanguage = "ja-JP";
@@ -150,7 +152,8 @@ if (helper.S("unity:label.position", out var text))
 public string S(SerializedProperty property)
 ```
 
-由 `property` 推導出的鍵所對應的文字：`label.{Type}.{field}`。請見 [從 SerializedProperty 推導鍵](#keys-from-a-serializedproperty)。
+由 `property` 推導出的鍵所對應的文字：`label.{Type}.{field}`
+。請見 [從 SerializedProperty 推導鍵](#keys-from-a-serializedproperty)。
 
 ### Sf(string, params object?[])
 
@@ -208,7 +211,8 @@ public GUIContent G(SerializedProperty property)
 public string Tooltip(string key, string? defaultValue = null)
 ```
 
-`key` 的工具提示，也就是以 `:tooltip` 後綴儲存的項目。`defaultValue` 的行為與 `S(string, string?)` 相同，因此沒有項目也沒有預設值時，傳回的文字是 `{key}:tooltip`。
+`key` 的工具提示，也就是以 `:tooltip` 後綴儲存的項目。`defaultValue` 的行為與 `S(string, string?)` 相同，因此沒有項目也沒有預設值時，傳回的文字是
+`{key}:tooltip`。
 
 ### Tooltip(string, out string?)
 
@@ -258,11 +262,15 @@ public UpdateHelper UpdateRegister(SerializedProperty property, UpdateHelper.Cal
 public void UILocalize(VisualElement elem, bool addLanguagePopup = true, int spaceHeight = 8)
 ```
 
-把 `elem` 樹狀結構中的鍵替換成對應的翻譯，並讓它們保持最新。對每個元素，會取 `text`、`label`、`headerTitle` 中第一個有 setter 的屬性作為鍵讀取，再寫回翻譯後的文字，工具提示則由該鍵的 `:tooltip` 項目填入。
+把 `elem` 樹狀結構中的鍵替換成對應的翻譯，並讓它們保持最新。對每個元素，會取 `text`、`label`、`headerTitle` 中第一個有 setter
+的屬性作為鍵讀取，再寫回翻譯後的文字，工具提示則由該鍵的 `:tooltip` 項目填入。
 
-樹狀結構會立即在地化，因此鍵永遠不會出現在畫面上；繫結階段之後會再執行一次，因為繫結可能把鍵寫回去。元素從面板卸離時，註冊會被處置。設定 `addLanguagePopup` 時，語言選擇器會附加在 `spaceHeight` 的間隔下方。
+樹狀結構會立即在地化，因此鍵永遠不會出現在畫面上；繫結階段之後會再執行一次，因為繫結可能把鍵寫回去。元素從面板卸離時，註冊會被處置。設定
+`addLanguagePopup` 時，語言選擇器會附加在 `spaceHeight` 的間隔下方。
 
-會略過：名為 `unity-text-input` 或 `unity-content` 的子元素（含其子樹）、任何帶有 `localize-skip` 類別的子樹，以及帶有 `unity-base-field__inspector-field` 或 `unity-object-field-display__label` 的元素。帶有 `localize-tooltip` 類別的元素不會從其標籤鍵取得工具提示；它現有的 `tooltip` 會被視為鍵並自行在地化。
+會略過：名為 `unity-text-input` 或 `unity-content` 的子元素（含其子樹）、任何帶有 `localize-skip` 類別的子樹，以及帶有
+`unity-base-field__inspector-field` 或 `unity-object-field-display__label` 的元素。帶有 `localize-tooltip`
+類別的元素不會從其標籤鍵取得工具提示；它現有的 `tooltip` 會被視為鍵並自行在地化。
 
 ### GetLanguageLocalization(string)
 
@@ -290,7 +298,8 @@ settingsCard.Add(helper.CreateLanguagePicker());
 public void SelectLanguageElement(VisualElement element, int spaceHeight = 8)
 ```
 
-在 `element` 之後附加 `spaceHeight` 的間隔與 UI Toolkit 語言彈出選單。若需要控制項的位置或樣式，建議改用 `CreateLanguagePicker`。
+在 `element` 之後附加 `spaceHeight` 的間隔與 UI Toolkit 語言彈出選單。若需要控制項的位置或樣式，建議改用
+`CreateLanguagePicker`。
 
 ### SelectLanguageGUI()
 
@@ -308,7 +317,8 @@ public event LocalizationChanged? OnLocalizationChanged
 public delegate void LocalizationChanged(string newLanguage)
 ```
 
-這個在地化的選取語言變更時，會以新語言觸發。只有在有處理常式掛上時，輔助物件才會訂閱 `GlobalLocalization.OnLocalizationChanged`，並在最後一個處理常式移除時取消訂閱。
+這個在地化的選取語言變更時，會以新語言觸發。只有在有處理常式掛上時，輔助物件才會訂閱
+`GlobalLocalization.OnLocalizationChanged`，並在最後一個處理常式移除時取消訂閱。
 
 ### LocalizationUpdated
 
@@ -316,7 +326,8 @@ public delegate void LocalizationChanged(string newLanguage)
 public delegate void LocalizationUpdated()
 ```
 
-與 `LocalizationChanged` 一同宣告的無引數委派型別。`LocalizationHelper` 不提供這種事件；重新載入通知來自 `GlobalLocalization.OnLocalizationReload`。
+與 `LocalizationChanged` 一同宣告的無引數委派型別。`LocalizationHelper` 不提供這種事件；重新載入通知來自
+`GlobalLocalization.OnLocalizationReload`。
 
 ## LocalizationExtensions
 
@@ -324,9 +335,11 @@ public delegate void LocalizationUpdated()
 public static class LocalizationExtensions
 ```
 
-編輯器 UI 的語法糖：`"label.some_key".S()`、`tree.UILocalize()` 等。每個方法都會從發出呼叫之程式集的 `LocalizationPackageAttribute` 解析輔助物件，因此套件不需要自己的包裝類別。
+編輯器 UI 的語法糖：`"label.some_key".S()`、`tree.UILocalize()` 等。每個方法都會從發出呼叫之程式集的
+`LocalizationPackageAttribute` 解析輔助物件，因此套件不需要自己的包裝類別。
 
-每個方法都標記了 `[MethodImpl(MethodImplOptions.NoInlining)]`，因為呼叫一旦被內嵌，`Assembly.GetCallingAssembly` 回報的就會是這個程式集，而不是取用者。
+每個方法都標記了 `[MethodImpl(MethodImplOptions.NoInlining)]`，因為呼叫一旦被內嵌，`Assembly.GetCallingAssembly`
+回報的就會是這個程式集，而不是取用者。
 
 ### S(this string)
 
@@ -402,7 +415,8 @@ public static string Tooltip(this SerializedProperty property)
 public static void UILocalize(this VisualElement element, bool addLanguagePopup = true, int spaceHeight = 8)
 ```
 
-把 `element` 樹狀結構中的鍵替換成對應的翻譯，並讓它們保持最新。請在繫結樹狀結構之前呼叫。關於使用的屬性、略過規則與第二輪處理，請見 `LocalizationHelper.UILocalize`。
+把 `element` 樹狀結構中的鍵替換成對應的翻譯，並讓它們保持最新。請在繫結樹狀結構之前呼叫。關於使用的屬性、略過規則與第二輪處理，請見
+`LocalizationHelper.UILocalize`。
 
 ```csharp
 root.UILocalize();
@@ -426,9 +440,11 @@ public static UpdateHelper Register(this SerializedProperty property, UpdateHelp
 
 ### 從 SerializedProperty 推導鍵
 
-`S(property)`、`G(property)`、`Tooltip(property)` 與 `Register(property, ...)` 會組成 `label.{Type}.{field}`。`Type` 是 `property.serializedObject.targetObject` 的型別名稱；兩部分都依相同規則轉換：
+`S(property)`、`G(property)`、`Tooltip(property)` 與 `Register(property, ...)` 會組成 `label.{Type}.{field}`。`Type` 是
+`property.serializedObject.targetObject` 的型別名稱；兩部分都依相同規則轉換：
 
-- 大寫字母會在小寫轉大寫的交界處，或縮寫的最後一個大寫字母之前，開始一個新詞：`UIText` 變成 `ui_text`，`HPBar` 變成 `hp_bar`，`localizationID` 變成 `localization_id`；
+- 大寫字母會在小寫轉大寫的交界處，或縮寫的最後一個大寫字母之前，開始一個新詞：`UIText` 變成 `ui_text`，`HPBar` 變成
+  `hp_bar`，`localizationID` 變成 `localization_id`；
 - 符號與標點會變成 `_`。
 
 因此 `MyWindow` 上的 `displayName` 欄位就是 `label.my_window.display_name`。
@@ -455,7 +471,8 @@ public delegate void Callback(string newLabel, string newTooltip)
 public static UpdateHelper Register(string localizationID, string localizeKey, Callback callback)
 ```
 
-為某個在地化 ID 的某個鍵註冊 `callback`，並傳回可取消註冊的控制代碼。`Register` 本身不會呼叫 callback；它會在下次語言變更或重新載入時執行，因此請先用 `S` 與 `Tooltip` 設定初始文字。
+為某個在地化 ID 的某個鍵註冊 `callback`，並傳回可取消註冊的控制代碼。`Register` 本身不會呼叫
+callback；它會在下次語言變更或重新載入時執行，因此請先用 `S` 與 `Tooltip` 設定初始文字。
 
 ### Register(string, SerializedProperty, Callback)
 
@@ -479,9 +496,11 @@ public void Dispose()
 public class LanguagePicker : VisualElement
 ```
 
-現成的 UI Toolkit 語言選擇器。它會列出一個在地化 ID 的所有語言、在變更時切換所選語言，並帶有 `language-picker` 類別以便套用樣式。請用 `LocalizationHelper.CreateLanguagePicker` 建立，或從 `Languages` 與 `SetLanguage` 自行組出控制項。
+現成的 UI Toolkit 語言選擇器。它會列出一個在地化 ID 的所有語言、在變更時切換所選語言，並帶有 `language-picker` 類別以便套用樣式。請用
+`LocalizationHelper.CreateLanguagePicker` 建立，或從 `Languages` 與 `SetLanguage` 自行組出控制項。
 
-清單依顯示名稱排序。在地化資產重新載入時，選擇器會自行重建，因此較早建立、在延遲的首次載入之前就存在的選擇器之後也會補上內容，並會跟隨其他地方所做的切換。若已儲存的語言被重新命名或移除，它會後備到第一個語言並修正該偏好設定。彈出選單的標籤是 `label.language` 項目及其工具提示；選擇器離開面板時，該註冊會被處置。
+清單依顯示名稱排序。在地化資產重新載入時，選擇器會自行重建，因此較早建立、在延遲的首次載入之前就存在的選擇器之後也會補上內容，並會跟隨其他地方所做的切換。若已儲存的語言被重新命名或移除，它會後備到第一個語言並修正該偏好設定。彈出選單的標籤是
+`label.language` 項目及其工具提示；選擇器離開面板時，該註冊會被處置。
 
 ### LanguagePicker(string localizationID)
 
@@ -511,7 +530,8 @@ public string SelectedLanguage { get; set; }
 public class BasicLocalization : ScriptableObject
 ```
 
-一個在地化集合：某一語言的翻譯。資產的檔名就是 `Languages` 與 `SetLanguage` 使用的語言 ID；`localizationID` 則把同一個套件的語言歸為一組。`jsonFile` 與 `poFile` 可選擇指向檢視器寫出的附屬檔案，讓同一份文字也能用外部工具編輯。
+一個在地化集合：某一語言的翻譯。資產的檔名就是 `Languages` 與 `SetLanguage` 使用的語言 ID；`localizationID` 則把同一個套件的語言歸為一組。
+`jsonFile` 與 `poFile` 可選擇指向檢視器寫出的附屬檔案，讓同一份文字也能用外部工具編輯。
 
 ### localizationID
 
@@ -618,7 +638,8 @@ public bool useTooltip;
 public string tooltipSuffix = DefaultTooltipSuffix;
 ```
 
-附加到 `key` 以發佈工具提示的後綴，例如 `label.language:tooltip`。除非有外掛預期其他拼法（例如 `.tooltip`），否則請保持預設值；對這類項目，載入器仍會讓 `:tooltip` 可以被解析。
+附加到 `key` 以發佈工具提示的後綴，例如 `label.language:tooltip`。除非有外掛預期其他拼法（例如 `.tooltip`
+），否則請保持預設值；對這類項目，載入器仍會讓 `:tooltip` 可以被解析。
 
 ## LocalizationConverter
 
@@ -626,9 +647,11 @@ public string tooltipSuffix = DefaultTooltipSuffix;
 public static class LocalizationConverter
 ```
 
-在 `BasicLocalization` 與翻譯工具使用的扁平格式之間轉換。每筆項目都會貢獻它的鍵與文字；使用工具提示的項目會在附加 `tooltipSuffix` 的鍵下多加一組。匯入會依鍵合併且從不刪除項目：新的鍵會附加，既有的鍵則取得匯入的文字。
+在 `BasicLocalization` 與翻譯工具使用的扁平格式之間轉換。每筆項目都會貢獻它的鍵與文字；使用工具提示的項目會在附加
+`tooltipSuffix` 的鍵下多加一組。匯入會依鍵合併且從不刪除項目：新的鍵會附加，既有的鍵則取得匯入的文字。
 
-以工具提示後綴結尾的鍵，只有在檔案或資產中存在其基礎鍵時才會被讀回為工具提示；否則它仍是一般項目。這樣可以讓 `label.basic_translate.tooltip` 這類鍵保持完整。
+以工具提示後綴結尾的鍵，只有在檔案或資產中存在其基礎鍵時才會被讀回為工具提示；否則它仍是一般項目。這樣可以讓
+`label.basic_translate.tooltip` 這類鍵保持完整。
 
 ### TooltipSuffixes
 
@@ -652,7 +675,8 @@ public static string ToJson(BasicLocalization localization)
 public static string ToPo(BasicLocalization localization)
 ```
 
-每個鍵一組 `msgid`/`msgstr` 的 PO 檔，包含工具提示。標頭帶有 `Language: {asset name}`，因為 Unity 自己的 PO 匯入器會拒絕沒有它的檔案，只留下匯入錯誤。
+每個鍵一組 `msgid`/`msgstr` 的 PO 檔，包含工具提示。標頭帶有 `Language: {asset name}`，因為 Unity 自己的 PO
+匯入器會拒絕沒有它的檔案，只留下匯入錯誤。
 
 ### TryImportJson
 
@@ -660,7 +684,8 @@ public static string ToPo(BasicLocalization localization)
 public static bool TryImportJson(BasicLocalization localization, string? text, out Exception? exception)
 ```
 
-把扁平 JSON 物件讀入 `localization`。失敗時傳回 false 並把解析錯誤放入 `exception`；null 文字會被視為 `""`，它不是 JSON 物件，因此會失敗。
+把扁平 JSON 物件讀入 `localization`。失敗時傳回 false 並把解析錯誤放入 `exception`；null 文字會被視為 `""`，它不是 JSON
+物件，因此會失敗。
 
 ### TryImportPo
 
@@ -692,7 +717,8 @@ public static bool HasEntry()
 public static bool TryRead([NotNullWhen(true)] out BasicTranslate? basicTranslate, out Exception? exception)
 ```
 
-嘗試從剪貼簿讀取 `BasicTranslate`。文字必須能解析為 JSON 且帶有非空的 `key`，因此空白剪貼簿或不相關的 JSON 物件會被拒絕，而不會用空值覆寫資料列。
+嘗試從剪貼簿讀取 `BasicTranslate`。文字必須能解析為 JSON 且帶有非空的 `key`，因此空白剪貼簿或不相關的 JSON
+物件會被拒絕，而不會用空值覆寫資料列。
 
 方法傳回 true 時，`basicTranslate` 是解析出的項目，否則為 null。`exception` 是解析或驗證錯誤，剪貼簿單純為空時則為 null。
 
@@ -710,9 +736,12 @@ else if (error != null)
 public static class GlobalLocalization
 ```
 
-載入專案中所有 `BasicLocalization` 資產、維護各 ID 的語言字典與所選語言，並刷新註冊。查詢會經過 `LocalizationHelper`；這個型別只公開它的事件與委派。
+載入專案中所有 `BasicLocalization` 資產、維護各 ID 的語言字典與所選語言，並刷新註冊。查詢會經過 `LocalizationHelper`
+；這個型別只公開它的事件與委派。
 
-載入會延後到編輯器的第一次 tick，並在資產變更後以 250 ms 的延遲合併處理，因此在翻譯資產中輸入時，不會每按一鍵就重新掃描整個專案。`Tools > Localization > Reload Localizations` 會強制重新載入。所選語言會依 ID 儲存在 `EditorPrefs` 的 `{localizationID}_Language` 下。
+載入會延後到編輯器的第一次 tick，並在資產變更後以 250 ms 的延遲合併處理，因此在翻譯資產中輸入時，不會每按一鍵就重新掃描整個專案。
+`Tools > Localization > Reload Localizations` 會強制重新載入。所選語言會依 ID 儲存在 `EditorPrefs` 的
+`{localizationID}_Language` 下。
 
 ### OnLocalizationReload
 
@@ -736,7 +765,8 @@ public delegate void LocalizationChanged(string localizationID, string newLangua
 
 ## Unity 鍵
 
-以 `unity:` 開頭的鍵存放的是某個 Unity 編輯器字串的英文文字，而由 Unity 透過 `L10n.Tr` 翻譯該文字，而不是由套件翻譯這個鍵。套件只負責把鍵解析成它的原始文字：
+以 `unity:` 開頭的鍵存放的是某個 Unity 編輯器字串的英文文字，而由 Unity 透過 `L10n.Tr`
+翻譯該文字，而不是由套件翻譯這個鍵。套件只負責把鍵解析成它的原始文字：
 
 ```csharp
 var key = "unity:label.position";
@@ -744,6 +774,9 @@ var source = helper.S(key, out var localized) ? localized : key;
 label.text = L10n.Tr(source);
 ```
 
-`UILocalize` 會執行相同的步驟：先在所選語言中查詢該鍵，再到 `en-US` 查詢，把結果（或原始鍵）交給 `L10n.Tr`，工具提示也同樣處理。帶有 `unity:` 鍵的元素不會註冊即時更新，因為它們的文字跟隨的是 Unity 的編輯器語言，而不是套件所選的語言；切換 Unity 的語言需要重新啟動，標籤會在樹狀結構重建時重新解析。
+`UILocalize` 會執行相同的步驟：先在所選語言中查詢該鍵，再到 `en-US` 查詢，把結果（或原始鍵）交給 `L10n.Tr`，工具提示也同樣處理。帶有
+`unity:` 鍵的元素不會註冊即時更新，因為它們的文字跟隨的是 Unity 的編輯器語言，而不是套件所選的語言；切換 Unity
+的語言需要重新啟動，標籤會在樹狀結構重建時重新解析。
 
-請把英文文字放在 `en-US` 資產中。`unity:` 鍵在 `en-US` 中缺少，或其英文文字為空時，載入器會提出警告。資產載入後，`UILocalize` 會對每個完全解析不到的鍵警告一次，標籤則顯示原始鍵。請見 [Unity-Keys](Unity-Keys)。
+請把英文文字放在 `en-US` 資產中。`unity:` 鍵在 `en-US` 中缺少，或其英文文字為空時，載入器會提出警告。資產載入後，`UILocalize`
+會對每個完全解析不到的鍵警告一次，標籤則顯示原始鍵。請見 [Unity-Keys](Unity-Keys)。

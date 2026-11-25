@@ -2,9 +2,9 @@
 
 ## 名前空間
 
-| 名前空間 | アセンブリ | スコープ |
-| --- | --- | --- |
-| `io.github.ykysnk.Localization` | `io.github.ykysnk.localization` | ランタイム |
+| 名前空間                               | アセンブリ                             | スコープ     |
+|----------------------------------------|----------------------------------------|--------------|
+| `io.github.ykysnk.Localization`        | `io.github.ykysnk.localization`        | ランタイム   |
 | `io.github.ykysnk.Localization.Editor` | `io.github.ykysnk.localization.Editor` | エディタ専用 |
 
 `BasicLocalization` と `BasicTranslate` はランタイム名前空間にあり、このページの他の型はすべてエディタ専用です。
@@ -107,7 +107,8 @@ public void SetLanguage(string language)
 public IReadOnlyList<string> Languages { get; }
 ```
 
-このローカライゼーションの言語 ID を表示順に並べたもの。ID は `BasicLocalization` アセットのファイル名（`en-US`、`ja-JP`）です。
+このローカライゼーションの言語 ID を表示順に並べたもの。ID は `BasicLocalization` アセットのファイル名（`en-US`、`ja-JP`
+）です。
 リストは表示名で並べ替えられ、アセットが読み込まれるまでは空です。
 
 ### LanguageNames
@@ -276,7 +277,8 @@ public void UILocalize(VisualElement elem, bool addLanguagePopup = true, int spa
 最初のものをキーとして読み、翻訳して書き戻します。ツールチップはキーの `:tooltip` 項目から埋めます。
 
 ツリーは即座にローカライズされるため、キーが画面に出ることはありません。さらにバインド処理の後にもう一度実行されます。バインドが
-キーを戻す可能性があるためです。要素がパネルから外れると登録は破棄されます。`addLanguagePopup` を指定すると、`spaceHeight` の
+キーを戻す可能性があるためです。要素がパネルから外れると登録は破棄されます。`addLanguagePopup` を指定すると、`spaceHeight`
+の
 隙間の下に言語選択が追加されます。
 
 スキップされるもの: `unity-text-input` または `unity-content` という名前の子（そのサブツリーごと）、`localize-skip` クラスを持つ
@@ -453,10 +455,12 @@ public static UpdateHelper Register(this SerializedProperty property, UpdateHelp
 
 ### SerializedProperty からのキー
 
-`S(property)`、`G(property)`、`Tooltip(property)`、`Register(property, ...)` は `label.{Type}.{field}` を組み立てます。`Type` は
+`S(property)`、`G(property)`、`Tooltip(property)`、`Register(property, ...)` は `label.{Type}.{field}` を組み立てます。
+`Type` は
 `property.serializedObject.targetObject` の型名で、両方の部分が同じ規則で変換されます:
 
-- 大文字は、小文字から大文字への境界、または頭字語の最後の大文字の前で新しい単語を開始します: `UIText` は `ui_text`、`HPBar` は
+- 大文字は、小文字から大文字への境界、または頭字語の最後の大文字の前で新しい単語を開始します: `UIText` は `ui_text`、
+  `HPBar` は
   `hp_bar`、`localizationID` は `localization_id` になります。
 - 記号と句読点は `_` になります。
 
@@ -512,7 +516,8 @@ public class LanguagePicker : VisualElement
 ```
 
 既製の UI Toolkit 言語ピッカーです。1 つのローカライゼーション ID のすべての言語を一覧し、変更時に選択を切り替え、
-`language-picker` クラスを持つのでスタイルを当てられます。`LocalizationHelper.CreateLanguagePicker` で作成するか、`Languages` と
+`language-picker` クラスを持つのでスタイルを当てられます。`LocalizationHelper.CreateLanguagePicker` で作成するか、
+`Languages` と
 `SetLanguage` から独自のコントロールを組み立ててください。
 
 リストは表示名で並びます。ピッカーはローカライゼーションアセットが再読み込みされると自身を作り直すため、遅延した最初の読み込みより
@@ -548,7 +553,8 @@ public string SelectedLanguage { get; set; }
 public class BasicLocalization : ScriptableObject
 ```
 
-1 つの言語の翻訳のまとまりです。アセットのファイル名が `Languages` と `SetLanguage` で使われる言語 ID で、`localizationID` が
+1 つの言語の翻訳のまとまりです。アセットのファイル名が `Languages` と `SetLanguage` で使われる言語 ID で、`localizationID`
+が
 1 つのパッケージの言語をまとめます。`jsonFile` と `poFile` はインスペクターが書き出すサイドカーファイルを指すことができ、同じ
 テキストを外部ツールで編集できます。
 
@@ -792,7 +798,8 @@ public delegate void LocalizationChanged(string localizationID, string newLangua
 
 ## Unity キー
 
-`unity:` で始まるキーは Unity エディタ文字列の英語テキストを保持し、パッケージがキーを翻訳する代わりに Unity が `L10n.Tr` で
+`unity:` で始まるキーは Unity エディタ文字列の英語テキストを保持し、パッケージがキーを翻訳する代わりに Unity が `L10n.Tr`
+で
 そのテキストを翻訳します。パッケージはキーを元のテキストに解決するだけです:
 
 ```csharp

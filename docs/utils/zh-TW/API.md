@@ -2,11 +2,11 @@
 
 套件包含三個程式集。以下列出的成員都是公開的；已被取代的成員也一併收錄，因為它們仍可編譯。
 
-| 程式集 | 命名空間 | 內容 |
-| --- | --- | --- |
-| `io.github.ykysnk.utils` | `io.github.ykysnk.utils` | `Utils`、`IUtilsEditorOnly`、`BasicEditorComponent` |
-| `io.github.ykysnk.utils.non-udon` | `io.github.ykysnk.utils.NonUdon` | `BooleanVector3`、`ColorHex` |
-| `io.github.ykysnk.utils.Editor` | `io.github.ykysnk.utils.Editor` 及其子命名空間 | 檢視器基底、GUI 輔助工具、選單、UPM 用戶端、繪製器 |
+| 程式集                            | 命名空間                                       | 內容                                                |
+|-----------------------------------|------------------------------------------------|-----------------------------------------------------|
+| `io.github.ykysnk.utils`          | `io.github.ykysnk.utils`                       | `Utils`、`IUtilsEditorOnly`、`BasicEditorComponent` |
+| `io.github.ykysnk.utils.non-udon` | `io.github.ykysnk.utils.NonUdon`               | `BooleanVector3`、`ColorHex`                        |
+| `io.github.ykysnk.utils.Editor`   | `io.github.ykysnk.utils.Editor` 及其子命名空間 | 檢視器基底、GUI 輔助工具、選單、UPM 用戶端、繪製器  |
 
 ## Utils
 
@@ -162,7 +162,8 @@ var layer = Utils.ToLayer(LayerMask.GetMask("Water"));
 
 `io.github.ykysnk.utils` · `public interface IUtilsEditorOnly`
 
-標記介面，用於應從組建中移除的行為。它不宣告任何成員；定義 `UTILS_NDMF` 時會擴充 `nadena.dev.ndmf.INDMFEditorOnly`，定義 `UTILS_VRC_SDK3_BASE` 時會擴充 `VRC.SDKBase.IEditorOnly`，其餘情況則是空的標記。
+標記介面，用於應從組建中移除的行為。它不宣告任何成員；定義 `UTILS_NDMF` 時會擴充 `nadena.dev.ndmf.INDMFEditorOnly`，定義
+`UTILS_VRC_SDK3_BASE` 時會擴充 `VRC.SDKBase.IEditorOnly`，其餘情況則是空的標記。
 
 ## BasicEditorComponent
 
@@ -356,7 +357,8 @@ public static bool operator true(BooleanVector3 booleanVector3)
 public static bool operator false(BooleanVector3 booleanVector3)
 ```
 
-只有在三個分量全部設定時才為 `true`，因此 `if (vector)` 等同三方 AND。至少一個分量被清除時為 `false`；為了 `&&` 與 `||`，編譯器要求它與 `operator true` 成對存在。
+只有在三個分量全部設定時才為 `true`，因此 `if (vector)` 等同三方 AND。至少一個分量被清除時為 `false`；為了 `&&` 與 `||`
+，編譯器要求它與 `operator true` 成對存在。
 
 ### Equals(BooleanVector3), Equals(object), GetHashCode()
 
@@ -372,7 +374,8 @@ public override int GetHashCode()
 
 `io.github.ykysnk.utils.NonUdon` · `public struct ColorHex`
 
-`Color` 及其 HTML 十六進位形式，讓顏色能以文字序列化與檢視。只有運算子會同時更新兩個欄位；直接指派其中一個欄位不會改變另一個，而預設初始化的結構在 `hex` 為 null 時會從 `color` 推導其文字。
+`Color` 及其 HTML 十六進位形式，讓顏色能以文字序列化與檢視。只有運算子會同時更新兩個欄位；直接指派其中一個欄位不會改變另一個，而預設初始化的結構在
+`hex` 為 null 時會從 `color` 推導其文字。
 
 ### color
 
@@ -420,7 +423,8 @@ public static implicit operator Color(ColorHex colorHex)
 public static implicit operator ColorHex(string hex)
 ```
 
-解析 HTML 顏色字串。`ColorUtility.TryParseHtmlString` 拒絕的文字會變成白色而不是錯誤，且 `hex` 會由解析後的顏色改寫，因此儲存的文字會被正規化，而不是原樣保留。
+解析 HTML 顏色字串。`ColorUtility.TryParseHtmlString` 拒絕的文字會變成白色而不是錯誤，且 `hex`
+會由解析後的顏色改寫，因此儲存的文字會被正規化，而不是原樣保留。
 
 ### implicit operator ColorHex(Color)
 
@@ -505,7 +509,8 @@ protected virtual void OnEnable()
 public override void OnInspectorGUI()
 ```
 
-更新序列化物件、在設定 `IsBaseOnOldInspectorGUI` 時繪製基底檢視器，接著在 `Try.Run` 中執行 `OnErrorHandleInspectorGUI`。失敗時會視設定記錄、呼叫 `OnError` 與 `OnErrorEvent`，並繪製 IMGUI 錯誤 UI。當主體回報有變更時，`OnChange` 會在套用修改過的屬性之前執行。
+更新序列化物件、在設定 `IsBaseOnOldInspectorGUI` 時繪製基底檢視器，接著在 `Try.Run` 中執行 `OnErrorHandleInspectorGUI`
+。失敗時會視設定記錄、呼叫 `OnError` 與 `OnErrorEvent`，並繪製 IMGUI 錯誤 UI。當主體回報有變更時，`OnChange` 會在套用修改過的屬性之前執行。
 
 ### CreateInspectorGUI()
 
@@ -513,7 +518,8 @@ public override void OnInspectorGUI()
 public override VisualElement? CreateInspectorGUI()
 ```
 
-在 `Try.Run` 中建置 `CreateErrorHandleInspectorGUI`。失敗時會回報例外，並傳回 `BasicEditorErrorUI.uxml` 提供的 UI Toolkit 錯誤 UI；該資產無法載入時則傳回 `CreateUxmlImportErrorUI()`。
+在 `Try.Run` 中建置 `CreateErrorHandleInspectorGUI`。失敗時會回報例外，並傳回 `BasicEditorErrorUI.uxml` 提供的 UI Toolkit
+錯誤 UI；該資產無法載入時則傳回 `CreateUxmlImportErrorUI()`。
 
 ### CreateUxmlImportErrorUI()
 
@@ -577,7 +583,8 @@ protected static string ErrorDetails(Exception e)
 protected virtual void DrawErrorUI(Exception e)
 ```
 
-繪製 IMGUI 錯誤 UI，對應 `BasicEditorErrorUI.uxml`：訊息放在 `HelpBox` 中，標頭列帶有例外型別與 Copy 按鈕，詳細資料則放在可選取的方塊中，會隨內容成長，達到 140 像素後開始捲動。
+繪製 IMGUI 錯誤 UI，對應 `BasicEditorErrorUI.uxml`：訊息放在 `HelpBox` 中，標頭列帶有例外型別與 Copy
+按鈕，詳細資料則放在可選取的方塊中，會隨內容成長，達到 140 像素後開始捲動。
 
 ### OnChange()
 
@@ -691,7 +698,8 @@ EditorGUILayout.LabelField("Strength".Label("Damage multiplier"));
 public static GUIContent IconContent(string name)
 ```
 
-依名稱載入內建的編輯器圖示。在深色外觀下，名稱會加上 `d_` 前置字串，這是 Unity 存放淺色版變體的地方。名稱無法解析時，內容的影像為 null。
+依名稱載入內建的編輯器圖示。在深色外觀下，名稱會加上 `d_` 前置字串，這是 Unity 存放淺色版變體的地方。名稱無法解析時，內容的影像為
+null。
 
 ### IconContent(string text, string name)
 
@@ -722,7 +730,8 @@ public static Task<bool> DisplayDialogAsync(string title, string message,
     string ok = "OK", string cancel = "", int waitTime = 0)
 ```
 
-顯示對話框並傳回工作；按下 Ok 時結果為 true，按下 Cancel 或在未選擇的情況下關閉視窗時為 false。`waitTime` 是 Ok 按鈕保持停用的秒數；零會關閉延遲。
+顯示對話框並傳回工作；按下 Ok 時結果為 true，按下 Cancel 或在未選擇的情況下關閉視窗時為 false。`waitTime` 是 Ok
+按鈕保持停用的秒數；零會關閉延遲。
 
 ```csharp
 var confirmed = await EditorUtils.DisplayDialogAsync("Delete", "Remove the folder?", "Delete", "Cancel");
@@ -741,7 +750,8 @@ public static void DisplayDialog(string title, string message, string ok = "OK",
 
 `io.github.ykysnk.utils.Editor` · `public static class EditorTask`
 
-把 .NET 工作調整到編輯器迴圈：傳回的工作會在 `EditorApplication.update` 中完成，因此等待它時會回到允許使用 UnityEditor API 的主執行緒。
+把 .NET 工作調整到編輯器迴圈：傳回的工作會在 `EditorApplication.update` 中完成，因此等待它時會回到允許使用 UnityEditor API
+的主執行緒。
 
 ### Run(Task task)
 
@@ -769,9 +779,11 @@ public static Task<T> Run<T>(Task<T> task)
 
 帶有訊息、Ok 按鈕與選用 Cancel 按鈕的浮動工具視窗，由 `EditorUtils` 使用。它不是模態：視窗透過回呼回報結果並自行關閉，其文字可以從右鍵選單複製。
 
-視窗固定為 500×250，置中於主編輯器視窗上方，並以 `ShowUtility` 顯示。仍開著的對話框會先被關閉，其待處理結果會以取消回報；未按下按鈕就關閉視窗也視為取消。設定 `waitTime` 時，Ok 的標題會倒數，按鈕會保持停用直到歸零。
+視窗固定為 500×250，置中於主編輯器視窗上方，並以 `ShowUtility` 顯示。仍開著的對話框會先被關閉，其待處理結果會以取消回報；未按下按鈕就關閉視窗也視為取消。設定
+`waitTime` 時，Ok 的標題會倒數，按鈕會保持停用直到歸零。
 
-這個類別宣告的每個成員都是 private 或 internal，因此對話框需透過 `EditorUtils.DisplayDialog` 或 `EditorUtils.DisplayDialogAsync` 建立，它們會把視窗的引數直接傳入。
+這個類別宣告的每個成員都是 private 或 internal，因此對話框需透過 `EditorUtils.DisplayDialog` 或
+`EditorUtils.DisplayDialogAsync` 建立，它們會把視窗的引數直接傳入。
 
 ## MenuItemObject
 
@@ -786,7 +798,8 @@ public MenuItemObject(string name, string shortcut, bool @checked, int priority,
     Func<bool>? validate)
 ```
 
-建立選單項目的完整描述。`name` 是選單路徑，會以 Unity 清理屬性宣告路徑的相同方式清理，因此兩種項目最後會落在同一個路徑下。`validate` 決定項目是否啟用；null 表示永遠啟用。
+建立選單項目的完整描述。`name` 是選單路徑，會以 Unity 清理屬性宣告路徑的相同方式清理，因此兩種項目最後會落在同一個路徑下。
+`validate` 決定項目是否啟用；null 表示永遠啟用。
 
 ### MenuItemObject(string name, string shortcut, int priority, Action execute)
 
@@ -864,7 +877,8 @@ public Func<bool>? Validate { get; private set; }
 
 `io.github.ykysnk.utils.Editor` · `public static class MenuWrap`
 
-對 `UnityEditor.Menu` 內部部分的反射包裝，該類別是編輯器選單列背後的實作。這些成員是未記載的編輯器內部實作，並非公開 API，因此 Unity 可能在任何版本重新命名或移除它們；這個包裝讓選單項目能在執行階段新增、變更與移除。
+對 `UnityEditor.Menu` 內部部分的反射包裝，該類別是編輯器選單列背後的實作。這些成員是未記載的編輯器內部實作，並非公開 API，因此
+Unity 可能在任何版本重新命名或移除它們；這個包裝讓選單項目能在執行階段新增、變更與移除。
 
 ### SetHotkey(string menuPath, string hotkey)
 
@@ -963,7 +977,8 @@ public static readonly WrapAction Internal_UpdateAllMenus;
 
 `io.github.ykysnk.utils.Editor.Extensions` · `public static class MenuExtensions`
 
-在編輯器重建選單時，讓執行階段加入的選單項目保持註冊。階層變更時，已不存在的項目會透過 `MenuWrap` 重新加入，接著執行 `EditorUtilityWrap.Internal_UpdateAllMenus`。
+在編輯器重建選單時，讓執行階段加入的選單項目保持註冊。階層變更時，已不存在的項目會透過 `MenuWrap` 重新加入，接著執行
+`EditorUtilityWrap.Internal_UpdateAllMenus`。
 
 ### AddMenuItem(MenuItemObject menuItemObject)
 
@@ -997,7 +1012,8 @@ public static MenuItemObject? RemoveMenuItem(string name)
 public static Task<T> AsTask<T>(this T request) where T : Request
 ```
 
-等待套件管理員要求。要求會從 `EditorApplication.update` 輪詢，工作則稍後在 `EditorApplication.delayCall` 中完成，因此等待端的續行會以較淺的呼叫堆疊回到主執行緒。具體的要求型別會被保留，讓呼叫端可以讀取它的 `Result`。
+等待套件管理員要求。要求會從 `EditorApplication.update` 輪詢，工作則稍後在 `EditorApplication.delayCall`
+中完成，因此等待端的續行會以較淺的呼叫堆疊回到主執行緒。具體的要求型別會被保留，讓呼叫端可以讀取它的 `Result`。
 
 ### AsTask<T>(this T request, CancellationToken token)
 
@@ -1019,7 +1035,8 @@ public static Task<T> AsTask<T>(this T request, CancellationToken token) where T
 public static void WaitEditor(this Task task, Action onCompleted, Action<Exception>? onError = null)
 ```
 
-工作完成後在編輯器迴圈呼叫 `onCompleted`。失敗的工作會以它實際拋出的例外呼叫 `onError`（會拆開彙總包裝），取消的工作則以 `TaskCanceledException` 呼叫。`onError` 為 null 時失敗會被靜默忽略。
+工作完成後在編輯器迴圈呼叫 `onCompleted`。失敗的工作會以它實際拋出的例外呼叫 `onError`（會拆開彙總包裝），取消的工作則以
+`TaskCanceledException` 呼叫。`onError` 為 null 時失敗會被靜默忽略。
 
 ### WaitEditor<T>(this Task<T> task, Action<T> onCompleted, Action<Exception>? onError = null)
 
@@ -1033,7 +1050,8 @@ public static void WaitEditor<T>(this Task<T> task, Action<T> onCompleted, Actio
 
 `io.github.ykysnk.utils.Editor` · `public static class UpmInstaller`
 
-從編輯器程式碼安裝、移除與更新 Unity Package Manager 套件。每個操作都會顯示固定在編輯器上的進度條，其取消按鈕可中止操作，除非編輯器當下正在編譯或更新。安裝、移除與升級共用同一把鎖，因此一次只會執行其中一個；第二次呼叫會直接傳回而不做任何事。
+從編輯器程式碼安裝、移除與更新 Unity Package Manager
+套件。每個操作都會顯示固定在編輯器上的進度條，其取消按鈕可中止操作，除非編輯器當下正在編譯或更新。安裝、移除與升級共用同一把鎖，因此一次只會執行其中一個；第二次呼叫會直接傳回而不做任何事。
 
 ### Install(string[] packages)
 
@@ -1061,7 +1079,8 @@ public static Task InstallAsync(string[] packages)
 public static Task InstallAsync(string[] packages, CancellationToken token)
 ```
 
-安裝指定的套件。已安裝在所要求版本的項目會被略過；失敗的項目會被記錄，其餘項目仍會處理。取消 `token` 會停止操作而不拋出例外，進度條則以取消狀態關閉。
+安裝指定的套件。已安裝在所要求版本的項目會被略過；失敗的項目會被記錄，其餘項目仍會處理。取消 `token`
+會停止操作而不拋出例外，進度條則以取消狀態關閉。
 
 ### Remove(string[] packages)
 
@@ -1131,7 +1150,8 @@ public static Task UpgradeAsync(CancellationToken token)
 
 `io.github.ykysnk.utils.Editor` · `public class BooleanVector3Drawer : PropertyDrawer`
 
-重用內建的多屬性欄位，把 `BooleanVector3` 繪製成同一列的 X/Y/Z 三個開關，就像 Unity 繪製 `Vector3` 的方式。以 `[CustomPropertyDrawer(typeof(BooleanVector3))]` 註冊。
+重用內建的多屬性欄位，把 `BooleanVector3` 繪製成同一列的 X/Y/Z 三個開關，就像 Unity 繪製 `Vector3` 的方式。以
+`[CustomPropertyDrawer(typeof(BooleanVector3))]` 註冊。
 
 ### OnGUI(Rect position, SerializedProperty property, GUIContent label)
 
@@ -1145,7 +1165,8 @@ public override void OnGUI(Rect position, SerializedProperty property, GUIConten
 
 `io.github.ykysnk.utils.Editor` · `public class ColorHexDrawer : PropertyDrawer`
 
-把 `ColorHex` 繪製成 Unity 的顏色色票，並把選取的顏色一併寫回序列化的十六進位字串，讓透過色票所做的編輯能保持兩個欄位同步。以 `[CustomPropertyDrawer(typeof(ColorHex))]` 註冊。
+把 `ColorHex` 繪製成 Unity 的顏色色票，並把選取的顏色一併寫回序列化的十六進位字串，讓透過色票所做的編輯能保持兩個欄位同步。以
+`[CustomPropertyDrawer(typeof(ColorHex))]` 註冊。
 
 ### OnGUI(Rect position, SerializedProperty property, GUIContent label)
 
@@ -1228,52 +1249,52 @@ public static IEnumerable<MethodInfo> GetDeclaredMethods(Type? type)
 
 ### io.github.ykysnk.utils.Extensions
 
-| 型別 | 用途 |
-| --- | --- |
-| `ComponentExtensions` | GameObject 與 Transform 輔助工具的元件版本。 |
-| `DictionaryExtensions` | 把缺少的鍵視為預設值的字典讀取。 |
-| `FloatExtensions` | `float` 的雜訊移除、容差檢查、限制範圍與四捨五入。 |
-| `GameObjectExtensions` | 階層路徑、距離檢查與以索引存取元件。 |
-| `ListExtensions` | 對清單與陣列提供邊界檢查的索引存取與就地編輯輔助工具。 |
-| `StringExtensions` | 對 `"Folder/Name/Extension"` 這類分隔字串的切片輔助工具。 |
-| `Texture2DExtensions` | 材質的 GPU 縮放與 alpha 修剪。 |
-| `TransformExtensions` | 階層名稱、世界／區域縮放轉換、未縮放點轉換與距離檢查。 |
-| `Vector3Extensions` | `Vector3` 的距離、逐分量算術、限制範圍、四捨五入與方向輔助工具。 |
+| 型別                   | 用途                                                             |
+|------------------------|------------------------------------------------------------------|
+| `ComponentExtensions`  | GameObject 與 Transform 輔助工具的元件版本。                     |
+| `DictionaryExtensions` | 把缺少的鍵視為預設值的字典讀取。                                 |
+| `FloatExtensions`      | `float` 的雜訊移除、容差檢查、限制範圍與四捨五入。               |
+| `GameObjectExtensions` | 階層路徑、距離檢查與以索引存取元件。                             |
+| `ListExtensions`       | 對清單與陣列提供邊界檢查的索引存取與就地編輯輔助工具。           |
+| `StringExtensions`     | 對 `"Folder/Name/Extension"` 這類分隔字串的切片輔助工具。        |
+| `Texture2DExtensions`  | 材質的 GPU 縮放與 alpha 修剪。                                   |
+| `TransformExtensions`  | 階層名稱、世界／區域縮放轉換、未縮放點轉換與距離檢查。           |
+| `Vector3Extensions`    | `Vector3` 的距離、逐分量算術、限制範圍、四捨五入與方向輔助工具。 |
 
 ### io.github.ykysnk.utils.NonUdon
 
-| 型別 | 用途 |
-| --- | --- |
-| `DictionaryWrapper<TKey, TValue>` | 以兩個平行清單儲存的字典形式資料，用於 Unity 序列化。 |
-| `HashUtils`, `HashType` | 以小寫十六進位摘要進行的文字雜湊。 |
-| `JsonUtils` | `JsonUtility` 的包裝，會回報失敗而不是拋出例外或傳回 null。 |
-| `ListWrapper<T>` | 藏在單一序列化欄位後面的清單，讓介面型別的成員也能儲存。 |
-| `ReflectionUtils`, `ReflectionWrapper`, `Reflect` | 快取的反射查詢、編譯後的委派與可串接的成員存取。 |
-| `ReflectionAccess`, `FieldAccess`, `PropertyAccess`, `MethodAccess` | 支撐 `Reflect` 的存取器型別。 |
-| `Result<T>`, `ResultExtensions`, `Try`, `Unit` | 攜帶失敗的結果、串接輔助工具與不拋出例外的執行。 |
-| `Wrapper` | `ListWrapper<T>` 與 `DictionaryWrapper<TKey, TValue>` 的進入點。 |
-| `ILogger`, `Logger<T>` | 套件程式碼所依據的記錄介面，及其依型別的實作。 |
-| `FieldGetter<T>`, `FieldSetter<T>`, `PropertyGetter<T>`, `PropertySetter<T>`, `WrapAction`, `WrapFunc` | 反射包裝所使用的委派。 |
+| 型別                                                                                                   | 用途                                                             |
+|--------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| `DictionaryWrapper<TKey, TValue>`                                                                      | 以兩個平行清單儲存的字典形式資料，用於 Unity 序列化。            |
+| `HashUtils`, `HashType`                                                                                | 以小寫十六進位摘要進行的文字雜湊。                               |
+| `JsonUtils`                                                                                            | `JsonUtility` 的包裝，會回報失敗而不是拋出例外或傳回 null。      |
+| `ListWrapper<T>`                                                                                       | 藏在單一序列化欄位後面的清單，讓介面型別的成員也能儲存。         |
+| `ReflectionUtils`, `ReflectionWrapper`, `Reflect`                                                      | 快取的反射查詢、編譯後的委派與可串接的成員存取。                 |
+| `ReflectionAccess`, `FieldAccess`, `PropertyAccess`, `MethodAccess`                                    | 支撐 `Reflect` 的存取器型別。                                    |
+| `Result<T>`, `ResultExtensions`, `Try`, `Unit`                                                         | 攜帶失敗的結果、串接輔助工具與不拋出例外的執行。                 |
+| `Wrapper`                                                                                              | `ListWrapper<T>` 與 `DictionaryWrapper<TKey, TValue>` 的進入點。 |
+| `ILogger`, `Logger<T>`                                                                                 | 套件程式碼所依據的記錄介面，及其依型別的實作。                   |
+| `FieldGetter<T>`, `FieldSetter<T>`, `PropertyGetter<T>`, `PropertySetter<T>`, `WrapAction`, `WrapFunc` | 反射包裝所使用的委派。                                           |
 
 ### io.github.ykysnk.utils.Editor.Patches
 
-| 型別 | 用途 |
-| --- | --- |
-| `IPatch`, `Patch<T>` | 以單位套用的修補群組；子類別是其巢狀修補方法的容器。 |
-| `IPatchLoader`, `PatchLoader<T>` | 每個程式集的進入點，接收其 Harmony 執行個體並執行其修補群組。 |
-| `IPatchMethod`, `PatchMethod<T>` | 一組 Harmony 修補：目標方法加上 prefix、postfix、transpiler 與 finalizer。 |
-| `IReversePatchMethod`, `ReversePatchMethod<T>` | 反向修補，其虛設方法會接收另一個方法主體的可呼叫副本。 |
-| `ExportsPatchLoader` | 程式集屬性，宣告編輯器載入時要執行的修補載入器型別。 |
+| 型別                                           | 用途                                                                       |
+|------------------------------------------------|----------------------------------------------------------------------------|
+| `IPatch`, `Patch<T>`                           | 以單位套用的修補群組；子類別是其巢狀修補方法的容器。                       |
+| `IPatchLoader`, `PatchLoader<T>`               | 每個程式集的進入點，接收其 Harmony 執行個體並執行其修補群組。              |
+| `IPatchMethod`, `PatchMethod<T>`               | 一組 Harmony 修補：目標方法加上 prefix、postfix、transpiler 與 finalizer。 |
+| `IReversePatchMethod`, `ReversePatchMethod<T>` | 反向修補，其虛設方法會接收另一個方法主體的可呼叫副本。                     |
+| `ExportsPatchLoader`                           | 程式集屬性，宣告編輯器載入時要執行的修補載入器型別。                       |
 
 ### io.github.ykysnk.utils.Editor.HarmonyUtilities
 
-| 型別 | 用途 |
-| --- | --- |
-| `CodeCursor` | 對 transpiler 指令的串流游標，提供目前、下一個與歷程存取。 |
-| `TranspilerExtensions` | 透過 `WithContext` 逐項產生每個指令及其鄰居。 |
+| 型別                   | 用途                                                       |
+|------------------------|------------------------------------------------------------|
+| `CodeCursor`           | 對 transpiler 指令的串流游標，提供目前、下一個與歷程存取。 |
+| `TranspilerExtensions` | 透過 `WithContext` 逐項產生每個指令及其鄰居。              |
 
 ### io.github.ykysnk.utils.Editor.UIElements
 
-| 型別 | 用途 |
-| --- | --- |
+| 型別                  | 用途                                                                   |
+|-----------------------|------------------------------------------------------------------------|
 | `BooleanVector3Field` | 把 `BooleanVector3` 以三個開關編輯的 UI Toolkit 欄位；可從 UXML 建立。 |

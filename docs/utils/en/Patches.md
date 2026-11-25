@@ -90,10 +90,10 @@ the copied body.
 
 Two helpers make instruction lists easier to walk:
 
-| Helper | Use |
-| --- | --- |
-| `WithContext()` | Yields every instruction with its predecessor and successor (`InstructionContext`). |
-| `CodeCursor` | A single-pass cursor with `Current`, `Next` (one-instruction peek), `Previous` and `Index`. |
+| Helper          | Use                                                                                         |
+|-----------------|---------------------------------------------------------------------------------------------|
+| `WithContext()` | Yields every instruction with its predecessor and successor (`InstructionContext`).         |
+| `CodeCursor`    | A single-pass cursor with `Current`, `Next` (one-instruction peek), `Previous` and `Index`. |
 
 ```csharp
 foreach (var context in instructions.WithContext())

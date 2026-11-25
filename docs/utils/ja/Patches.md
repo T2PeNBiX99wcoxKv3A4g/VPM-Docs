@@ -69,7 +69,8 @@ internal sealed class MyGroup : Patch<MyGroup>
 
 ## リバースパッチ
 
-`ReversePatchMethod<T>` は別のメソッドの本体をスタブにコピーするので、エディタのコードからリフレクションなしで private メソッドを
+`ReversePatchMethod<T>` は別のメソッドの本体をスタブにコピーするので、エディタのコードからリフレクションなしで private
+メソッドを
 呼べます。
 
 ```csharp
@@ -89,10 +90,10 @@ private sealed class ReadSettings : ReversePatchMethod<ReadSettings>
 
 命令のリストをたどりやすくするヘルパーが 2 つあります:
 
-| ヘルパー | 用途 |
-| --- | --- |
-| `WithContext()` | 各命令をその前後（`InstructionContext`）とともに列挙します。 |
-| `CodeCursor` | `Current`、`Next`（1 命令の先読み）、`Previous`、`Index` を持つ単一パスのカーソル。 |
+| ヘルパー        | 用途                                                                                |
+|-----------------|-------------------------------------------------------------------------------------|
+| `WithContext()` | 各命令をその前後（`InstructionContext`）とともに列挙します。                        |
+| `CodeCursor`    | `Current`、`Next`（1 命令の先読み）、`Previous`、`Index` を持つ単一パスのカーソル。 |
 
 ```csharp
 foreach (var context in instructions.WithContext())

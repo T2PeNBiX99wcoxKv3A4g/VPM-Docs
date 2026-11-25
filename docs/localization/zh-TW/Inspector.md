@@ -1,6 +1,7 @@
 # 檢視器
 
-開啟 `BasicLocalization` 資產即可編輯一種語言。檢視器由套件本身翻譯，因此標籤會跟著所選語言改變；本頁以欄位的作用來說明，必要時附上它在 `BasicLocalization` / `BasicTranslate` 中的名稱。
+開啟 `BasicLocalization` 資產即可編輯一種語言。檢視器由套件本身翻譯，因此標籤會跟著所選語言改變；本頁以欄位的作用來說明，必要時附上它在
+`BasicLocalization` / `BasicTranslate` 中的名稱。
 
 ## 設定卡片
 
@@ -14,12 +15,13 @@
 
 摺疊區收納附屬檔案：
 
-| 欄位 | 內容 |
-| --- | --- |
-| JSON file（`jsonFile`） | 與資產一起匯出的扁平 `key: text` 物件。 |
-| PO file（`poFile`） | Gettext 檔案，每個鍵一組 `msgid`/`msgstr`。 |
+| 欄位                    | 內容                                        |
+|-------------------------|---------------------------------------------|
+| JSON file（`jsonFile`） | 與資產一起匯出的扁平 `key: text` 物件。     |
+| PO file（`poFile`）     | Gettext 檔案，每個鍵一組 `msgid`/`msgstr`。 |
 
-`…` 按鈕會把磁碟上的檔案複製到資產旁邊。匯出會寫出目前的資產，匯入則依鍵把檔案合併回來。這兩個欄位只接受 `TextAsset`（JSON）與 `LocalizationAsset`（PO）。
+`…` 按鈕會把磁碟上的檔案複製到資產旁邊。匯出會寫出目前的資產，匯入則依鍵把檔案合併回來。這兩個欄位只接受 `TextAsset`（JSON）與
+`LocalizationAsset`（PO）。
 
 ## 翻譯清單
 
@@ -33,13 +35,13 @@
 
 ## 翻譯資料列
 
-| 欄位 | 備註 |
-| --- | --- |
-| `key` | 鍵，例如 `label.my_window.title`。 |
-| `translate` | 文字，可為多行。 |
-| `useTooltip` | 開啟後會儲存工具提示，下方兩個欄位才會出現。 |
-| `tooltipSuffix` | 工具提示鍵的後綴，預設為 `:tooltip`。 |
-| `tooltip` | 工具提示的文字。 |
+| 欄位            | 備註                                         |
+|-----------------|----------------------------------------------|
+| `key`           | 鍵，例如 `label.my_window.title`。           |
+| `translate`     | 文字，可為多行。                             |
+| `useTooltip`    | 開啟後會儲存工具提示，下方兩個欄位才會出現。 |
+| `tooltipSuffix` | 工具提示鍵的後綴，預設為 `:tooltip`。        |
+| `tooltip`       | 工具提示的文字。                             |
 
 複製按鈕會把整筆項目以 JSON 放到剪貼簿；貼上則把複製的項目寫回資料列。剪貼簿中有翻譯項目時，貼上才會啟用。
 

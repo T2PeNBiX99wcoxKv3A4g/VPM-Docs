@@ -163,9 +163,9 @@ export const SearchBox = styled.div`
     background: var(--surface);
     color: var(--text-muted);
     transition: border-color var(--duration-fast) var(--ease-out),
-        background var(--duration-fast) var(--ease-out),
-        box-shadow var(--duration-fast) var(--ease-out),
-        color var(--duration-fast) var(--ease-out);
+    background var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
 
     &:focus-within {
         border-color: var(--accent);
@@ -207,7 +207,7 @@ export const SearchClear = styled.button`
     color: var(--text-muted);
     cursor: pointer;
     transition: color var(--duration-fast) var(--ease-out),
-        transform var(--duration) var(--ease-bounce);
+    transform var(--duration) var(--ease-bounce);
 
     &:hover {
         color: var(--accent-strong);
@@ -244,18 +244,18 @@ export const SearchResult = styled.button<{ $active?: boolean }>`
     text-align: left;
     cursor: pointer;
     transition: background var(--duration-fast) var(--ease-out),
-        border-color var(--duration-fast) var(--ease-out);
+    border-color var(--duration-fast) var(--ease-out);
 
     &:hover {
         background: var(--surface);
     }
 
     ${props =>
-    props.$active &&
-    css`
-            background: var(--surface);
-            border-left-color: var(--accent);
-        `}
+            props.$active &&
+            css`
+                background: var(--surface);
+                border-left-color: var(--accent);
+            `}
 `;
 
 export const SearchResultTitle = styled.span`
@@ -362,8 +362,8 @@ export const LanguageSelect = styled.select`
     font-size: 0.85rem;
     cursor: pointer;
     transition: border-color var(--duration-fast) var(--ease-out),
-        background var(--duration-fast) var(--ease-out),
-        box-shadow var(--duration-fast) var(--ease-out);
+    background var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
 
     &:hover {
         border-color: var(--border-strong);
@@ -400,8 +400,8 @@ export const NavToggle = styled.button`
     font-size: 0.85rem;
     cursor: pointer;
     transition: transform var(--duration-fast) var(--ease-bounce),
-        border-color var(--duration-fast) var(--ease-out),
-        background var(--duration-fast) var(--ease-out);
+    border-color var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out);
 
     &:hover {
         transform: translateY(-1px);
@@ -454,11 +454,11 @@ export const Sidebar = styled.aside<{ $open?: boolean }>`
         max-height: none;
 
         ${props =>
-    props.$open &&
-    css`
-                display: block;
-                animation: ${slideIn} var(--duration) var(--ease-out) both;
-            `}
+                props.$open &&
+                css`
+                    display: block;
+                    animation: ${slideIn} var(--duration) var(--ease-out) both;
+                `}
     }
 `;
 
@@ -473,9 +473,9 @@ export const NavHome = styled.a<{ $active?: boolean }>`
     color: var(--text);
     font-weight: 600;
     transition: background var(--duration-fast) var(--ease-out),
-        border-color var(--duration-fast) var(--ease-out),
-        color var(--duration-fast) var(--ease-out),
-        transform var(--duration-fast) var(--ease-out);
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
 
     &:hover {
         background: var(--surface);
@@ -484,12 +484,12 @@ export const NavHome = styled.a<{ $active?: boolean }>`
     }
 
     ${props =>
-    props.$active &&
-    css`
-            border-left-color: var(--accent);
-            background: var(--surface);
-            color: var(--accent-strong);
-        `}
+            props.$active &&
+            css`
+                border-left-color: var(--accent);
+                background: var(--surface);
+                color: var(--accent-strong);
+            `}
 `;
 
 /* --- sidebar: packages as topics ----------------------------------------- */
@@ -521,9 +521,9 @@ export const NavProjectLink = styled.a<{ $active?: boolean }>`
     border-left: 2px solid transparent;
     color: var(--text);
     transition: background var(--duration-fast) var(--ease-out),
-        border-color var(--duration-fast) var(--ease-out),
-        color var(--duration-fast) var(--ease-out),
-        transform var(--duration-fast) var(--ease-out);
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
 
     &:hover {
         background: var(--surface);
@@ -532,12 +532,12 @@ export const NavProjectLink = styled.a<{ $active?: boolean }>`
     }
 
     ${props =>
-    props.$active &&
-    css`
-            border-left-color: var(--accent);
-            background: rgba(76, 141, 255, 0.1);
-            color: var(--accent-strong);
-        `}
+            props.$active &&
+            css`
+                border-left-color: var(--accent);
+                background: rgba(76, 141, 255, 0.1);
+                color: var(--accent-strong);
+            `}
 `;
 
 export const NavProjectName = styled.span`
@@ -623,9 +623,9 @@ export const NavLink = styled.a<{ $active?: boolean }>`
     border-left: 2px solid transparent;
     color: var(--text);
     transition: background var(--duration-fast) var(--ease-out),
-        border-color var(--duration-fast) var(--ease-out),
-        color var(--duration-fast) var(--ease-out),
-        transform var(--duration-fast) var(--ease-out);
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
 
     &:hover {
         background: var(--surface);
@@ -634,13 +634,13 @@ export const NavLink = styled.a<{ $active?: boolean }>`
     }
 
     ${props =>
-    props.$active &&
-    css`
-            border-left-color: var(--accent);
-            background: var(--surface);
-            color: var(--accent-strong);
-            font-weight: 600;
-        `}
+            props.$active &&
+            css`
+                border-left-color: var(--accent);
+                background: var(--surface);
+                color: var(--accent-strong);
+                font-weight: 600;
+            `}
 `;
 
 export const Content = styled.main`
@@ -705,8 +705,8 @@ export const ProjectCard = styled.a`
     background: var(--surface);
     color: var(--text);
     transition: border-color var(--duration-fast) var(--ease-out),
-        background var(--duration-fast) var(--ease-out),
-        transform var(--duration-fast) var(--ease-out);
+    background var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
 
     &:hover {
         text-decoration: none;

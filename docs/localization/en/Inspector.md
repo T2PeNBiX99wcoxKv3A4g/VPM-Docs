@@ -16,10 +16,10 @@ The picker is the ready-made `LanguagePicker` control; switching it updates ever
 
 The foldout holds the sidecar files:
 
-| Field | Contents |
-| --- | --- |
+| Field                  | Contents                                            |
+|------------------------|-----------------------------------------------------|
 | JSON file (`jsonFile`) | Flat `key: text` object exported next to the asset. |
-| PO file (`poFile`) | Gettext file, one `msgid`/`msgstr` pair per key. |
+| PO file (`poFile`)     | Gettext file, one `msgid`/`msgstr` pair per key.    |
 
 The `…` buttons copy a file from disk next to the asset. Export writes the current asset, import merges a file back by
 key. Only a `TextAsset` (JSON) and a `LocalizationAsset` (PO) can be assigned to the two fields.
@@ -36,13 +36,13 @@ The toolbar above the list contains the search field, the entry count, and the a
 
 ## Translation row
 
-| Field | Notes |
-| --- | --- |
-| `key` | The key, for example `label.my_window.title`. |
-| `translate` | The text. Multiline. |
-| `useTooltip` | Turn on to store a tooltip; the two fields below appear. |
-| `tooltipSuffix` | Suffix for the tooltip key, `:tooltip` by default. |
-| `tooltip` | The tooltip text. |
+| Field           | Notes                                                    |
+|-----------------|----------------------------------------------------------|
+| `key`           | The key, for example `label.my_window.title`.            |
+| `translate`     | The text. Multiline.                                     |
+| `useTooltip`    | Turn on to store a tooltip; the two fields below appear. |
+| `tooltipSuffix` | Suffix for the tooltip key, `:tooltip` by default.       |
+| `tooltip`       | The tooltip text.                                        |
 
 The copy button puts the whole entry on the clipboard as JSON; paste writes a copied entry back into the row. Paste is
 enabled while the clipboard holds a translation entry.
