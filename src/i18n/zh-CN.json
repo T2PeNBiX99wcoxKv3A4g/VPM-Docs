@@ -24,7 +24,7 @@
   "project.yky-toolkit.tagline": "包管理、导入追踪与 Unity 资源监控等编辑器窗口。",
   "footer.source": "源代码",
   "footer.license": "MIT 授权。",
-  "footer.note": "由 ykysnk 维护的 VPM 包文档。",
+  "footer.note": "VPM 包文档。",
   "search.placeholder": "搜索文档",
   "search.clear": "清除搜索",
   "search.noResults": "没有匹配的页面"

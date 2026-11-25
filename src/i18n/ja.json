@@ -24,7 +24,7 @@
   "project.yky-toolkit.tagline": "パッケージ管理・インポート追跡・Unity リソースモニターのエディタウィンドウ。",
   "footer.source": "ソースコード",
   "footer.license": "MIT ライセンス。",
-  "footer.note": "ykysnk が管理する VPM パッケージのドキュメント。",
+  "footer.note": "VPM パッケージのドキュメント。",
   "search.placeholder": "ドキュメントを検索",
   "search.clear": "検索をクリア",
   "search.noResults": "一致するページがありません"

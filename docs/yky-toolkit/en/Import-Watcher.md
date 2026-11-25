@@ -22,10 +22,10 @@ Each file extension can have its own color, so a `.unitypackage` import stands o
 
 ## Settings
 
-| Setting | Effect |
-| --- | --- |
+| Setting      | Effect                                            |
+|--------------|---------------------------------------------------|
 | Max sessions | How many editor sessions are kept in the history. |
-| Colors | Per-extension colors for the log. |
+| Colors       | Per-extension colors for the log.                 |
 
 The settings live in the project's `EditorPrefs`; they are not committed.
 

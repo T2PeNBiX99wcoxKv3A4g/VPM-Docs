@@ -9,7 +9,7 @@
 1. 通过 **Assets > Create > Localization > Basic Localization** 创建资源。
 2. 把 **Localization ID** 设为包所使用的 id，例如 `io.github.ykysnk.localization`。
 3. 以语言 id 命名文件：`en-US`、`ja-JP`、`zh-Hant`……
-4. 在 **Display Name** 中填入语言选择器显示的名称，例如 `English` 或 `日本語`。
+4. 在 **Display Name** 中填入语言选择器所显示的名称，例如 `English` 或 `日本語`。
 
 同一个包的每种语言都使用相同的 id，并与其他资源放在一起，通常位于 `Editor/Localization` 文件夹中。
 
@@ -17,15 +17,15 @@
 
 ## 添加翻译
 
-在检视器中点击翻译列表里的 **+**，然后填写：
+在检视器中点击翻译列表里的 **+**，然后填写下方字段。检视器本身由本包翻译，因此看到的标签会随所选语言变化；字段名就是 `BasicTranslate` 中的名称。
 
 | 字段 | 含义 |
 | --- | --- |
-| 翻訳ID (`key`) | 代码查找所用的键，例如 `label.my_window.title`。 |
-| 翻訳 (`translate`) | 该语言下显示的文本。 |
-| ツールチップを使う (`useTooltip`) | 该条目是否同时保存工具提示。 |
-| ツールチップの接尾辞 (`tooltipSuffix`) | 工具提示键的后缀，默认为 `:tooltip`。 |
-| ツールチップ (`tooltip`) | 工具提示文本。 |
+| `key` | 代码查找所用的键，例如 `label.my_window.title`。 |
+| `translate` | 该语言下显示的文本。 |
+| `useTooltip` | 该条目是否同时保存工具提示。 |
+| `tooltipSuffix` | 工具提示键的后缀，默认为 `:tooltip`。 |
+| `tooltip` | 工具提示文本。 |
 
 `en-US` 资源应当包含**全部**键：它既是其他语言的回退来源，也是 `unity:` 条目的源文本。
 

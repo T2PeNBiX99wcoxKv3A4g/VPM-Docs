@@ -1,6 +1,6 @@
 # 安裝
 
-套件以 VPM 套件形式發佈：`io.github.ykysnk.localization`。可用 ALCOM、VPM CLI 安裝，或把儲存庫加入專案的 VPM 清單。
+套件以 VPM 套件形式發佈：`io.github.ykysnk.localization`。可用 ALCOM、VPM CLI 加入，或把儲存庫加入專案的 VPM 清單。
 
 它相依於 `io.github.ykysnk.utils`，由 VPM 自動解析。
 
@@ -17,15 +17,15 @@
 
 ## 新增翻譯
 
-在檢視器中按下翻譯清單的 **+**，然後填入：
+在檢視器中按下翻譯清單的 **+**，然後填入下方欄位。檢視器本身由這個套件翻譯，因此你看到的標籤會跟著所選語言改變；欄位名稱則對應 `BasicTranslate` 中的名稱。
 
 | 欄位 | 意義 |
 | --- | --- |
-| 翻訳ID (`key`) | 程式碼查詢的鍵，例如 `label.my_window.title`。 |
-| 翻訳 (`translate`) | 這個語言顯示的文字。 |
-| ツールチップを使う (`useTooltip`) | 這筆項目是否同時儲存工具提示。 |
-| ツールチップの接尾辞 (`tooltipSuffix`) | 工具提示鍵的後綴，預設為 `:tooltip`。 |
-| ツールチップ (`tooltip`) | 工具提示的文字。 |
+| `key` | 程式碼查詢的鍵，例如 `label.my_window.title`。 |
+| `translate` | 這個語言顯示的文字。 |
+| `useTooltip` | 這筆項目是否同時儲存工具提示。 |
+| `tooltipSuffix` | 工具提示鍵的後綴，預設為 `:tooltip`。 |
+| `tooltip` | 工具提示的文字。 |
 
 `en-US` 資產應包含**所有**鍵：它是其他語言的後備來源，也是 `unity:` 項目的原始文字。
 

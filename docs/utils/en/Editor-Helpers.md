@@ -25,21 +25,21 @@ Override `CreateErrorHandleInspectorGUI` for UI Toolkit, `OnErrorHandleInspector
 
 ## GUI helpers
 
-| Helper | Use |
-| --- | --- |
-| `EditorGUILayoutUtility` | Small layout helpers (rows, separators, labelled fields) used by the windows. |
-| `EditorGUILayoutUtilityExtensions` | The same helpers as extension methods. |
-| `EditorGUIUtils` | Icons, help boxes and the `IconContent` helper used by window titles. |
-| `EditorUtils` | Asset and selection helpers shared by the windows. |
-| `CustomDialogWindow` | A small modal prompt (title, message, buttons) that does not need a custom editor. |
-| `EditorTask` | Runs an async editor task and reports progress and failures in one place. |
+| Helper                             | Use                                                                                |
+|------------------------------------|------------------------------------------------------------------------------------|
+| `EditorGUILayoutUtility`           | Small layout helpers (rows, separators, labelled fields) used by the windows.      |
+| `EditorGUILayoutUtilityExtensions` | The same helpers as extension methods.                                             |
+| `EditorGUIUtils`                   | Icons, help boxes and the `IconContent` helper used by window titles.              |
+| `EditorUtils`                      | Asset and selection helpers shared by the windows.                                 |
+| `CustomDialogWindow`               | A small modal prompt (title, message, buttons) that does not need a custom editor. |
+| `EditorTask`                       | Runs an async editor task and reports progress and failures in one place.          |
 
 ## Drawers
 
-| Drawer | Draws |
-| --- | --- |
+| Drawer                 | Draws                                                                         |
+|------------------------|-------------------------------------------------------------------------------|
 | `BooleanVector3Drawer` | A `Vector3` where each axis has its own on/off toggle, for per-axis settings. |
-| `ColorHexDrawer` | A color field with its `#RRGGBB` value next to it. |
+| `ColorHexDrawer`       | A color field with its `#RRGGBB` value next to it.                            |
 
 Both are picked up automatically for fields of the matching type or via `[CustomPropertyDrawer]` on wrapper types.
 

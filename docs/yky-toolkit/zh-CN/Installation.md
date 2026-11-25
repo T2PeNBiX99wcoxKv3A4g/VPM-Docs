@@ -1,6 +1,7 @@
 # 安装
 
-可以用 ALCOM、VPM CLI，或把仓库添加到项目中来安装 `io.github.ykysnk.yky-toolkit`。该包依赖 `io.github.ykysnk.utils` 和 `io.github.ykysnk.localization`，VPM 会一并安装。
+可以用 ALCOM、VPM CLI，或把仓库添加到项目中来安装 `io.github.ykysnk.yky-toolkit`。该包依赖 `io.github.ykysnk.utils` 和
+`io.github.ykysnk.localization`，VPM 会一并安装。
 
 ## 安装之后
 

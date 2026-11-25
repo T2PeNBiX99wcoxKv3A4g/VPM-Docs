@@ -1,5 +1,5 @@
-import {isValidElement, useEffect, useMemo, useRef, useState} from "react";
 import type {KeyboardEvent as ReactKeyboardEvent, ReactNode} from "react";
+import {isValidElement, useEffect, useMemo, useRef, useState} from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -64,9 +64,9 @@ import {
 import {ButtonLink} from "./styles/buttons";
 
 type Route =
-    | {name: "home"}
-    | {name: "project"; project: string}
-    | {name: "doc"; project: string; slug: string; anchor?: string};
+    | { name: "home" }
+    | { name: "project"; project: string }
+    | { name: "doc"; project: string; slug: string; anchor?: string };
 
 function parseRoute(hash: string): Route {
     const path = hash.replace(/^#/, "");
@@ -107,7 +107,7 @@ function toText(node: ReactNode): string {
     if (node === null || node === undefined || typeof node === "boolean") return "";
     if (typeof node === "string" || typeof node === "number") return String(node);
     if (Array.isArray(node)) return node.map(toText).join("");
-    if (isValidElement<{children?: ReactNode}>(node)) return toText(node.props.children);
+    if (isValidElement<{ children?: ReactNode }>(node)) return toText(node.props.children);
     return "";
 }
 
@@ -119,11 +119,11 @@ function slugify(text: string): string {
  * Heading ids come from the default language source (`anchorIds`), not from the rendered text, so `#some-heading`
  * links keep working when the heading is translated.
  */
-function Markdown({source, project, anchorIds = []}: {source: string; project: string; anchorIds?: string[]}) {
+function Markdown({source, project, anchorIds = []}: { source: string; project: string; anchorIds?: string[] }) {
     let headingIndex = 0;
 
     function heading(level: 1 | 2 | 3 | 4) {
-        return function Heading({children}: {children?: ReactNode}) {
+        return function Heading({children}: { children?: ReactNode }) {
             const id = anchorIds[headingIndex++] ?? slugify(toText(children));
             const Tag = `h${level}` as const;
             return <Tag id={id}>{children}</Tag>;
@@ -582,7 +582,7 @@ export default function App() {
                 {!entry.translated && language !== site.defaultLanguage ? (
                     <Notice>{t("docs.untranslated")}</Notice>
                 ) : null}
-                <Markdown source={entry.markdown} project={current.id} anchorIds={entry.anchorIds} />
+                <Markdown source={entry.markdown} project={current.id} anchorIds={entry.anchorIds}/>
                 {updated ? <DocMeta>{t("docs.lastUpdated", {date: updated})}</DocMeta> : null}
             </>
         );

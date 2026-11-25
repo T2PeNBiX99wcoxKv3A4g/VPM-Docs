@@ -16,8 +16,8 @@ first; the other languages fall back to it automatically.
 
 ## The tooltip is empty
 
-Tooltips only load when **ツールチップを使う** is on. The stored tooltip is ignored otherwise, and the
-`{key}:tooltip` entry is what the UI reads.
+Tooltips only load when `useTooltip` is on. The stored tooltip is ignored otherwise, and the `{key}:tooltip` entry is
+what the UI reads.
 
 ## The language picker is empty
 

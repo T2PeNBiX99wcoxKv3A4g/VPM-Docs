@@ -24,7 +24,7 @@
   "project.yky-toolkit.tagline": "Editor windows for package management, import tracking and the Unity resource monitor.",
   "footer.source": "Source code",
   "footer.license": "MIT licensed.",
-  "footer.note": "Documentation for the VPM packages maintained by ykysnk.",
+  "footer.note": "Documentation for the VPM packages.",
   "search.placeholder": "Search documentation",
   "search.clear": "Clear search",
   "search.noResults": "No matching pages"

@@ -29,7 +29,7 @@ function plainText(markdown: string): string {
         .trim();
 }
 
-type CachedDoc = {text: string; normalised: string};
+type CachedDoc = { text: string; normalised: string };
 
 // The markdown never changes while the page is open, so each page is flattened once.
 const cache = new Map<string, CachedDoc>();
@@ -114,7 +114,7 @@ export function searchDocs(query: string, language: string): SearchHit[] {
     return hits.sort((a, b) => b.score - a.score || a.title.localeCompare(b.title)).slice(0, MAX_RESULTS);
 }
 
-export type TextPart = {text: string; match: boolean};
+export type TextPart = { text: string; match: boolean };
 
 /** Split a snippet into plain and matched parts so the query can be marked. */
 export function highlightParts(text: string, query: string): TextPart[] {

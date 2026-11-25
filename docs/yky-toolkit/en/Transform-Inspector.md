@@ -17,10 +17,10 @@ between fields as usual.
 
 ## Clipboard
 
-| Action | Effect |
-| --- | --- |
-| Copy | Copies the world or local position, rotation and scale. |
-| Paste | Writes the copied values onto the current selection. |
+| Action | Effect                                                  |
+|--------|---------------------------------------------------------|
+| Copy   | Copies the world or local position, rotation and scale. |
+| Paste  | Writes the copied values onto the current selection.    |
 
 The buttons at the end of each row copy or paste that single property.
 

@@ -7,9 +7,9 @@
  */
 export const site = {
     name: "VPM Documentation",
-    tagline: "Documentation for the VPM packages maintained by ykysnk.",
+    tagline: "Documentation for the VPM packages.",
     description:
-        "Setup, usage and API documentation for the VPM packages by ykysnk: Localization, Utils and YKYToolKit.",
+        "Setup, usage and API documentation for the VPM packages: Localization, Utils and YKYToolKit.",
     url: "https://t2penbix99wcoxkv3a4g.github.io/VPM-Docs/",
     repository: "https://github.com/T2PeNBiX99wcoxKv3A4g/VPM-Docs",
     languages: ["en", "ja", "zh-CN", "zh-TW"],
@@ -37,7 +37,7 @@ export const site = {
             releases: "https://github.com/T2PeNBiX99wcoxKv3A4g/VPM.Utils/releases",
             groups: [
                 {id: "starting", docs: ["Overview", "Installation"]},
-                {id: "guide", docs: ["Editor-Helpers"]},
+                {id: "guide", docs: ["Editor-Helpers", "Patches"]},
                 {id: "reference", docs: ["API"]},
             ],
         },

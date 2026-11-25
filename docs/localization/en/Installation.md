@@ -19,15 +19,16 @@ Every language of the same package uses the same id and lives next to the other 
 
 ## Add translations
 
-In the inspector, press **+** in the translation list and fill in:
+In the inspector, press **+** in the translation list and fill in the fields below. The inspector is translated by
+this package, so the labels you see follow the selected language; the field names are the ones in `BasicTranslate`.
 
 | Field | Meaning |
 | --- | --- |
-| 翻訳ID (`key`) | The key the code looks up, for example `label.my_window.title`. |
-| 翻訳 (`translate`) | The text shown for this language. |
-| ツールチップを使う (`useTooltip`) | Whether this entry also stores a tooltip. |
-| ツールチップの接尾辞 (`tooltipSuffix`) | Suffix of the tooltip key, `:tooltip` by default. |
-| ツールチップ (`tooltip`) | The tooltip text. |
+| `key` | The key the code looks up, for example `label.my_window.title`. |
+| `translate` | The text shown for this language. |
+| `useTooltip` | Whether this entry also stores a tooltip. |
+| `tooltipSuffix` | Suffix of the tooltip key, `:tooltip` by default. |
+| `tooltip` | The tooltip text. |
 
 The `en-US` asset should contain **every** key: it is the fallback for the other languages and the source text for
 `unity:` entries.

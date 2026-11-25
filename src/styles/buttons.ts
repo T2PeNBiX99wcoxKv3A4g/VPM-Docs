@@ -1,4 +1,4 @@
-import { css, styled } from "styled-components";
+import {css, styled} from "styled-components";
 
 /** Shared look of the two links in the hero. */
 export const buttonBase = css`

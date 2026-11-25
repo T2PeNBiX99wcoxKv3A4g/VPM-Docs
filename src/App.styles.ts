@@ -1,4 +1,4 @@
-import { css, keyframes, styled } from "styled-components";
+import {css, keyframes, styled} from "styled-components";
 
 import closeIcon from "./icons/close.svg";
 import docsIcon from "./icons/docs.svg";
@@ -9,7 +9,7 @@ import menuIcon from "./icons/menu.svg";
 import packageIcon from "./icons/package.svg";
 import releasesIcon from "./icons/releases.svg";
 import searchIcon from "./icons/search.svg";
-import { mobile } from "./styles/media";
+import {mobile} from "./styles/media";
 
 /** Every icon file, keyed by the name used at the call site. */
 const glyphs = {
@@ -229,8 +229,8 @@ export const SearchResult = styled.button<{ $active?: boolean }>`
     }
 
     ${props =>
-        props.$active &&
-        css`
+    props.$active &&
+    css`
             background: var(--surface);
             border-left-color: var(--accent);
         `}
@@ -418,8 +418,8 @@ export const Sidebar = styled.aside<{ $open?: boolean }>`
         max-height: none;
 
         ${props =>
-            props.$open &&
-            css`
+    props.$open &&
+    css`
                 display: block;
                 animation: ${slideIn} var(--duration) var(--ease-out) both;
             `}
@@ -448,8 +448,8 @@ export const NavHome = styled.a<{ $active?: boolean }>`
     }
 
     ${props =>
-        props.$active &&
-        css`
+    props.$active &&
+    css`
             border-left-color: var(--accent);
             background: var(--surface);
             color: var(--accent-strong);
@@ -496,8 +496,8 @@ export const NavProjectLink = styled.a<{ $active?: boolean }>`
     }
 
     ${props =>
-        props.$active &&
-        css`
+    props.$active &&
+    css`
             border-left-color: var(--accent);
             background: rgba(76, 141, 255, 0.1);
             color: var(--accent-strong);
@@ -598,8 +598,8 @@ export const NavLink = styled.a<{ $active?: boolean }>`
     }
 
     ${props =>
-        props.$active &&
-        css`
+    props.$active &&
+    css`
             border-left-color: var(--accent);
             background: var(--surface);
             color: var(--accent-strong);

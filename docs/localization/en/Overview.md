@@ -5,12 +5,12 @@ language is one asset that maps those keys to text. The package is editor-only; 
 
 ## How the pieces fit together
 
-| Piece | What it is |
-| --- | --- |
-| `BasicLocalization` | One asset per language. Its file name is the language id (`en-US`, `ja-JP`) and its `displayName` is what the picker shows. |
-| `BasicTranslate` | One entry inside an asset: the key, the text and an optional tooltip. |
-| Localization id | Groups the assets of one package together, for example `io.github.ykysnk.yky-toolkit`. Every language asset carries the same id. |
-| `LocalizationHelper` | Looks keys up for one id and keeps UI elements up to date when the language changes. |
+| Piece                | What it is                                                                                                                       |
+|----------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| `BasicLocalization`  | One asset per language. Its file name is the language id (`en-US`, `ja-JP`) and its `displayName` is what the picker shows.      |
+| `BasicTranslate`     | One entry inside an asset: the key, the text and an optional tooltip.                                                            |
+| Localization id      | Groups the assets of one package together, for example `io.github.ykysnk.yky-toolkit`. Every language asset carries the same id. |
+| `LocalizationHelper` | Looks keys up for one id and keeps UI elements up to date when the language changes.                                             |
 
 A package declares the id once per editor assembly:
 

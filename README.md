@@ -1,7 +1,6 @@
 # VPM Documentation
 
-Documentation site for the VPM packages maintained by ykysnk. One site, one page per package, and a Markdown file per
-topic.
+Documentation site for the VPM packages: one site, one page per package, one Markdown file per topic.
 
 Live at <https://t2penbix99wcoxkv3a4g.github.io/VPM-Docs/>.
 

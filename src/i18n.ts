@@ -11,7 +11,7 @@ const copy: Record<string, Record<string, string>> = {
     "zh-TW": zhTW,
 };
 
-export type Language = {id: string; label: string};
+export type Language = { id: string; label: string };
 
 export const languages: Language[] = [
     {id: "en", label: "English"},

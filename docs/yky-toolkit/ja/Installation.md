@@ -1,6 +1,7 @@
 # インストール
 
-`io.github.ykysnk.yky-toolkit` を ALCOM、VPM CLI、またはリポジトリをプロジェクトに追加して導入します。パッケージは `io.github.ykysnk.utils` と `io.github.ykysnk.localization` に依存しており、VPM が一緒にインストールします。
+`io.github.ykysnk.yky-toolkit` を ALCOM、VPM CLI、またはリポジトリをプロジェクトに追加して導入します。パッケージは
+`io.github.ykysnk.utils` と `io.github.ykysnk.localization` に依存しており、VPM が一緒にインストールします。
 
 ## インストール後
 
@@ -17,4 +18,5 @@
 
 ## 任意: lilEditorToolbox
 
-`jp.lilxyzw.editortoolbox` がインストールされている場合、ツールキットは `.unitypackage` ファイルをそれ経由でインポートします。ない場合は Unity 標準のインポーターにフォールバックし、それ以外は変わりません。
+`jp.lilxyzw.editortoolbox` がインストールされている場合、ツールキットは `.unitypackage` ファイルをそれ経由でインポートします。ない場合は
+Unity 標準のインポーターにフォールバックし、それ以外は変わりません。

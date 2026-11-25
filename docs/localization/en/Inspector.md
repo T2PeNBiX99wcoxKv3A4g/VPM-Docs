@@ -1,12 +1,14 @@
 # Inspector
 
-Open a `BasicLocalization` asset to edit one language.
+Open a `BasicLocalization` asset to edit one language. The inspector is translated by the package itself, so the
+labels follow the selected language; this page names the fields by what they do, with the field name in
+`BasicLocalization` / `BasicTranslate` where it helps.
 
 ## Settings card
 
-- **ローカライゼーションID** - the id shared by every language of the package.
-- **表示名** - the name shown in the language picker.
-- **言語** - the language this site (and the editor) currently shows in every package with the same id.
+- **Localization id** (`localizationID`) - the id shared by every language of the package.
+- **Display name** (`displayName`) - the name shown in the language picker.
+- **Language** - the selected language of this id, the same in every editor window.
 
 The picker is the ready-made `LanguagePicker` control; switching it updates every open inspector and window at once.
 
@@ -16,11 +18,11 @@ The foldout holds the sidecar files:
 
 | Field | Contents |
 | --- | --- |
-| JSON ファイル | Flat `key: text` object exported next to the asset. |
-| PO ファイル | Gettext file, one `msgid`/`msgstr` pair per key. |
+| JSON file (`jsonFile`) | Flat `key: text` object exported next to the asset. |
+| PO file (`poFile`) | Gettext file, one `msgid`/`msgstr` pair per key. |
 
-The `…` buttons copy a file from disk next to the asset. **Export** writes the current asset, **Import** merges a file
-back by key. Only `TextAsset` and `LocalizationAsset` files are accepted in the two fields.
+The `…` buttons copy a file from disk next to the asset. Export writes the current asset, import merges a file back by
+key. Only a `TextAsset` (JSON) and a `LocalizationAsset` (PO) can be assigned to the two fields.
 
 ## Translation list
 
@@ -28,7 +30,7 @@ The toolbar above the list contains the search field, the entry count, and the a
 
 - The search filters by key, text or tooltip. It runs after you stop typing.
 - The count shows `filtered/total` while a filter is active.
-- **+** adds an empty entry at the end; **-** removes the selected entries.
+- Add appends an empty entry at the end; remove deletes the selected entries.
 - Right-click a row for copy, paste and remove.
 - Drag a row to reorder it (only while no filter is active).
 
@@ -36,14 +38,14 @@ The toolbar above the list contains the search field, the entry count, and the a
 
 | Field | Notes |
 | --- | --- |
-| 翻訳ID | The key, for example `label.my_window.title`. |
-| 翻訳 | The text. Multiline. |
-| ツールチップを使う | Turn on to store a tooltip; the two fields below appear. |
-| ツールチップの接尾辞 | Suffix for the tooltip key, `:tooltip` by default. |
-| ツールチップ | The tooltip text. |
+| `key` | The key, for example `label.my_window.title`. |
+| `translate` | The text. Multiline. |
+| `useTooltip` | Turn on to store a tooltip; the two fields below appear. |
+| `tooltipSuffix` | Suffix for the tooltip key, `:tooltip` by default. |
+| `tooltip` | The tooltip text. |
 
-**コピー** puts the whole entry on the clipboard as JSON, **ペースト** writes a copied entry back into the row. The
-paste button is enabled when the clipboard holds an entry.
+The copy button puts the whole entry on the clipboard as JSON; paste writes a copied entry back into the row. Paste is
+enabled while the clipboard holds a translation entry.
 
 ## Script icons
 

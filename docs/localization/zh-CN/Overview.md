@@ -4,12 +4,12 @@
 
 ## 各部分如何配合
 
-| 组成 | 说明 |
-| --- | --- |
-| `BasicLocalization` | 每种语言一个资源。文件名就是语言 id（`en-US`、`ja-JP`），其 `displayName` 是选择器中显示的名称。 |
-| `BasicTranslate` | 资源中的一条记录：键、文本以及可选的工具提示。 |
-| 本地化 id | 把一个包的所有资源归到一起，例如 `io.github.ykysnk.yky-toolkit`。每种语言的资源都带有相同的 id。 |
-| `LocalizationHelper` | 按 id 查找键，并在语言变化时保持 UI 元素同步更新。 |
+| 组成                 | 说明                                                                                             |
+|----------------------|--------------------------------------------------------------------------------------------------|
+| `BasicLocalization`  | 每种语言一个资源。文件名就是语言 id（`en-US`、`ja-JP`），其 `displayName` 是选择器中显示的名称。 |
+| `BasicTranslate`     | 资源中的一条记录：键、文本以及可选的工具提示。                                                   |
+| 本地化 id            | 把一个包的所有资源归到一起，例如 `io.github.ykysnk.yky-toolkit`。每种语言的资源都带有相同的 id。 |
+| `LocalizationHelper` | 按 id 查找键，并在语言变化时保持 UI 元素同步更新。                                               |
 
 包在每个编辑器程序集中声明一次 id：
 
@@ -25,7 +25,8 @@ label.text = "label.my_window.title".S();
 
 ## 语言选择
 
-选中的语言按 id 存储在 `EditorPrefs` 中。切换语言会触发一个事件，所有通过 `UILocalize` 本地化、或通过 `UpdateRegister` 注册的元素都会立即重写，不必重新打开任何窗口。
+选中的语言按 id 存储在 `EditorPrefs` 中。切换语言会触发一个事件，所有通过 `UILocalize` 本地化、或通过 `UpdateRegister`
+注册的元素都会立即重写，不必重新打开任何窗口。
 
 ## 回退
 
@@ -40,4 +41,5 @@ label.text = "label.my_window.title".S();
 
 ## Unity 自带的字符串
 
-以 `unity:` 开头的键不由本包翻译。它们保存的是 Unity 编辑器字符串的英文文本，会被传给 `L10n.Tr`，由 Unity 将其翻译成编辑器语言。详见 [Unity-Keys](Unity-Keys)。
+以 `unity:` 开头的键不由本包翻译。它们保存的是 Unity 编辑器字符串的英文文本，会被传给 `L10n.Tr`，由 Unity
+将其翻译成编辑器语言。详见 [Unity-Keys](Unity-Keys)。

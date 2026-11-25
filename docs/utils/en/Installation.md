@@ -10,11 +10,11 @@ Most projects do not install it directly: [Localization](../localization/Install
 
 ## Namespaces
 
-| Namespace | Use |
-| --- | --- |
-| `io.github.ykysnk.utils` | `Utils` (logging, assertions), `BasicEditorComponent` |
-| `io.github.ykysnk.utils.Editor` | `BasicEditor`, the GUI helpers and the UPM client |
-| `io.github.ykysnk.utils.Extensions` | Small extension methods used by the other packages |
+| Namespace                           | Use                                                   |
+|-------------------------------------|-------------------------------------------------------|
+| `io.github.ykysnk.utils`            | `Utils` (logging, assertions), `BasicEditorComponent` |
+| `io.github.ykysnk.utils.Editor`     | `BasicEditor`, the GUI helpers and the UPM client     |
+| `io.github.ykysnk.utils.Extensions` | Small extension methods used by the other packages    |
 
 ## Updating
 

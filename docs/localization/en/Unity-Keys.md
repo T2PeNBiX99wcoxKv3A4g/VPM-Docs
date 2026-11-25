@@ -25,11 +25,11 @@ asset; other languages do not need it, because the lookup falls back to English 
 If no asset has the key, `S()` returns the key itself and `L10n.Tr("unity:label.position")` cannot translate that
 either - the label shows `unity:label.position`. The package warns in the console in three cases:
 
-| Situation | Warning |
-| --- | --- |
+| Situation                                            | Warning                                                      |
+|------------------------------------------------------|--------------------------------------------------------------|
 | The key only exists in a language other than `en-US` | declared in `ja-JP.asset` but missing from the `en-US` asset |
-| No asset has the key at all | has no entry, so the label shows the raw key |
-| The `en-US` entry has an empty text | empty translation in the `en-US` asset |
+| No asset has the key at all                          | has no entry, so the label shows the raw key                 |
+| The `en-US` entry has an empty text                  | empty translation in the `en-US` asset                       |
 
 Each key is reported once, and `Tools > Localization > Reload Localizations` re-checks after you fix it.
 

@@ -1,6 +1,7 @@
 # 安裝
 
-用 ALCOM、VPM CLI，或把儲存庫加入專案來安裝 `io.github.ykysnk.yky-toolkit`。套件相依於 `io.github.ykysnk.utils` 與 `io.github.ykysnk.localization`，VPM 會一併安裝。
+用 ALCOM、VPM CLI，或把儲存庫加入專案來安裝 `io.github.ykysnk.yky-toolkit`。套件相依於 `io.github.ykysnk.utils` 與
+`io.github.ykysnk.localization`，VPM 會一併安裝。
 
 ## 安裝之後
 
