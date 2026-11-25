@@ -8,6 +8,7 @@ export const site = {
     "languages": [
         "en",
         "ja",
+        "zh-CN",
         "zh-TW"
     ],
     "defaultLanguage": "en",

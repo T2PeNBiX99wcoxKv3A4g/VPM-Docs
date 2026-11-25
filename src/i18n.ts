@@ -1,11 +1,13 @@
 import en from "./i18n/en.json";
 import ja from "./i18n/ja.json";
+import zhCN from "./i18n/zh-CN.json";
 import zhTW from "./i18n/zh-TW.json";
 
 // Must match the languages the packages ship translations for, so the site and the editor offer the same set.
 const copy: Record<string, Record<string, string>> = {
     en,
     ja,
+    "zh-CN": zhCN,
     "zh-TW": zhTW,
 };
 
@@ -14,6 +16,7 @@ export type Language = {id: string; label: string};
 export const languages: Language[] = [
     {id: "en", label: "English"},
     {id: "ja", label: "日本語"},
+    {id: "zh-CN", label: "简体中文"},
     {id: "zh-TW", label: "繁體中文"},
 ];
 

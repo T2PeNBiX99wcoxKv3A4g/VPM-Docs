@@ -24,5 +24,8 @@
   "project.yky-toolkit.tagline": "套件管理、匯入追蹤與 Unity 資源監控等編輯器視窗。",
   "footer.source": "原始碼",
   "footer.license": "MIT 授權。",
-  "footer.note": "由 ykysnk 維護的 VPM 套件文件。"
+  "footer.note": "由 ykysnk 維護的 VPM 套件文件。",
+  "search.placeholder": "搜尋文件",
+  "search.clear": "清除搜尋",
+  "search.noResults": "沒有符合的頁面"
 }

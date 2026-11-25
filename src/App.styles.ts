@@ -1,5 +1,6 @@
-import { css, styled } from "styled-components";
+import { css, keyframes, styled } from "styled-components";
 
+import closeIcon from "./icons/close.svg";
 import docsIcon from "./icons/docs.svg";
 import githubIcon from "./icons/github.svg";
 import homeIcon from "./icons/home.svg";
@@ -7,10 +8,12 @@ import languageIcon from "./icons/language.svg";
 import menuIcon from "./icons/menu.svg";
 import packageIcon from "./icons/package.svg";
 import releasesIcon from "./icons/releases.svg";
+import searchIcon from "./icons/search.svg";
 import { mobile } from "./styles/media";
 
 /** Every icon file, keyed by the name used at the call site. */
 const glyphs = {
+    close: closeIcon,
     docs: docsIcon,
     github: githubIcon,
     home: homeIcon,
@@ -18,7 +21,30 @@ const glyphs = {
     menu: menuIcon,
     package: packageIcon,
     releases: releasesIcon,
+    search: searchIcon,
 };
+
+/* --- motion -------------------------------------------------------------- */
+
+const fadeIn = keyframes`
+    from {
+        opacity: 0;
+    }
+`;
+
+const fadeUp = keyframes`
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+`;
+
+const slideIn = keyframes`
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+`;
 
 /**
  * Inline icon. The file stays a real .svg asset and is used as a mask, so the icon takes the colour of the text
@@ -65,25 +91,189 @@ export const TopBar = styled.header`
     z-index: 20;
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    padding: 0.75rem 1.5rem;
+    gap: 1.25rem;
+    padding: 0.7rem 1.5rem;
     background: var(--topbar);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
+`;
+
+/** Reading progress, written to by a scroll handler (never re-rendered from React). */
+export const ScrollProgress = styled.div`
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+    transform-origin: 0 50%;
+    transform: scaleX(0);
+    pointer-events: none;
 `;
 
 export const Brand = styled.a`
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    flex: none;
     color: var(--text-strong);
     font-weight: 700;
     font-size: 1.05rem;
 
     &:hover {
         text-decoration: none;
+        color: var(--accent-strong);
     }
 `;
+
+/* --- search -------------------------------------------------------------- */
+
+export const SearchBox = styled.div`
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex: 0 1 17rem;
+    min-width: 0;
+    padding: 0.38rem 0.55rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-muted);
+    transition: border-color var(--duration-fast) var(--ease-out),
+        background var(--duration-fast) var(--ease-out),
+        box-shadow var(--duration-fast) var(--ease-out),
+        color var(--duration-fast) var(--ease-out);
+
+    &:focus-within {
+        border-color: var(--accent);
+        background: rgba(15, 23, 42, 0.92);
+        box-shadow: 0 0 0 3px rgba(76, 141, 255, 0.16);
+        color: var(--accent-strong);
+    }
+
+    @media ${mobile} {
+        order: 3;
+        flex: 1 1 100%;
+    }
+`;
+
+export const SearchInput = styled.input`
+    flex: 1;
+    min-width: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.88rem;
+    outline: none;
+
+    &::placeholder {
+        color: var(--text-muted);
+    }
+`;
+
+export const SearchClear = styled.button`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.1rem;
+    border: none;
+    border-radius: var(--radius-xs);
+    background: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color var(--duration-fast) var(--ease-out),
+        transform var(--duration) var(--ease-bounce);
+
+    &:hover {
+        color: var(--accent-strong);
+        transform: rotate(90deg);
+    }
+`;
+
+export const SearchResults = styled.div`
+    position: absolute;
+    top: calc(100% + 0.4rem);
+    left: 0;
+    width: max(100%, 22rem);
+    max-width: calc(100vw - 2rem);
+    z-index: 30;
+    padding: 0.3rem;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    background: rgba(11, 15, 25, 0.98);
+    box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.9);
+    animation: ${slideIn} var(--duration-fast) var(--ease-out) both;
+    overflow: hidden;
+`;
+
+export const SearchResult = styled.button<{ $active?: boolean }>`
+    display: block;
+    width: 100%;
+    padding: 0.45rem 0.5rem;
+    border: none;
+    border-left: 2px solid transparent;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--text);
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: background var(--duration-fast) var(--ease-out),
+        border-color var(--duration-fast) var(--ease-out);
+
+    &:hover {
+        background: var(--surface);
+    }
+
+    ${props =>
+        props.$active &&
+        css`
+            background: var(--surface);
+            border-left-color: var(--accent);
+        `}
+`;
+
+export const SearchResultTitle = styled.span`
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-strong);
+`;
+
+export const SearchResultProject = styled.span`
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--text-muted);
+`;
+
+export const SearchResultSnippet = styled.span`
+    display: block;
+    margin-top: 0.15rem;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+
+    mark {
+        padding: 0 0.1rem;
+        border-radius: 2px;
+        background: rgba(76, 141, 255, 0.28);
+        color: var(--text-strong);
+    }
+`;
+
+export const SearchEmpty = styled.p`
+    margin: 0;
+    padding: 0.6rem 0.5rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+`;
+
+/* --- controls ------------------------------------------------------------ */
 
 export const TopNav = styled.nav`
     display: flex;
@@ -100,9 +290,11 @@ export const TopNavLink = styled.a`
     align-items: center;
     gap: 0.4rem;
     color: var(--text);
+    transition: color var(--duration-fast) var(--ease-out);
 
     &:hover {
         color: var(--accent-strong);
+        text-decoration: none;
     }
 `;
 
@@ -118,6 +310,11 @@ export const LanguageLabel = styled.label`
     align-items: center;
     gap: 0.4rem;
     color: var(--text-muted);
+    transition: color var(--duration-fast) var(--ease-out);
+
+    &:focus-within {
+        color: var(--accent-strong);
+    }
 `;
 
 export const LanguageSelect = styled.select`
@@ -127,6 +324,32 @@ export const LanguageSelect = styled.select`
     background: var(--surface);
     color: var(--text);
     font-size: 0.85rem;
+    cursor: pointer;
+    transition: border-color var(--duration-fast) var(--ease-out),
+        background var(--duration-fast) var(--ease-out),
+        box-shadow var(--duration-fast) var(--ease-out);
+
+    &:hover {
+        border-color: var(--border-strong);
+        background: rgba(30, 41, 59, 0.8);
+    }
+
+    &:focus-visible {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(76, 141, 255, 0.2);
+    }
+
+    @media ${mobile} {
+        max-width: 7.5rem;
+    }
+`;
+
+/** The word "Menu" is dropped on narrow screens, where only the icon fits. */
+export const NavToggleLabel = styled.span`
+    @media ${mobile} {
+        display: none;
+    }
 `;
 
 export const NavToggle = styled.button`
@@ -140,9 +363,23 @@ export const NavToggle = styled.button`
     color: var(--text);
     font-size: 0.85rem;
     cursor: pointer;
+    transition: transform var(--duration-fast) var(--ease-bounce),
+        border-color var(--duration-fast) var(--ease-out),
+        background var(--duration-fast) var(--ease-out);
+
+    &:hover {
+        transform: translateY(-1px);
+        border-color: var(--border-strong);
+        background: rgba(30, 41, 59, 0.8);
+    }
+
+    &:active {
+        transform: scale(0.96);
+    }
 
     @media ${mobile} {
         display: inline-flex;
+        padding: 0.35rem 0.45rem;
     }
 `;
 
@@ -151,10 +388,10 @@ export const NavToggle = styled.button`
 export const Layout = styled.div`
     flex: 1;
     display: grid;
-    grid-template-columns: 16rem minmax(0, 1fr);
+    grid-template-columns: 17rem minmax(0, 1fr);
     gap: 2rem;
     width: 100%;
-    max-width: 78rem;
+    max-width: 82rem;
     margin: 0 auto;
     padding: 2rem 1.5rem 3rem;
 
@@ -169,8 +406,11 @@ export const Sidebar = styled.aside<{ $open?: boolean }>`
     top: 4.5rem;
     align-self: start;
     max-height: calc(100vh - 6rem);
+    overflow-x: hidden;
     overflow-y: auto;
+    padding-right: 2px;
     font-size: 0.9rem;
+    animation: ${fadeIn} var(--duration-slow) var(--ease-out) both;
 
     @media ${mobile} {
         display: none;
@@ -181,6 +421,7 @@ export const Sidebar = styled.aside<{ $open?: boolean }>`
             props.$open &&
             css`
                 display: block;
+                animation: ${slideIn} var(--duration) var(--ease-out) both;
             `}
     }
 `;
@@ -195,10 +436,15 @@ export const NavHome = styled.a<{ $active?: boolean }>`
     border-left: 2px solid transparent;
     color: var(--text);
     font-weight: 600;
+    transition: background var(--duration-fast) var(--ease-out),
+        border-color var(--duration-fast) var(--ease-out),
+        color var(--duration-fast) var(--ease-out),
+        transform var(--duration-fast) var(--ease-out);
 
     &:hover {
         background: var(--surface);
         text-decoration: none;
+        transform: translateX(2px);
     }
 
     ${props =>
@@ -210,6 +456,103 @@ export const NavHome = styled.a<{ $active?: boolean }>`
         `}
 `;
 
+/* --- sidebar: packages as topics ----------------------------------------- */
+
+export const NavProjectsLabel = styled.h2`
+    margin: 0 0 0.5rem;
+    padding: 0 0.55rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+`;
+
+export const NavProjectBlock = styled.section`
+    animation: ${fadeUp} var(--duration-slow) var(--ease-out) both;
+
+    & + & {
+        margin-top: 0.2rem;
+    }
+`;
+
+export const NavProjectLink = styled.a<{ $active?: boolean }>`
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.55rem;
+    border-radius: var(--radius-sm);
+    border-left: 2px solid transparent;
+    color: var(--text);
+    transition: background var(--duration-fast) var(--ease-out),
+        border-color var(--duration-fast) var(--ease-out),
+        color var(--duration-fast) var(--ease-out),
+        transform var(--duration-fast) var(--ease-out);
+
+    &:hover {
+        background: var(--surface);
+        text-decoration: none;
+        transform: translateX(2px);
+    }
+
+    ${props =>
+        props.$active &&
+        css`
+            border-left-color: var(--accent);
+            background: rgba(76, 141, 255, 0.1);
+            color: var(--accent-strong);
+        `}
+`;
+
+export const NavProjectName = styled.span`
+    display: flex;
+    flex-direction: column;
+    gap: 0.05rem;
+    line-height: 1.25;
+    font-weight: 700;
+    font-size: 0.94rem;
+`;
+
+export const NavProjectId = styled.span`
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    word-break: break-all;
+`;
+
+/** The pages of the current package, indented under its header. */
+export const NavSub = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    margin: 0.2rem 0 0.9rem 0.85rem;
+    padding-left: 0.65rem;
+    border-left: 1px solid var(--border);
+`;
+
+export const NavSubGroup = styled.div`
+    h3 {
+        margin: 0 0 0.3rem;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        margin: 0.1rem 0;
+    }
+`;
+
+/** Kept for callers that group pages outside a package block. */
 export const NavGroup = styled.section`
     & + & {
         margin-top: 1.6rem;
@@ -243,10 +586,15 @@ export const NavLink = styled.a<{ $active?: boolean }>`
     border-radius: var(--radius-sm);
     border-left: 2px solid transparent;
     color: var(--text);
+    transition: background var(--duration-fast) var(--ease-out),
+        border-color var(--duration-fast) var(--ease-out),
+        color var(--duration-fast) var(--ease-out),
+        transform var(--duration-fast) var(--ease-out);
 
     &:hover {
         background: var(--surface);
         text-decoration: none;
+        transform: translateX(2px);
     }
 
     ${props =>
@@ -262,6 +610,7 @@ export const NavLink = styled.a<{ $active?: boolean }>`
 export const Content = styled.main`
     min-width: 0;
     line-height: 1.7;
+    animation: ${fadeIn} var(--duration-slow) var(--ease-out) both;
 `;
 
 /* --- hero ---------------------------------------------------------------- */
@@ -311,11 +660,15 @@ export const ProjectCard = styled.a`
     border-radius: var(--radius-xl);
     background: var(--surface);
     color: var(--text);
+    transition: border-color var(--duration-fast) var(--ease-out),
+        background var(--duration-fast) var(--ease-out),
+        transform var(--duration-fast) var(--ease-out);
 
     &:hover {
         text-decoration: none;
         border-color: var(--border-strong);
         background: rgba(76, 141, 255, 0.08);
+        transform: translateY(-2px);
     }
 `;
 
@@ -374,6 +727,12 @@ export const ProjectHeadMeta = styled.div`
     margin-top: 0.6rem;
     font-size: 0.85rem;
     color: var(--text-muted);
+
+    a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+    }
 `;
 
 /* --- notices ------------------------------------------------------------- */
