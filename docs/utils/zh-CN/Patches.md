@@ -95,5 +95,5 @@ foreach (var context in instructions.WithContext())
 ## 说明
 
 - 补丁仅限编辑器使用；玩家构建中不会应用任何补丁。
-- 加载器可以用 `AccessTools.TypeByName` 解析可选依赖，并在其缺失时干脆不打补丁；YKY Toolkit 对 `jp.lilxyzw.editortoolbox` 就是这么做的。
+- 可选依赖用 `ReflectionUtils.FindType` 解析；找不到时返回 `null` 而不是抛异常，因此插件不存在时直接跳过补丁即可。
 - 每个程序集一次 `PatchAll` 就够了：即使其中有多个加载器，`PatchCore` 每个程序集也只调用一次，因此 `[HarmonyPatch]` 类永远不会被应用两次。

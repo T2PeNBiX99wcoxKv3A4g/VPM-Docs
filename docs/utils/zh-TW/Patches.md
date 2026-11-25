@@ -95,5 +95,5 @@ foreach (var context in instructions.WithContext())
 ## 備註
 
 - 修補只在編輯器中生效；玩家組建中不會套用任何修補。
-- 載入器可以用 `AccessTools.TypeByName` 解析選用相依性，並在缺少時乾脆不修補，YKY Toolkit 對 `jp.lilxyzw.editortoolbox` 就是這麼做。
+- 選用依賴用 `ReflectionUtils.FindType` 解析；找不到時回傳 `null` 而不是擲回例外，因此外掛不存在時直接略過修補即可。
 - 每個程式集一次 `PatchAll` 就足夠：即使同一個程式集中有多個載入器，`PatchCore` 也只會呼叫一次，因此 `[HarmonyPatch]` 類別永遠不會被套用兩次。

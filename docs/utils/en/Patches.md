@@ -106,7 +106,7 @@ foreach (var context in instructions.WithContext())
 ## Notes
 
 - Patches are editor-only; nothing is applied in a player build.
-- The loader can resolve optional dependencies with `AccessTools.TypeByName` and simply not patch when they are
-  missing, which is what the YKY Toolkit does for `jp.lilxyzw.editortoolbox`.
+- Resolve an optional dependency with `ReflectionUtils.FindType`; it returns `null` instead of throwing, so the
+  loader simply skips the patch when the plugin is missing.
 - One `PatchAll` per assembly is enough: `PatchCore` calls it once per assembly even when several loaders live in
   it, so `[HarmonyPatch]` classes are never applied twice.

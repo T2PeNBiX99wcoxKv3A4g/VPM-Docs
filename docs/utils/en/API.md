@@ -1236,6 +1236,10 @@ Draws the label followed by the color swatch. A change is written to both the `c
 Reflection helpers that log instead of throwing: a missing member produces `null` / `default`, which makes them safe
 for probing an optional dependency.
 
+Lookups are cached per type and name, including confirmed misses, so repeated calls cost a dictionary lookup
+instead of a reflection walk. `FindType` caches only names that resolved, because an assembly can be loaded
+later.
+
 ### Instantiate<T>(Type type)
 
 ```csharp

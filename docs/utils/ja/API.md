@@ -1222,6 +1222,9 @@ public override void OnGUI(Rect position, SerializedProperty property, GUIConten
 例外の代わりに警告をログに出すリフレクションヘルパーです。見つからないメンバーは `null` / `default` を返すので、
 オプション依存の存在確認にそのまま使えます。
 
+検索結果は型と名前ごとにキャッシュされ、見つからなかった場合も保持されます。そのため繰り返し呼んでも辞書引きだけで
+済みます。`FindType` は解決できた名前だけをキャッシュします（アセンブリは後から読み込まれることがあるため）。
+
 ### Instantiate<T>(Type type)
 
 ```csharp

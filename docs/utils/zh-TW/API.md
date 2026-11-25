@@ -1161,6 +1161,9 @@ public override void OnGUI(Rect position, SerializedProperty property, GUIConten
 
 以記錄代替擲回例外的反射輔助方法：找不到的成員會回傳 `null` / `default`，因此可以直接用來探測選用依賴是否存在。
 
+查詢結果依型別與名稱快取，找不到的結果也會保留，因此重複呼叫只需一次字典查詢。`FindType` 只快取已解析的名稱，
+因為組件可能稍後才載入。
+
 ### Instantiate<T>(Type type)
 
 ```csharp

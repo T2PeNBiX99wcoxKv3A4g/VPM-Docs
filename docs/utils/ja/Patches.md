@@ -105,7 +105,7 @@ foreach (var context in instructions.WithContext())
 ## 注意
 
 - パッチはエディタ専用です。プレイヤービルドでは何も適用されません。
-- ローダーは `AccessTools.TypeByName` で任意の依存先を解決し、見つからない場合は単にパッチを当てないようにできます。YKY Toolkit が
-  `jp.lilxyzw.editortoolbox` に対して行っているのがこれです。
+- オプション依存は `ReflectionUtils.FindType` で解決します。見つからなければ例外ではなく `null` が返るため、
+  プラグインが無いときはパッチを当てずに済みます。
 - アセンブリごとに `PatchAll` は 1 回で十分です。`PatchCore` は複数のローダーが同居していてもアセンブリごとに 1 回だけ呼ぶため、
   `[HarmonyPatch]` クラスが二重に適用されることはありません。

@@ -1200,6 +1200,9 @@ public override void OnGUI(Rect position, SerializedProperty property, GUIConten
 
 用日志代替抛异常反射辅助方法：找不到的成员返回 `null` / `default`，因此可以直接用来探测可选依赖是否存在。
 
+查询结果按类型和名称缓存，找不到的结果也会保留，因此重复调用只需一次字典查找。`FindType` 只缓存已解析的名称，
+因为程序集可能稍后才加载。
+
 ### Instantiate<T>(Type type)
 
 ```csharp
