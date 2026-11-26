@@ -1155,8 +1155,9 @@ public static Task RemoveAsync(string[] packages, CancellationToken token)
 public static Task<string[]> UpdateAsync()
 ```
 
-インストール済みの各パッケージをレジストリと照合し、バージョンが異なるものを一覧します。`name@version` 形式の要素を返し、
-古いものがなければ空です。
+レジストリからインストールされたパッケージだけを照合し、新しいバージョンがあるものを一覧します。組み込み・埋め込み・
+ローカルのパッケージはレジストリに更新がないため対象外です。検索は並列で実行し、5 秒を超えた検索は打ち切ります。
+`name@version` 形式の要素を返し、古いものがなければ空です。
 
 ### UpdateAsync(CancellationToken token)
 
@@ -1164,8 +1165,8 @@ public static Task<string[]> UpdateAsync()
 public static Task<string[]> UpdateAsync(CancellationToken token)
 ```
 
-引数なしのオーバーロードと同じです。トークンはパッケージの合間にチェックを止め、進行中のリクエストは中断されません。失敗前に
-見つかった要素はそのまま返されます。
+引数なしのオーバーロードと同じです。トークンはチェックを停止し、実行中の検索は中断されません。失敗前に見つかった要素は
+そのまま返されます。
 
 ### Upgrade()
 

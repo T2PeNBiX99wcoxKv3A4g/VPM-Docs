@@ -1112,7 +1112,8 @@ public static Task RemoveAsync(string[] packages, CancellationToken token)
 public static Task<string[]> UpdateAsync()
 ```
 
-把每個已安裝的套件與登錄（registry）比對，並列出版本不同的項目。傳回 `name@version` 形式的項目，沒有任何項目過期時為空陣列。
+只檢查從登錄（registry）安裝的套件，並列出版本較新的項目。內建、內嵌與本機套件沒有登錄更新，因此會略過。搜尋會平行執行，
+單一搜尋超過 5 秒會被放棄。傳回 `name@version` 形式的項目，沒有任何項目過期時為空陣列。
 
 ### UpdateAsync(CancellationToken token)
 
@@ -1120,7 +1121,7 @@ public static Task<string[]> UpdateAsync()
 public static Task<string[]> UpdateAsync(CancellationToken token)
 ```
 
-與無參數多載相同；權杖會在套件之間停止檢查，進行中的要求不會被中止。失敗前找到的項目仍會傳回。
+與無參數多載相同；權杖會停止檢查，進行中的搜尋不會被中止。失敗前找到的項目仍會傳回。
 
 ### Upgrade()
 

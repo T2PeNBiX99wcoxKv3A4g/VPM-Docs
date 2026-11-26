@@ -1160,8 +1160,9 @@ stops the operation without throwing.
 public static Task<string[]> UpdateAsync()
 ```
 
-Checks every installed package against the registry and lists the ones with a different version. Returns entries of the
-form `name@version`, empty when nothing is outdated.
+Checks the installed packages that come from a registry and lists the ones with a newer version. Built-in, embedded and
+local packages are skipped because they have no registry update. The searches run in parallel, and one that takes
+longer than five seconds is skipped. Returns entries of the form `name@version`, empty when nothing is outdated.
 
 ### UpdateAsync(CancellationToken token)
 
@@ -1169,8 +1170,8 @@ form `name@version`, empty when nothing is outdated.
 public static Task<string[]> UpdateAsync(CancellationToken token)
 ```
 
-Same as the parameterless overload; the token stops the check between packages, and the in-flight request is not
-aborted. Entries found before a failure are still returned.
+Same as the parameterless overload; the token stops the check, and searches already running are not aborted. Entries
+found before a failure are still returned.
 
 ### Upgrade()
 

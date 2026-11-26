@@ -1128,7 +1128,8 @@ public static Task RemoveAsync(string[] packages, CancellationToken token)
 public static Task<string[]> UpdateAsync()
 ```
 
-对照注册表检查每个已安装的包，并列出版本不同的那些。返回形如 `name@version` 的条目，没有任何过期项时为空。
+只检查从注册表安装的包，并列出版本较新的那些。内置、嵌入和本地包没有注册表更新，因此会跳过。搜索会并行执行，
+单个搜索超过 5 秒会被放弃。返回形如 `name@version` 的条目，没有任何过期项时为空。
 
 ### UpdateAsync(CancellationToken token)
 
@@ -1136,7 +1137,7 @@ public static Task<string[]> UpdateAsync()
 public static Task<string[]> UpdateAsync(CancellationToken token)
 ```
 
-与无参数重载相同；标记会在包与包之间停止检查，进行中的请求不会被中止。失败之前找到的条目仍会被返回。
+与无参数重载相同；标记会停止检查，正在进行的搜索不会被中止。失败之前找到的条目仍会被返回。
 
 ### Upgrade()
 
