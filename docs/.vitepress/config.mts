@@ -145,7 +145,10 @@ export default defineConfig({
     // "Last updated" comes from the commit that touched the page; the deploy workflow checks out the full history.
     lastUpdated: true,
     cleanUrls: false,
-    head: [["link", {rel: "icon", type: "image/svg+xml", href: `${base}favicon.svg`}]],
+    head: [
+        ["link", {rel: "icon", type: "image/svg+xml", href: `${base}logo.svg`}],
+        ["link", {rel: "icon", sizes: "any", href: `${base}favicon.ico`}],
+    ],
     vite: {
         plugins: [defaultLanguageRedirects()],
     },

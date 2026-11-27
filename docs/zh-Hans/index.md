@@ -1,6 +1,9 @@
 ---
 layout: home
 hero:
+  image:
+    src: "/logo.svg"
+    alt: "VPM Documentation"
   name: "VPM Documentation"
   tagline: "选择一个包，查看安装步骤、编辑器用法与 API。"
   actions:

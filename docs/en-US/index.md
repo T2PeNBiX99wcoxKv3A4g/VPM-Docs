@@ -1,6 +1,9 @@
 ---
 layout: home
 hero:
+  image:
+    src: "/logo.svg"
+    alt: "VPM Documentation"
   name: "VPM Documentation"
   tagline: "Pick a package to read its setup steps, editor usage and API."
   actions:

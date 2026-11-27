@@ -1,6 +1,9 @@
 ---
 layout: home
 hero:
+  image:
+    src: "/logo.svg"
+    alt: "VPM Documentation"
   name: "VPM Documentation"
   tagline: "パッケージを選ぶと、導入方法・エディタでの使い方・API が読めます。"
   actions:
