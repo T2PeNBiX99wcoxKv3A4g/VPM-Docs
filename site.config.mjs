@@ -25,7 +25,7 @@ export const site = {
             groups: [
                 {id: "starting", docs: ["Overview", "Installation"]},
                 {id: "guide", docs: ["Inspector", "Unity-Keys"]},
-                {id: "reference", docs: ["API"]},
+                {id: "reference", docs: ["API", "API-Assets", "API-Lookup", "API-Editor", "API-Namespaces", "API-Unity-Keys"]},
                 {id: "help", docs: ["Troubleshooting"]},
             ],
         },
@@ -38,7 +38,10 @@ export const site = {
             groups: [
                 {id: "starting", docs: ["Overview", "Installation"]},
                 {id: "guide", docs: ["Editor-Helpers", "Patches"]},
-                {id: "reference", docs: ["API"]},
+                {
+                    id: "reference",
+                    docs: ["API", "API-Runtime", "API-Editor", "API-GUI", "API-Menus", "API-Packages", "API-Reflection", "API-Type-Index"],
+                },
             ],
         },
         {

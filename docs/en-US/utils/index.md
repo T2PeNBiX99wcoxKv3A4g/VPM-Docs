@@ -15,3 +15,10 @@
 ## Reference
 
 - [API](./API.md)
+- [Runtime](./API-Runtime.md)
+- [Inspectors and drawers](./API-Editor.md)
+- [GUI helpers](./API-GUI.md)
+- [Menus and extensions](./API-Menus.md)
+- [Package handling](./API-Packages.md)
+- [Reflection](./API-Reflection.md)
+- [Type index](./API-Type-Index.md)
