@@ -9,6 +9,20 @@ export const labels = {
     "en-US": {
         language: "English",
         nav: {packages: "Packages", github: "GitHub"},
+        home: {
+            tagline: "Pick a package to read its setup steps, editor usage and API.",
+            action: "Documentation",
+            features: {
+                localization:
+                    "Editor localization for VPM packages: translation assets, a language picker and UI Toolkit helpers.",
+                utils: "Shared editor helpers used by the other packages.",
+                "yky-toolkit":
+                    "Editor windows for package management, import tracking and the Unity resource monitor.",
+            },
+            notes: {
+                utils: "Every public type has its own page; the page title is the type name, so the sidebar is the type list.",
+            },
+        },
         group: {
             starting: "Getting started",
             guide: "Guide",
@@ -40,6 +54,19 @@ export const labels = {
     "ja-JP": {
         language: "日本語",
         nav: {packages: "パッケージ", github: "GitHub"},
+        home: {
+            tagline: "パッケージを選ぶと、導入方法・エディタでの使い方・API が読めます。",
+            action: "ドキュメント",
+            features: {
+                localization:
+                    "VPM パッケージ向けのエディタ localization。翻訳アセット、言語選択、UI Toolkit ヘルパー。",
+                utils: "他のパッケージが使う共有エディタヘルパー。",
+                "yky-toolkit": "パッケージ管理・インポート追跡・Unity リソースモニターのエディタウィンドウ。",
+            },
+            notes: {
+                utils: "公開型ごとに 1 ページあります。ページのタイトルが型名なので、サイドバーがそのまま型一覧になります。",
+            },
+        },
         group: {
             starting: "はじめに",
             guide: "ガイド",
@@ -78,6 +105,18 @@ export const labels = {
     "zh-Hans": {
         language: "简体中文",
         nav: {packages: "包", github: "GitHub"},
+        home: {
+            tagline: "选择一个包，查看安装步骤、编辑器用法与 API。",
+            action: "文档",
+            features: {
+                localization: "给 VPM 包用的编辑器本地化：翻译资源、语言选择器与 UI Toolkit 辅助方法。",
+                utils: "其他包共用的编辑器工具。",
+                "yky-toolkit": "包管理、导入追踪与 Unity 资源监控等编辑器窗口。",
+            },
+            notes: {
+                utils: "每个公开类型各自一页，页面标题就是类名，因此侧边栏等同于类型清单。",
+            },
+        },
         group: {
             starting: "开始使用",
             guide: "指南",
@@ -116,6 +155,18 @@ export const labels = {
     "zh-Hant": {
         language: "繁體中文",
         nav: {packages: "套件", github: "GitHub"},
+        home: {
+            tagline: "選擇一個套件，查看安裝步驟、編輯器用法與 API。",
+            action: "文件",
+            features: {
+                localization: "給 VPM 套件用的編輯器在地化：翻譯資產、語言選擇器與 UI Toolkit 輔助方法。",
+                utils: "其他套件共用的編輯器工具。",
+                "yky-toolkit": "套件管理、匯入追蹤與 Unity 資源監控等編輯器視窗。",
+            },
+            notes: {
+                utils: "每個公開型別各自一頁，頁面標題就是類別名稱，因此側邊欄等同型別清單。",
+            },
+        },
         group: {
             starting: "開始使用",
             guide: "指南",
