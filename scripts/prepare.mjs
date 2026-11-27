@@ -47,6 +47,7 @@ function rootRedirect() {
 
     return `---
 layout: false
+lastUpdated: false
 head:
   - - meta
     - http-equiv: refresh
@@ -74,6 +75,7 @@ function home(language) {
 
     return `---
 layout: home
+lastUpdated: false
 hero:
   image:
     src: "/logo.svg"
@@ -96,6 +98,11 @@ ${features}
 /** The front page of a package: its own pages, in the order and groups the sidebar uses. */
 function packageIndex(language, project) {
     const lines = [
+        "---",
+        // These pages are generated, so git has no commit date for them.
+        "lastUpdated: false",
+        "---",
+        "",
         `# ${project.name}`,
         "",
         `\`${project.package}\` · [GitHub](${project.repository}) · [Releases](${project.releases})`,
