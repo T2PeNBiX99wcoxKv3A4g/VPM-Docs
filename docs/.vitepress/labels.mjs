@@ -3,12 +3,14 @@
 // `theme` holds the strings of the default theme (outline, footer, search, buttons); VitePress does not translate
 // them by itself, so every language carries its own copy here. English is the theme's default and only overrides
 // the strings whose wording this site changes.
+const copyright = "Copyright © 2025-present yukiyosanako / ゆきよさなこ";
+
 export const labels = {
     en: {
         language: "English",
         nav: {packages: "Packages", github: "GitHub"},
         group: {starting: "Getting started", guide: "Guide", reference: "Reference", help: "Help"},
-        footer: {message: "Documentation for the VPM packages.", copyright: "MIT licensed."},
+        footer: {message: "Released under the MIT License.", copyright},
         theme: {
             search: {
                 button: {buttonText: "Search", buttonAriaLabel: "Search"},
@@ -24,7 +26,7 @@ export const labels = {
         language: "日本語",
         nav: {packages: "パッケージ", github: "GitHub"},
         group: {starting: "はじめに", guide: "ガイド", reference: "リファレンス", help: "ヘルプ"},
-        footer: {message: "VPM パッケージのドキュメント。", copyright: "MIT ライセンス。"},
+        footer: {message: "MIT ライセンスで公開しています。", copyright},
         theme: {
             outline: {label: "このページ"},
             docFooter: {prev: "前へ", next: "次へ"},
@@ -47,7 +49,7 @@ export const labels = {
         language: "简体中文",
         nav: {packages: "包", github: "GitHub"},
         group: {starting: "开始使用", guide: "指南", reference: "参考", help: "疑难解答"},
-        footer: {message: "VPM 包文档。", copyright: "MIT 授权。"},
+        footer: {message: "以 MIT 授权发布。", copyright},
         theme: {
             outline: {label: "本页内容"},
             docFooter: {prev: "上一页", next: "下一页"},
@@ -70,7 +72,7 @@ export const labels = {
         language: "繁體中文",
         nav: {packages: "套件", github: "GitHub"},
         group: {starting: "開始使用", guide: "指南", reference: "參考", help: "疑難排解"},
-        footer: {message: "VPM 套件文件。", copyright: "MIT 授權。"},
+        footer: {message: "以 MIT 授權發布。", copyright},
         theme: {
             outline: {label: "本頁內容"},
             docFooter: {prev: "上一頁", next: "下一頁"},
