@@ -153,6 +153,7 @@ export default defineConfig({
         plugins: [defaultLanguageRedirects()],
     },
     themeConfig: {
+        logo: {src: "/logo.svg", alt: "VPM Documentation", width: 28, height: 28},
         ...languageConfig(defaultLanguage),
     },
     locales: Object.fromEntries(
