@@ -20,6 +20,8 @@ export const labels = {
                     "Editor windows for package management, import tracking and the Unity resource monitor.",
             },
             notes: {
+                localization:
+                    "`BasicLocalization` and `BasicTranslate` live in `io.github.ykysnk.Localization`; every other page is editor-only (`io.github.ykysnk.Localization.Editor`).",
                 utils: "Every public type has its own page; the page title is the type name, so the sidebar is the type list.",
             },
         },
@@ -36,6 +38,7 @@ export const labels = {
             "api-packages": "API · Package handling",
             "api-harmony": "API · Harmony utilities",
             "api-patches": "API · Patches",
+            "api-io": "API · Import and export",
             reference: "Reference",
             help: "Help",
         },
@@ -64,6 +67,8 @@ export const labels = {
                 "yky-toolkit": "パッケージ管理・インポート追跡・Unity リソースモニターのエディタウィンドウ。",
             },
             notes: {
+                localization:
+                    "`BasicLocalization` と `BasicTranslate` は `io.github.ykysnk.Localization`、それ以外のページはエディター専用（`io.github.ykysnk.Localization.Editor`）です。",
                 utils: "公開型ごとに 1 ページあります。ページのタイトルが型名なので、サイドバーがそのまま型一覧になります。",
             },
         },
@@ -80,6 +85,7 @@ export const labels = {
             "api-packages": "API · パッケージ操作",
             "api-harmony": "API · Harmony ユーティリティ",
             "api-patches": "API · パッチ",
+            "api-io": "API · インポートとエクスポート",
             reference: "リファレンス",
             help: "ヘルプ",
         },
@@ -114,6 +120,8 @@ export const labels = {
                 "yky-toolkit": "包管理、导入追踪与 Unity 资源监控等编辑器窗口。",
             },
             notes: {
+                localization:
+                    "`BasicLocalization` 与 `BasicTranslate` 位于 `io.github.ykysnk.Localization`，其余页面仅限编辑器（`io.github.ykysnk.Localization.Editor`）。",
                 utils: "每个公开类型各自一页，页面标题就是类名，因此侧边栏等同于类型清单。",
             },
         },
@@ -130,6 +138,7 @@ export const labels = {
             "api-packages": "API · 包处理",
             "api-harmony": "API · Harmony 工具",
             "api-patches": "API · 补丁",
+            "api-io": "API · 导入与导出",
             reference: "参考",
             help: "疑难解答",
         },
@@ -164,6 +173,8 @@ export const labels = {
                 "yky-toolkit": "套件管理、匯入追蹤與 Unity 資源監控等編輯器視窗。",
             },
             notes: {
+                localization:
+                    "`BasicLocalization` 與 `BasicTranslate` 位於 `io.github.ykysnk.Localization`，其餘頁面僅限編輯器（`io.github.ykysnk.Localization.Editor`）。",
                 utils: "每個公開型別各自一頁，頁面標題就是類別名稱，因此側邊欄等同型別清單。",
             },
         },
@@ -180,6 +191,7 @@ export const labels = {
             "api-packages": "API · 套件處理",
             "api-harmony": "API · Harmony 工具",
             "api-patches": "API · 修補",
+            "api-io": "API · 匯入與匯出",
             reference: "參考",
             help: "疑難排解",
         },

@@ -25,7 +25,21 @@ export const site = {
             groups: [
                 {id: "starting", docs: ["Overview", "Installation"]},
                 {id: "guide", docs: ["Inspector", "Unity-Keys"]},
-                {id: "api", docs: ["API-Assets", "API-Lookup", "API-Editor", "API-Namespaces", "API-Unity-Keys"]},
+                {id: "api-runtime", docs: ["API-BasicLocalization", "API-BasicTranslate"]},
+                {id: "api-extensions", docs: ["API-LocalizationExtensions"]},
+                {
+                    id: "api-editor",
+                    docs: [
+                        "API-GlobalLocalization",
+                        "API-LocalizationHelper",
+                        "API-UpdateHelper",
+                        "API-LanguagePicker",
+                        "API-LocalizationPackageAttribute",
+                        "API-BasicLocalizationEditor",
+                        "API-BasicTranslateDrawer",
+                    ],
+                },
+                {id: "api-io", docs: ["API-LocalizationConverter", "API-TranslateClipboard"]},
                 {id: "help", docs: ["Troubleshooting"]},
             ],
         },
