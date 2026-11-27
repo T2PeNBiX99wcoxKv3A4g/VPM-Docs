@@ -17,5 +17,6 @@ every project. It ships no UI of its own.
 ## When to use it
 
 Add it as a dependency when a package needs the inspector base class, the GUI helpers, or the UPM client. It is a VPM
-dependency of [Localization](../localization/Overview.md) and [YKYToolKit](../yky-toolkit/Overview.md), so installing either
+dependency of [Localization](../localization/Overview.md) and [YKYToolKit](../yky-toolkit/Overview.md), so installing
+either
 of those brings it in automatically.

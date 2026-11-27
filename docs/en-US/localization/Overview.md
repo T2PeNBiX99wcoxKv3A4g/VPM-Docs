@@ -44,5 +44,6 @@ Nothing throws on a missing entry, so a half-translated package still shows read
 ## Unity's own strings
 
 Keys that start with `unity:` are not translated by this package. They hold the English text of a Unity editor string
-and are passed to `L10n.Tr`, so Unity translates them into the editor language. See [Unity-Keys](./Unity-Keys.md) for the
+and are passed to `L10n.Tr`, so Unity translates them into the editor language. See [Unity-Keys](./Unity-Keys.md) for
+the
 details.

@@ -4,13 +4,13 @@
 
 ## 維護
 
-| 選單                                                                              | 功能                                           |
-|-----------------------------------------------------------------------------------|------------------------------------------------|
-| Tools &gt; YKYToolkit &gt; Clear Shader Cache                                           | 刪除 Unity 已編譯的著色器快取。                |
-| Tools &gt; YKYToolkit &gt; Force Clear Temp Files                                       | 刪除專案的 `Temp` 資料夾（Unity 會重新建置）。 |
-| Tools &gt; YKYToolkit &gt; Clear Empty Folder                                           | 移除專案中的空資料夾。                         |
-| Assets &gt; YKYToolkit &gt; Asset Backup                                                | 把選取的資產複製到帶時間戳記的備份資料夾。     |
-| Assets &gt; YKYToolkit &gt; Asset GUID Copy                                             | 把選取資產的 GUID 複製到剪貼簿。               |
+| 選單                                                                                          | 功能                                           |
+|-----------------------------------------------------------------------------------------------|------------------------------------------------|
+| Tools &gt; YKYToolkit &gt; Clear Shader Cache                                                 | 刪除 Unity 已編譯的著色器快取。                |
+| Tools &gt; YKYToolkit &gt; Force Clear Temp Files                                             | 刪除專案的 `Temp` 資料夾（Unity 會重新建置）。 |
+| Tools &gt; YKYToolkit &gt; Clear Empty Folder                                                 | 移除專案中的空資料夾。                         |
+| Assets &gt; YKYToolkit &gt; Asset Backup                                                      | 把選取的資產複製到帶時間戳記的備份資料夾。     |
+| Assets &gt; YKYToolkit &gt; Asset GUID Copy                                                   | 把選取資產的 GUID 複製到剪貼簿。               |
 | Assets &gt; YKYToolkit &gt; Delete Selected / GameObject &gt; YKYToolkit &gt; Delete Selected | 刪除選取項目並記錄到刪除歷史。                 |
 
 ## 物件

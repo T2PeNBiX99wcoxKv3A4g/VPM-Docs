@@ -15,5 +15,6 @@
 
 ## 何時使用
 
-當套件需要檢視器基底類別、GUI 輔助工具或 UPM 用戶端時，就把它加入為相依套件。它是 [Localization](../localization/Overview.md)
+當套件需要檢視器基底類別、GUI 輔助工具或 UPM
+用戶端時，就把它加入為相依套件。它是 [Localization](../localization/Overview.md)
 與 [YKYToolKit](../yky-toolkit/Overview.md) 的 VPM 相依套件，因此安裝其中任一個都會自動帶入。

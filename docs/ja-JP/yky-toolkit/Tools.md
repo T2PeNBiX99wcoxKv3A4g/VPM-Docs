@@ -4,13 +4,13 @@
 
 ## メンテナンス
 
-| メニュー                                                                          | 内容                                                                       |
-|-----------------------------------------------------------------------------------|----------------------------------------------------------------------------|
-| Tools &gt; YKYToolkit &gt; Clear Shader Cache                                           | Unity のコンパイル済みシェーダーキャッシュを削除します。                   |
-| Tools &gt; YKYToolkit &gt; Force Clear Temp Files                                       | プロジェクトの `Temp` フォルダを削除します（Unity が再生成します）。       |
-| Tools &gt; YKYToolkit &gt; Clear Empty Folder                                           | プロジェクトから空フォルダを削除します。                                   |
-| Assets &gt; YKYToolkit &gt; Asset Backup                                                | 選択中のアセットをタイムスタンプ付きのバックアップフォルダにコピーします。 |
-| Assets &gt; YKYToolkit &gt; Asset GUID Copy                                             | 選択中のアセットの GUID をクリップボードにコピーします。                   |
+| メニュー                                                                                      | 内容                                                                       |
+|-----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| Tools &gt; YKYToolkit &gt; Clear Shader Cache                                                 | Unity のコンパイル済みシェーダーキャッシュを削除します。                   |
+| Tools &gt; YKYToolkit &gt; Force Clear Temp Files                                             | プロジェクトの `Temp` フォルダを削除します（Unity が再生成します）。       |
+| Tools &gt; YKYToolkit &gt; Clear Empty Folder                                                 | プロジェクトから空フォルダを削除します。                                   |
+| Assets &gt; YKYToolkit &gt; Asset Backup                                                      | 選択中のアセットをタイムスタンプ付きのバックアップフォルダにコピーします。 |
+| Assets &gt; YKYToolkit &gt; Asset GUID Copy                                                   | 選択中のアセットの GUID をクリップボードにコピーします。                   |
 | Assets &gt; YKYToolkit &gt; Delete Selected / GameObject &gt; YKYToolkit &gt; Delete Selected | 選択を削除し、削除履歴に記録します。                                       |
 
 ## オブジェクト

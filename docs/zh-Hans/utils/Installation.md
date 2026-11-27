@@ -4,7 +4,8 @@
 
 它自身没有 VPM 依赖。
 
-大多数项目不会直接安装它：[本地化](../localization/Installation.md) 和 [YKYToolKit](../yky-toolkit/Installation.md) 会声明它，由
+大多数项目不会直接安装它：[本地化](../localization/Installation.md) 和 [YKYToolKit](../yky-toolkit/Installation.md)
+会声明它，由
 VPM 为你解析。
 
 ## 命名空间

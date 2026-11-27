@@ -4,13 +4,13 @@
 
 ## 维护
 
-| 菜单                                                                              | 作用                                             |
-|-----------------------------------------------------------------------------------|--------------------------------------------------|
-| Tools &gt; YKYToolkit &gt; Clear Shader Cache                                           | 删除 Unity 已编译的着色器缓存。                  |
-| Tools &gt; YKYToolkit &gt; Force Clear Temp Files                                       | 删除项目的 `Temp` 文件夹（Unity 会重新构建它）。 |
-| Tools &gt; YKYToolkit &gt; Clear Empty Folder                                           | 从项目中移除空文件夹。                           |
-| Assets &gt; YKYToolkit &gt; Asset Backup                                                | 把选中的资源复制到一个带时间戳的备份文件夹。     |
-| Assets &gt; YKYToolkit &gt; Asset GUID Copy                                             | 把选中资源的 GUID 复制到剪贴板。                 |
+| 菜单                                                                                          | 作用                                             |
+|-----------------------------------------------------------------------------------------------|--------------------------------------------------|
+| Tools &gt; YKYToolkit &gt; Clear Shader Cache                                                 | 删除 Unity 已编译的着色器缓存。                  |
+| Tools &gt; YKYToolkit &gt; Force Clear Temp Files                                             | 删除项目的 `Temp` 文件夹（Unity 会重新构建它）。 |
+| Tools &gt; YKYToolkit &gt; Clear Empty Folder                                                 | 从项目中移除空文件夹。                           |
+| Assets &gt; YKYToolkit &gt; Asset Backup                                                      | 把选中的资源复制到一个带时间戳的备份文件夹。     |
+| Assets &gt; YKYToolkit &gt; Asset GUID Copy                                                   | 把选中资源的 GUID 复制到剪贴板。                 |
 | Assets &gt; YKYToolkit &gt; Delete Selected / GameObject &gt; YKYToolkit &gt; Delete Selected | 删除选中对象并记录到删除历史中。                 |
 
 ## 对象

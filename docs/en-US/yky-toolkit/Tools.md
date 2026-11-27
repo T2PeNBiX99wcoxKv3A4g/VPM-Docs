@@ -4,13 +4,13 @@ Small actions that are otherwise several menu levels away.
 
 ## Maintenance
 
-| Menu                                                                              | What it does                                                |
-|-----------------------------------------------------------------------------------|-------------------------------------------------------------|
-| Tools &gt; YKYToolkit &gt; Clear Shader Cache                                           | Deletes Unity's compiled shader cache.                      |
-| Tools &gt; YKYToolkit &gt; Force Clear Temp Files                                       | Deletes the project's `Temp` folder (Unity rebuilds it).    |
-| Tools &gt; YKYToolkit &gt; Clear Empty Folder                                           | Removes empty folders from the project.                     |
-| Assets &gt; YKYToolkit &gt; Asset Backup                                                | Copies the selected assets to a timestamped backup folder.  |
-| Assets &gt; YKYToolkit &gt; Asset GUID Copy                                             | Copies the GUID of the selected assets to the clipboard.    |
+| Menu                                                                                          | What it does                                                |
+|-----------------------------------------------------------------------------------------------|-------------------------------------------------------------|
+| Tools &gt; YKYToolkit &gt; Clear Shader Cache                                                 | Deletes Unity's compiled shader cache.                      |
+| Tools &gt; YKYToolkit &gt; Force Clear Temp Files                                             | Deletes the project's `Temp` folder (Unity rebuilds it).    |
+| Tools &gt; YKYToolkit &gt; Clear Empty Folder                                                 | Removes empty folders from the project.                     |
+| Assets &gt; YKYToolkit &gt; Asset Backup                                                      | Copies the selected assets to a timestamped backup folder.  |
+| Assets &gt; YKYToolkit &gt; Asset GUID Copy                                                   | Copies the GUID of the selected assets to the clipboard.    |
 | Assets &gt; YKYToolkit &gt; Delete Selected / GameObject &gt; YKYToolkit &gt; Delete Selected | Deletes the selection and records it in the delete history. |
 
 ## Objects

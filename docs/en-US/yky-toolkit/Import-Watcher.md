@@ -1,6 +1,7 @@
 # Import Watcher
 
-**Tools &gt; YKYToolkit &gt; Import Watcher** records what Unity imports while it runs: the asset, the package it came from,
+**Tools &gt; YKYToolkit &gt; Import Watcher** records what Unity imports while it runs: the asset, the package it came
+from,
 the file extension and whether the import succeeded.
 
 ## The log
