@@ -14,11 +14,14 @@
 
 ## API
 
-- [运行时](./API-Runtime.md)
-- [检视器与绘制器](./API-Editor.md)
-- [GUI 辅助工具](./API-GUI.md)
-- [菜单与扩展](./API-Menus.md)
-- [包处理](./API-Packages.md)
-- [反射](./API-Reflection.md)
-- [扩展方法](./API-Extensions.md)
-- [其他类型](./API-Types.md)
+每个公开类型各自一页，页面标题就是类名，因此侧边栏等同于类型清单。
+
+- 运行时：[`Utils`](./API-Utils.md)、[`IUtilsEditorOnly`](./API-IUtilsEditorOnly.md)、[`BasicEditorComponent`](./API-BasicEditorComponent.md)
+- 扩展方法：[`ComponentExtensions`](./API-ComponentExtensions.md)、[`DictionaryExtensions`](./API-DictionaryExtensions.md)、[`FloatExtensions`](./API-FloatExtensions.md)、[`GameObjectExtensions`](./API-GameObjectExtensions.md)、[`ListExtensions`](./API-ListExtensions.md)、[`StringExtensions`](./API-StringExtensions.md)、[`TransformExtensions`](./API-TransformExtensions.md)、[`Texture2DExtensions`](./API-Texture2DExtensions.md)、[`Vector3Extensions`](./API-Vector3Extensions.md)
+- NonUdon：[`BooleanVector3`](./API-BooleanVector3.md)、[`ColorHex`](./API-ColorHex.md)、[`Wrapper`](./API-Wrapper.md)、[`ListWrapper<T>`](./API-ListWrapper.md)、[`DictionaryWrapper<TKey, TValue>`](./API-DictionaryWrapper.md)、[`HashUtils`](./API-HashUtils.md)、[`JsonUtils`](./API-JsonUtils.md)、[`Result<T>`](./API-Result.md)、[`Unit`](./API-Unit.md)、[`Try`](./API-Try.md)、[`ResultExtensions`](./API-ResultExtensions.md)、[`ILogger`](./API-ILogger.md)、[`Logger<T>`](./API-Logger.md)
+- 反射：[`ReflectionUtils`](./API-ReflectionUtils.md)、[`ReflectionWrapper`](./API-ReflectionWrapper.md)、[`Reflect`](./API-Reflect.md)、[委托](./API-ReflectionDelegates.md)
+- 编辑器：[`BasicEditor`](./API-BasicEditor.md)、[`BooleanVector3Drawer`](./API-BooleanVector3Drawer.md)、[`ColorHexDrawer`](./API-ColorHexDrawer.md)、[`BooleanVector3Field`](./API-BooleanVector3Field.md)、[`EditorGUILayoutUtility`](./API-EditorGUILayoutUtility.md)、[`EditorGUILayoutUtilityExtensions`](./API-EditorGUILayoutUtilityExtensions.md)、[`EditorGUIUtils`](./API-EditorGUIUtils.md)、[`EditorUtils`](./API-EditorUtils.md)、[`CustomDialogWindow`](./API-CustomDialogWindow.md)、[`DialogContent`](./API-DialogContent.md)、[`EditorTask`](./API-EditorTask.md)、[`RequestExtensions`](./API-RequestExtensions.md)、[`TaskExtensions`](./API-TaskExtensions.md)
+- 菜单：[`MenuItemObject`](./API-MenuItemObject.md)、[`MenuWrap`](./API-MenuWrap.md)、[`MenuServiceWrap`](./API-MenuServiceWrap.md)、[`EditorUtilityWrap`](./API-EditorUtilityWrap.md)、[`MenuExtensions`](./API-MenuExtensions.md)
+- 包处理：[`UpmInstaller`](./API-UpmInstaller.md)
+- Harmony 工具：[`CodeCursor`](./API-CodeCursor.md)、[`TranspilerExtensions`](./API-TranspilerExtensions.md)
+- 补丁：[`Patch<T>`](./API-Patch.md)、[`PatchLoader<T>`](./API-PatchLoader.md)、[`PatchMethod<T>`](./API-PatchMethod.md)、[`ReversePatchMethod<T>`](./API-ReversePatchMethod.md)、[`ExportsPatchLoader`](./API-ExportsPatchLoader.md)
