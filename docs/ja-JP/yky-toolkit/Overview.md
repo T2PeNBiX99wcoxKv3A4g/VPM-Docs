@@ -4,7 +4,7 @@ YKY Toolkit は、日常の Unity 作業のためのエディタウィンドウ�
 の編集などを行います。
 
 すべて **Tools &gt; YKYToolkit** の下にあり、コンテキスト操作は **GameObject &gt; YKYToolkit**、**Assets &gt; YKYToolkit**
-、およびコンポーネントのコンテキストメニューにあります。
+、およびコンポーネントのコンテキストメニューにあります。[機能一覧](./Features.md) にすべてを載せています。
 
 ## 含まれるもの
 

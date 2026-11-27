@@ -16,7 +16,8 @@
 
 ## 物件
 
-**Set Object and Tag**（GameObject 與 Tools 選單）會一步為選取項目指定物件資產與標籤，包含預製體階段物件。
+**Set Object and Tag**（GameObject 與 Tools 選單）會在一般物件與僅供編輯器使用的物件之間切換選取項目：啟用中的物件
+會被停用並標記為 `EditorOnly`，同時記住先前的標籤與啟用狀態；對停用中的物件再執行一次指令，就會還原兩者。
 
 ## 組件
 
@@ -40,8 +41,9 @@
 
 ## Unity 資源監視器
 
-**Tools &gt; YKYToolkit &gt; Unity Resource Monitor** 會即時顯示編輯器程序：受控與原生記憶體、GC 回收次數、CPU
-時間與算繪執行緒。它每秒取樣一次，適合在測試時保持開啟。
+**Tools &gt; YKYToolkit &gt; Unity Resource Monitor** 會即時顯示編輯器程序，每 100 毫秒重新整理：CPU 使用率、
+已用受控堆積、保留記憶體、已配置記憶體、圖形記憶體、可用保留記憶體與暫存配置器。每個計數都會顯示目前的值，
+工具提示則說明它測量什麼。測試時建議保持開啟。
 
 ## Discord Rich Presence
 

@@ -132,7 +132,7 @@ export const site = {
             groups: [
                 {id: "starting", docs: ["Overview", "Installation"]},
                 {id: "guide", docs: ["UPM-Installer", "Import-Watcher", "Tools", "Preferences"]},
-                {id: "reference", docs: ["Transform-Inspector"]},
+                {id: "reference", docs: ["Features", "Transform-Inspector"]},
             ],
         },
     ],

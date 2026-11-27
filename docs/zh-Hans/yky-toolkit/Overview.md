@@ -3,7 +3,7 @@
 YKY Toolkit 是一组面向日常 Unity 工作的编辑器窗口与右键菜单操作：安装包、监视导入、监控内存、清理缓存以及编辑 Transform。
 
 所有功能都位于 **Tools &gt; YKYToolkit** 下，右键操作位于 **GameObject &gt; YKYToolkit**、**Assets &gt; YKYToolkit**
-以及组件的右键菜单中。
+以及组件的右键菜单中。[功能列表](./Features.md) 把它们集中列在一起。
 
 ## 包含的内容
 

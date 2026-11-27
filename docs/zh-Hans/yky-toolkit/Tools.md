@@ -16,7 +16,8 @@
 
 ## 对象
 
-**Set Object and Tag**（位于 GameObject 和 Tools 菜单）可以一步为选中对象指定对象资源和标签，预制体阶段对象也包括在内。
+**Set Object and Tag**（位于 GameObject 和 Tools 菜单）用于在普通对象与仅在编辑器中可见的对象之间切换：处于激活状态的
+对象会被停用并标记为 `EditorOnly`，同时记住它之前的标签和激活状态；再次对该对象执行该命令会同时恢复两者。
 
 ## 组件
 
@@ -40,8 +41,9 @@
 
 ## Unity 资源监视器
 
-**Tools &gt; YKYToolkit &gt; Unity Resource Monitor** 实时显示编辑器进程的状态：托管内存与原生内存、GC 次数、CPU
-时间以及渲染线程。它每秒采样一次，适合在测试期间一直开着。
+**Tools &gt; YKYToolkit &gt; Unity Resource Monitor** 实时显示编辑器进程的状态，每 100 毫秒刷新一次：CPU 占用、已用托管堆、
+保留内存、已分配内存、图形内存、空闲的保留内存以及临时分配器。每个计数显示当前值，提示信息会说明它衡量的内容。
+测试期间建议一直开着。
 
 ## Discord Rich Presence
 

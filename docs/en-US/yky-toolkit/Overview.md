@@ -5,7 +5,7 @@ watching imports, monitoring memory, cleaning caches and editing transforms.
 
 Everything lives under **Tools &gt; YKYToolkit**, with context actions under **GameObject &gt; YKYToolkit**, **Assets
 &gt;
-YKYToolkit** and the component context menu.
+YKYToolkit** and the component context menu. [Features](./Features.md) lists all of them in one place.
 
 ## What is included
 

@@ -1,18 +1,20 @@
 # Import Watcher
 
-**Tools &gt; YKYToolkit &gt; Import Watcher** records what Unity imports while it runs: the asset, the package it came
-from, the file extension and whether the import succeeded.
+**Tools &gt; YKYToolkit &gt; Import Watcher** records which assets Unity imports while it runs, one session per editor
+run, grouped by date and time.
 
 ## The log
 
-The window keeps one session per editor run. The left column lists the dates of the session, the middle one the import
-times, and the selected entry shows its details on the right.
+The left column lists the dates of the session, the middle one the import times, and the selected time shows its assets
+in a tree on the right.
 
-- **Search** filters the log by path or package.
+- **Search** filters the log by name or path.
 - **Refresh** re-reads the current session.
 - **Clear** empties the import log after a confirmation.
 - **Settings** opens the settings window described below.
 - Each date row shows how many entries it holds.
+- An asset is shown with its icon and name; the tooltip holds the full path, and an entry whose asset no longer exists
+  is painted red.
 - Right-click a row to copy the path or remove it.
 
 ## Highlight

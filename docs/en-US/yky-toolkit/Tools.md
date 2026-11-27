@@ -16,8 +16,9 @@ Small actions that are otherwise several menu levels away.
 
 ## Objects
 
-**Set Object and Tag** (GameObject and Tools menu) assigns an object asset and a tag to the selection in one step,
-including prefab stage objects.
+**Set Object and Tag** (GameObject and Tools menu) switches the selection between normal and editor-only objects: an
+active object is deactivated and tagged `EditorOnly`, remembering its previous tag and active state, and running the
+command again on the inactive object restores both.
 
 ## Components
 
@@ -41,8 +42,9 @@ Both actions are undoable and keep the constraint settings.
 
 ## Unity Resource Monitor
 
-**Tools &gt; YKYToolkit &gt; Unity Resource Monitor** shows the editor process live: managed and native memory, GC
-collections, CPU time and the render thread. It samples once per second and is meant to stay open while testing.
+**Tools &gt; YKYToolkit &gt; Unity Resource Monitor** shows the editor process live, refreshed every 100 ms: CPU usage,
+managed heap used, reserved memory, allocated memory, graphics memory, free reserved memory and the temp allocator.
+Each counter shows the current value and the tooltip explains what it measures. Keep it open while testing.
 
 ## Discord Rich Presence
 
