@@ -3,10 +3,10 @@ layout: false
 head:
   - - meta
     - http-equiv: refresh
-      content: 0; url=/VPM-Docs/en/
+      content: 0; url=/VPM-Docs/en-US/
 ---
 
 # VPM Documentation
 
-The documentation opens in [English](/en/). Other languages: [日本語](/ja/), [简体中文](/zh-CN/),
-[繁體中文](/zh-TW/).
+The documentation opens in [English](/en-US/). Other languages: [日本語](/ja-JP/), [简体中文](/zh-Hans/),
+[繁體中文](/zh-Hant/).

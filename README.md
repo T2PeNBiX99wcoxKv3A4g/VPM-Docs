@@ -10,7 +10,7 @@ Live at <https://t2penbix99wcoxkv3a4g.github.io/VPM-Docs/>.
 | Path | What it is |
 | --- | --- |
 | `docs/` | The site: one folder per language, plus the VitePress configuration |
-| `docs/<language>/<package>/` | Pages of a package (`en`, `ja`, `zh-CN`, `zh-TW`) |
+| `docs/<language>/<package>/` | Pages of a package (`en-US`, `ja-JP`, `zh-Hans`, `zh-Hant`) |
 | `docs/index.md` | Sends `/` to the default language |
 | `docs/.vitepress/config.mts` | Locales, navigation, sidebars, search |
 | `docs/.vitepress/labels.mjs` | Navigation, group, footer and theme labels per language |
@@ -44,7 +44,8 @@ npm run docs:preview   # serves that build, http://localhost:4173/VPM-Docs/
 
 ## Adding a language
 
-1. Add the id to `languages` in `site.config.mjs`.
+1. Add the id to `languages` in `site.config.mjs`. The ids follow the BCP 47 tags the packages use for their
+   translation assets: `en-US`, `ja-JP`, `zh-Hans`, `zh-Hant`.
 2. Add its block to `docs/.vitepress/labels.mjs`.
 3. Create `docs/<language>/`, with an `index.md` landing page and one folder per package.
 

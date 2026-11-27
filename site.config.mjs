@@ -12,8 +12,8 @@ export const site = {
         "Setup, usage and API documentation for the VPM packages: Localization, Utils and YKYToolKit.",
     url: "https://t2penbix99wcoxkv3a4g.github.io/VPM-Docs/",
     repository: "https://github.com/T2PeNBiX99wcoxKv3A4g/VPM-Docs",
-    languages: ["en", "ja", "zh-CN", "zh-TW"],
-    defaultLanguage: "en",
+    languages: ["en-US", "ja-JP", "zh-Hans", "zh-Hant"],
+    defaultLanguage: "en-US",
     projects: [
         {
             id: "localization",

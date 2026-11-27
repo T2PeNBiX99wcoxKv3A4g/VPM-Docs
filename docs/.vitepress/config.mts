@@ -16,6 +16,63 @@ const defaultLanguage = site.defaultLanguage;
 /** Every language has its own folder; the site root only redirects to the default one. */
 const prefixOf = (language) => `/${language}`;
 
+/**
+ * Addresses without a language (`/utils/`, `/localization/Installation`) send the reader to the default language.
+ * The development server answers them with a redirect and the build writes the same redirect as a small page, so a
+ * link that was written before the languages had their own folder still lands somewhere useful.
+ */
+function defaultLanguageRedirects() {
+    const prefix = prefixOf(defaultLanguage);
+
+    // Pages keep the .html suffix the site uses, so the redirect lands on the real file instead of a missing page.
+    const redirects = [
+        ...site.projects.map((project) => ({from: `/${project.id}/`, to: `${prefix}/${project.id}/`})),
+        ...site.projects.flatMap((project) =>
+            project.groups.flatMap((group) =>
+                group.docs.map((slug) => ({from: `/${project.id}/${slug}`, to: `${prefix}/${project.id}/${slug}.html`}))),
+        ),
+    ];
+
+    const page = (target) =>
+        `<!DOCTYPE html><html lang="${defaultLanguage}"><head><meta charset="utf-8">` +
+        `<title>${site.name}</title><link rel="canonical" href="${target}">` +
+        `<meta http-equiv="refresh" content="0; url=${target}"></head>` +
+        `<body><p><a href="${target}">${target}</a></p></body></html>`;
+
+    const withoutSlash = (path) => path.replace(/\/+$/, "");
+    const find = (path) => redirects.find((entry) => withoutSlash(entry.from) === withoutSlash(path));
+
+    return {
+        name: "vpm-docs-default-language-redirects",
+
+        configureServer(server) {
+            server.middlewares.use((request, response, next) => {
+                const url = request.url ?? "/";
+                if (!url.startsWith(base)) return next();
+
+                const [path, query] = url.slice(base.length).split("?");
+                const target = find(path);
+                if (!target) return next();
+
+                response.writeHead(302, {
+                    location: `${base}${target.to.replace(/^\//, "")}${query ? `?${query}` : ""}`,
+                });
+                response.end();
+            });
+        },
+
+        generateBundle() {
+            for (const {from, to} of redirects) {
+                this.emitFile({
+                    type: "asset",
+                    fileName: `${from.replace(/^\//, "")}${from.endsWith("/") ? "" : "/"}index.html`,
+                    source: page(`${base}${to.replace(/^\//, "")}`),
+                });
+            }
+        },
+    };
+}
+
 /** Sidebar text comes from the page heading, so a page is written once and its title is not repeated here. */
 function titleOf(language, project, slug) {
     const path = join(docsRoot, prefixOf(language), project, `${slug}.md`);
@@ -88,6 +145,9 @@ export default defineConfig({
     lastUpdated: true,
     cleanUrls: false,
     head: [["link", {rel: "icon", type: "image/svg+xml", href: `${base}favicon.svg`}]],
+    vite: {
+        plugins: [defaultLanguageRedirects()],
+    },
     themeConfig: {
         ...languageConfig(defaultLanguage),
     },

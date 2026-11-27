@@ -6,7 +6,7 @@
 const copyright = "Copyright © 2025-present yukiyosanako / ゆきよさなこ";
 
 export const labels = {
-    en: {
+    "en-US": {
         language: "English",
         nav: {packages: "Packages", github: "GitHub"},
         group: {starting: "Getting started", guide: "Guide", reference: "Reference", help: "Help"},
@@ -22,7 +22,7 @@ export const labels = {
             },
         },
     },
-    ja: {
+    "ja-JP": {
         language: "日本語",
         nav: {packages: "パッケージ", github: "GitHub"},
         group: {starting: "はじめに", guide: "ガイド", reference: "リファレンス", help: "ヘルプ"},
@@ -45,7 +45,7 @@ export const labels = {
             },
         },
     },
-    "zh-CN": {
+    "zh-Hans": {
         language: "简体中文",
         nav: {packages: "包", github: "GitHub"},
         group: {starting: "开始使用", guide: "指南", reference: "参考", help: "疑难解答"},
@@ -68,7 +68,7 @@ export const labels = {
             },
         },
     },
-    "zh-TW": {
+    "zh-Hant": {
         language: "繁體中文",
         nav: {packages: "套件", github: "GitHub"},
         group: {starting: "開始使用", guide: "指南", reference: "參考", help: "疑難排解"},
