@@ -6,18 +6,18 @@ hero:
   actions:
     - theme: brand
       text: "ドキュメント"
-      link: "/ja/localization/"
+      link: "/ja-JP/localization/"
     - theme: alt
       text: "GitHub"
       link: "https://github.com/T2PeNBiX99wcoxKv3A4g/VPM-Docs"
 features:
   - title: "Localization"
     details: "VPM パッケージ向けのエディタ localization。翻訳アセット、言語選択、UI Toolkit ヘルパー。"
-    link: "/ja/localization/"
+    link: "/ja-JP/localization/"
   - title: "Utils"
     details: "他のパッケージが使う共有エディタヘルパー。"
-    link: "/ja/utils/"
+    link: "/ja-JP/utils/"
   - title: "YKYToolKit"
     details: "パッケージ管理・インポート追跡・Unity リソースモニターのエディタウィンドウ。"
-    link: "/ja/yky-toolkit/"
+    link: "/ja-JP/yky-toolkit/"
 ---

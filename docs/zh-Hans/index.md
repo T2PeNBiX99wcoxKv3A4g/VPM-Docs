@@ -6,18 +6,18 @@ hero:
   actions:
     - theme: brand
       text: "文档"
-      link: "/zh-CN/localization/"
+      link: "/zh-Hans/localization/"
     - theme: alt
       text: "GitHub"
       link: "https://github.com/T2PeNBiX99wcoxKv3A4g/VPM-Docs"
 features:
   - title: "Localization"
     details: "给 VPM 包用的编辑器本地化：翻译资源、语言选择器与 UI Toolkit 辅助方法。"
-    link: "/zh-CN/localization/"
+    link: "/zh-Hans/localization/"
   - title: "Utils"
     details: "其他包共用的编辑器工具。"
-    link: "/zh-CN/utils/"
+    link: "/zh-Hans/utils/"
   - title: "YKYToolKit"
     details: "包管理、导入追踪与 Unity 资源监控等编辑器窗口。"
-    link: "/zh-CN/yky-toolkit/"
+    link: "/zh-Hans/yky-toolkit/"
 ---
