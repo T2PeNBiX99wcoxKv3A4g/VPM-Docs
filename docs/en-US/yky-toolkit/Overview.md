@@ -12,11 +12,15 @@ YKYToolkit** and the component context menu.
 | Window                                          | What it does                                                                            |
 |-------------------------------------------------|-----------------------------------------------------------------------------------------|
 | [UPM Installer](./UPM-Installer.md)             | Install, remove and update UPM packages, and keep reusable package lists.               |
-| [Import Watcher](./Import-Watcher.md)           | Records what was imported, when and from where, with per-extension colors.              |
+| [Import Watcher](./Import-Watcher.md)           | Records what was imported, when and from where, and highlights new assets per extension. |
 | Delete History                                  | Lists deleted and recreated assets for the session.                                     |
-| Unity Resource Monitor                          | Live memory and CPU counters for the editor process.                                    |
+| Unity Resource Monitor                          | Live memory and CPU counters for the editor process.                                     |
 | [Tools](./Tools.md)                             | Cache cleanup, asset backup, GUID copy, constraint conversion and component copy/paste. |
-| [Transform Inspector](./Transform-Inspector.md) | The enhanced transform inspector with expressions, alignment and clipboard.             |
+| [Transform Inspector](./Transform-Inspector.md) | The enhanced transform inspector with expressions, alignment, clipboard and a lock.      |
+| Transform Expression Help                       | The cheat sheet for the expression syntax, with search and copyable examples.           |
+| [Preferences](./Preferences.md)                 | Language, accent colour, delete protection and the limits of the histories.              |
+
+The window text is translated; the language picker is the first card of the [Preferences](./Preferences.md) page.
 
 ## Dependencies
 

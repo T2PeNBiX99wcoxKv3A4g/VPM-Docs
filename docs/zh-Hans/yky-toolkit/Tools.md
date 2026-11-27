@@ -4,14 +4,15 @@
 
 ## 维护
 
-| 菜单                                                                                          | 作用                                             |
-|-----------------------------------------------------------------------------------------------|--------------------------------------------------|
-| Tools &gt; YKYToolkit &gt; Clear Shader Cache                                                 | 删除 Unity 已编译的着色器缓存。                  |
-| Tools &gt; YKYToolkit &gt; Force Clear Temp Files                                             | 删除项目的 `Temp` 文件夹（Unity 会重新构建它）。 |
-| Tools &gt; YKYToolkit &gt; Clear Empty Folder                                                 | 从项目中移除空文件夹。                           |
-| Assets &gt; YKYToolkit &gt; Asset Backup                                                      | 把选中的资源复制到一个带时间戳的备份文件夹。     |
-| Assets &gt; YKYToolkit &gt; Asset GUID Copy                                                   | 把选中资源的 GUID 复制到剪贴板。                 |
-| Assets &gt; YKYToolkit &gt; Delete Selected / GameObject &gt; YKYToolkit &gt; Delete Selected | 删除选中对象并记录到删除历史中。                 |
+| 菜单                                                                                          | 作用                                                                                                          |
+|-----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| Tools &gt; YKYToolkit &gt; Clear Shader Cache                                                 | 删除 Unity 已编译的着色器缓存。                                                                               |
+| Tools &gt; YKYToolkit &gt; Force Clear Temp Files                                             | 删除项目的 `Temp` 文件夹（Unity 会重新构建它）。                                                              |
+| Tools &gt; YKYToolkit &gt; Clear Empty Folder                                                 | 从项目中移除空文件夹。                                                                                        |
+| Tools &gt; YKYToolkit &gt; Allow Async Compilation                                            | 切换后台着色器编译；勾选状态表示当前是否启用。                                                                |
+| Assets &gt; YKYToolkit &gt; Asset Backup                                                      | 把选中的资源复制到一个带时间戳的备份文件夹。                                                                  |
+| Assets &gt; YKYToolkit &gt; Asset GUID Copy                                                   | 把选中资源的 GUID 复制到剪贴板。                                                                              |
+| Assets &gt; YKYToolkit &gt; Delete Selected / GameObject &gt; YKYToolkit &gt; Delete Selected | 删除选中内容并记录到删除历史中；受保护的目录会被拒绝，而不会被删除。                                          |
 
 ## 对象
 
@@ -45,4 +46,9 @@
 ## Discord Rich Presence
 
 Discord SDK 的相关操作（**Initialize / Restart / Shutdown**）控制可选的编辑器 Rich Presence：编辑器状态会显示当前项目与场景。SDK
-仅在编辑器中提供，永远不会进入构建。
+仅在编辑器中提供，永远不会进入构建；[首选项](./Preferences.md) 中的 **启用 Discord Rich Presence** 可以完全关闭该连接。
+
+## 设置
+
+- **Tools &gt; YKYToolkit &gt; Preferences** 包含语言、主题色、删除保护以及各历史记录的上限。参见 [首选项](./Preferences.md)。
+- **Tools &gt; YKYToolkit &gt; Import Watcher Settings** 单独打开导入高亮设置。参见 [导入监视器](./Import-Watcher.md)。

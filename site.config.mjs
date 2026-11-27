@@ -128,9 +128,10 @@ export const site = {
             package: "io.github.ykysnk.yky-toolkit",
             repository: "https://github.com/T2PeNBiX99wcoxKv3A4g/VPM.YKYToolKit",
             releases: "https://github.com/T2PeNBiX99wcoxKv3A4g/VPM.YKYToolKit/releases",
+            // Sidebar order of the pages under docs/yky-toolkit/<language>/.
             groups: [
                 {id: "starting", docs: ["Overview", "Installation"]},
-                {id: "guide", docs: ["UPM-Installer", "Import-Watcher", "Tools"]},
+                {id: "guide", docs: ["UPM-Installer", "Import-Watcher", "Tools", "Preferences"]},
                 {id: "reference", docs: ["Transform-Inspector"]},
             ],
         },

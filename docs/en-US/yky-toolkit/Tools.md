@@ -4,14 +4,15 @@ Small actions that are otherwise several menu levels away.
 
 ## Maintenance
 
-| Menu                                                                                          | What it does                                                |
-|-----------------------------------------------------------------------------------------------|-------------------------------------------------------------|
-| Tools &gt; YKYToolkit &gt; Clear Shader Cache                                                 | Deletes Unity's compiled shader cache.                      |
-| Tools &gt; YKYToolkit &gt; Force Clear Temp Files                                             | Deletes the project's `Temp` folder (Unity rebuilds it).    |
-| Tools &gt; YKYToolkit &gt; Clear Empty Folder                                                 | Removes empty folders from the project.                     |
-| Assets &gt; YKYToolkit &gt; Asset Backup                                                      | Copies the selected assets to a timestamped backup folder.  |
-| Assets &gt; YKYToolkit &gt; Asset GUID Copy                                                   | Copies the GUID of the selected assets to the clipboard.    |
-| Assets &gt; YKYToolkit &gt; Delete Selected / GameObject &gt; YKYToolkit &gt; Delete Selected | Deletes the selection and records it in the delete history. |
+| Menu                                                                                          | What it does                                                                                              |
+|-----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| Tools &gt; YKYToolkit &gt; Clear Shader Cache                                                 | Deletes Unity's compiled shader cache.                                                                    |
+| Tools &gt; YKYToolkit &gt; Force Clear Temp Files                                             | Deletes the project's `Temp` folder (Unity rebuilds it).                                                  |
+| Tools &gt; YKYToolkit &gt; Clear Empty Folder                                                 | Removes empty folders from the project.                                                                   |
+| Tools &gt; YKYToolkit &gt; Allow Async Compilation                                            | Toggles background shader compilation; the check mark shows the current state.                             |
+| Assets &gt; YKYToolkit &gt; Asset Backup                                                      | Copies the selected assets to a timestamped backup folder.                                                |
+| Assets &gt; YKYToolkit &gt; Asset GUID Copy                                                   | Copies the GUID of the selected assets to the clipboard.                                                  |
+| Assets &gt; YKYToolkit &gt; Delete Selected / GameObject &gt; YKYToolkit &gt; Delete Selected | Deletes the selection and records it in the delete history; protected directories are refused, not deleted. |
 
 ## Objects
 
@@ -46,4 +47,12 @@ collections, CPU time and the render thread. It samples once per second and is m
 ## Discord Rich Presence
 
 The Discord SDK actions (**Initialize / Restart / Shutdown**) control the optional editor rich presence: the editor
-status shows the project and the current scene. The SDK is shipped editor-only and never enters a build.
+status shows the project and the current scene. The SDK is shipped editor-only and never enters a build, and
+**Enable Discord Rich Presence** in [Preferences](./Preferences.md) turns the connection off entirely.
+
+## Settings
+
+- **Tools &gt; YKYToolkit &gt; Preferences** holds the language, the accent colour, delete protection and the limits of
+  the histories. See [Preferences](./Preferences.md).
+- **Tools &gt; YKYToolkit &gt; Import Watcher Settings** opens the import highlight settings on their own. See
+  [Import Watcher](./Import-Watcher.md).

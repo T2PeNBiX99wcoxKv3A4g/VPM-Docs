@@ -1,37 +1,51 @@
 # Import Watcher
 
 **Tools &gt; YKYToolkit &gt; Import Watcher** records what Unity imports while it runs: the asset, the package it came
-from,
-the file extension and whether the import succeeded.
+from, the file extension and whether the import succeeded.
 
 ## The log
 
-The window keeps one session per editor run. Each row shows the time, the asset path and its status.
+The window keeps one session per editor run. The left column lists the dates of the session, the middle one the import
+times, and the selected entry shows its details on the right.
 
-- **検索** filters the log by path or package.
-- The add/remove buttons at the bottom of the list control the history size.
+- **Search** filters the log by path or package.
+- **Refresh** re-reads the current session.
+- **Clear** empties the import log after a confirmation.
+- **Settings** opens the settings window described below.
+- Each date row shows how many entries it holds.
 - Right-click a row to copy the path or remove it.
-- **Refresh** re-reads the current session; **Delete History** opens the window that lists deleted assets.
 
-## Colors
+## Highlight
 
-Each file extension can have its own color, so a `.unitypackage` import stands out from a `.cs` file:
+An imported asset is painted in the Project window for a moment, so a large import can be followed without watching the
+log:
 
-1. Open **Import Watcher Settings**.
-2. Add an extension and pick a color.
-3. The log and the hierarchy highlight use that color from the next import on.
+- **Highlight Color** is the wash drawn over the asset.
+- **Highlight Duration** is how long it stays, in milliseconds; the default is 120 and the slider stops at 500.
+- **Highlight colors for file extensions** gives each extension its own colour, so a `.unitypackage` import looks
+  different from a `.cs` file. The list is reorderable, **Reset to defaults** restores the shipped set, and an extension
+  without an entry uses the default colour.
+
+The icon view frames the whole cell with the extension colour, the list view draws an underline under the row instead.
+Folders that received files are highlighted too, and the wash fades out instead of disappearing at once.
 
 ## Settings
 
-| Setting      | Effect                                            |
-|--------------|---------------------------------------------------|
-| Max sessions | How many editor sessions are kept in the history. |
-| Colors       | Per-extension colors for the log.                 |
+**Tools &gt; YKYToolkit &gt; Import Watcher Settings** opens a small window with these settings; the same values are in
+**Edit &gt; Preferences &gt; YKY Toolkit &gt; Import Watcher**.
 
-The settings live in the project's `EditorPrefs`; they are not committed.
+| Setting                              | Effect                                                               |
+|--------------------------------------|----------------------------------------------------------------------|
+| Highlight Color                      | Colour painted over an imported asset in the Project window.         |
+| Highlight Duration                   | How long the highlight stays, in milliseconds.                       |
+| Max History Sessions                 | How many editor sessions the history keeps.                          |
+| Highlight colors for file extensions | Per-extension colours used by the highlight, with a count and reset. |
+
+The reset button next to the section title restores the shipped values. Everything is stored per user in `EditorPrefs`,
+so it is not committed.
 
 ## Delete history
 
 Unity deletes assets without telling anyone. The Delete History window lists paths that were deleted (or deleted and
 recreated) during the session, so a deleted `.meta` or a moved folder can be found again. **Tools &gt; YKYToolkit &gt;
-Delete History** opens it.
+Delete History** opens it; **Max Records** in [Preferences](./Preferences.md) caps how many entries are kept.

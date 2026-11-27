@@ -11,7 +11,9 @@
 - Import Watcher 与 Import Watcher Settings
 - Delete History
 - Unity Resource Monitor
-- Clear Shader Cache、Force Clear Temp Files、Clear Empty Folder
+- Transform Expression Help
+- Preferences
+- Clear Shader Cache、Force Clear Temp Files、Clear Empty Folder、Allow Async Compilation
 - Discord SDK Initialize / Restart / Shutdown
 
 右键操作会添加到 **GameObject &gt; YKYToolkit**、**Assets &gt; YKYToolkit** 以及组件菜单中。

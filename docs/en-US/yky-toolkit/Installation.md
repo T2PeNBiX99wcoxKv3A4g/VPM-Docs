@@ -11,7 +11,9 @@ The windows appear under **Tools &gt; YKYToolkit**:
 - Import Watcher and Import Watcher Settings
 - Delete History
 - Unity Resource Monitor
-- Clear Shader Cache, Force Clear Temp Files, Clear Empty Folder
+- Transform Expression Help
+- Preferences
+- Clear Shader Cache, Force Clear Temp Files, Clear Empty Folder, Allow Async Compilation
 - Discord SDK Initialize / Restart / Shutdown
 
 Context actions are added to **GameObject &gt; YKYToolkit**, **Assets &gt; YKYToolkit** and the component menu.
