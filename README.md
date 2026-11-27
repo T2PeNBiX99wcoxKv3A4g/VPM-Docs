@@ -1,6 +1,7 @@
 # VPM Documentation
 
-Documentation site for the VPM packages: one site, one page per package, one Markdown file per topic.
+Documentation site for the VPM packages: one site, one folder per package, one Markdown file per topic. Built with
+[VitePress](https://vitepress.dev/) and published to GitHub Pages.
 
 Live at <https://t2penbix99wcoxkv3a4g.github.io/VPM-Docs/>.
 
@@ -12,54 +13,55 @@ package name.
 
 ## Layout
 
-```
-docs/<project>/<language>/<Page>.md   the pages
-site.config.mjs                       projects, their languages, groups and links
-scripts/sync-content.mjs              generates src/generated/*.ts before dev/build
-src/                                  React app (Vite, styled-components, Sass)
-public/                               favicon.svg (source) and favicon.ico (generated from it)
-```
+| Path | What it is |
+| --- | --- |
+| `docs/` | The site: pages plus the VitePress configuration |
+| `docs/<package>/` | Pages of a package in English, the default language |
+| `docs/<language>/<package>/` | The same pages in `ja`, `zh-CN` or `zh-TW` |
+| `docs/.vitepress/config.mts` | Locales, navigation, sidebars, search |
+| `docs/.vitepress/labels.mjs` | Navigation, group and footer labels per language |
+| `docs/public/` | Files served as they are (favicon) |
+| `site.config.mjs` | Which packages exist and which pages each one has |
 
-The page title is the `# Heading` of the Markdown file; the file name is the slug used in the URL
-(`#/<project>/<slug>`).
+Each page is one Markdown file. Its title is the first `#` heading, and the sidebar shows that text, so a page is
+described in one place only.
 
-## Search
-
-The field in the top bar searches every package (`Ctrl`/`Cmd`+`K` focuses it) and shows the page, its package and a
-snippet with the matched terms marked. `↑`/`↓`/`Enter`/`Esc` work as expected. A search can be linked to with
-`?q=<terms>`.
-
-## Add a page
-
-1. Create `docs/<project>/<language>/My-Page.md` starting with `# My page`.
-2. Add `"My-Page"` to one of the project's `groups` in `site.config.mjs` (the order there is the sidebar order).
-3. Translate it by adding `docs/<project>/<other-language>/My-Page.md`; missing translations fall back to the default
-   language and are marked in the index.
-
-Links between pages are plain file names (`Installation`, `API#language-selection`); the app rewrites them to routes.
-
-## Add a package
-
-1. Add an entry to `projects` in `site.config.mjs` (`id`, `name`, `package`, `repository`, `releases`, `groups`).
-2. Add `project.<id>.tagline` to every file in `src/i18n/`.
-3. Create `docs/<id>/<default-language>/` and start writing.
-
-Packages without documentation still appear on the home page; their page says so.
-
-## Commands
+## Local preview
 
 ```bash
 npm install
-npm run dev      # sync + vite dev server
-npm run build    # sync + type-check + bundle into dist/
-npm run preview  # serve dist/
+npm run docs:dev       # http://localhost:5173/VPM-Docs/ with hot reload
+npm run docs:build     # writes docs/.vitepress/dist
+npm run docs:preview   # serves that build, http://localhost:4173/VPM-Docs/
 ```
 
-`npm run sync` regenerates `src/generated/site.ts` (from `site.config.mjs`) and `src/generated/doc-dates.ts` (last
-commit date per page, shown as "last updated").
+## Adding a page
+
+1. Write `docs/<package>/<Page>.md`, and the same file under `docs/<language>/<package>/` for each translation.
+2. Add the slug to the package's group in `site.config.mjs`; a page that is not listed there does not appear in the
+   sidebar.
+3. Link to it as `./Page.md`. A page of another package is `../<package>/Page.md`. VitePress turns those into the
+   right URLs and fails the build on a link that does not resolve.
+
+## Adding a package
+
+1. Add an entry to `projects` in `site.config.mjs`, with the groups and the page slugs.
+2. Create `docs/<package>/` and the translated folders, then one file per page.
+
+## Adding a language
+
+1. Add the id to `languages` in `site.config.mjs` (`en` is the default and lives at the site root).
+2. Add its block to `docs/.vitepress/labels.mjs`.
+3. Create `docs/<language>/`, with an `index.md` landing page and one folder per package.
+
+## Writing Markdown
+
+The pages are compiled as Vue templates, so a generic written in prose (`Task<T>`) would be read as an HTML tag.
+Write it as `&lt;T&gt;` outside code; inside backticks or a code fence it is left alone.
 
 ## Deployment
 
-`.github/workflows/pages.yml` builds on every push to `main` and deploys `dist/` to GitHub Pages. Enable Pages once
-under **Settings > Pages > Build and deployment > Source: GitHub Actions**; `configure-pages` tries to enable it on
-the first run as well.
+`.github/workflows/pages.yml` calls the shared
+[`vitepress_pages.yml`](https://github.com/T2PeNBiX99wcoxKv3A4g/Release-Workflows/blob/main/.github/workflows/vitepress_pages.yml)
+workflow, which builds `docs/.vitepress/dist` and deploys it. Pushing to `main` is enough; the workflow can also be
+run by hand.

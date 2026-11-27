@@ -16,7 +16,5 @@ concurrency:
 
 jobs:
   deploy:
-    uses: T2PeNBiX99wcoxKv3A4g/Release-Workflows/.github/workflows/web_pages.yml@main
-    with:
-      publish_directory: dist
+    uses: T2PeNBiX99wcoxKv3A4g/Release-Workflows/.github/workflows/vitepress_pages.yml@main
     secrets: inherit
