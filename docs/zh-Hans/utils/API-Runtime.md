@@ -1,13 +1,5 @@
 # 运行时
 
-该包发布三个程序集。下面列出的所有内容都是公开的；过时的成员也包括在内，因为它们仍然可以编译。
-
-| 程序集                            | 命名空间                                       | 内容                                                |
-|-----------------------------------|------------------------------------------------|-----------------------------------------------------|
-| `io.github.ykysnk.utils`          | `io.github.ykysnk.utils`                       | `Utils`、`IUtilsEditorOnly`、`BasicEditorComponent` |
-| `io.github.ykysnk.utils.non-udon` | `io.github.ykysnk.utils.NonUdon`               | `BooleanVector3`、`ColorHex`                        |
-| `io.github.ykysnk.utils.Editor`   | `io.github.ykysnk.utils.Editor` 及其子命名空间 | 检视器基类、GUI 辅助方法、菜单、UPM 客户端、绘制器  |
-
 ## Utils
 
 `io.github.ykysnk.utils` · `public static class Utils`
