@@ -12,9 +12,8 @@
 - [Inspector](./Inspector.md)
 - [Unity-Keys](./Unity-Keys.md)
 
-## Reference
+## API
 
-- [API](./API.md)
 - [Assets](./API-Assets.md)
 - [Lookups and updates](./API-Lookup.md)
 - [Editor tools](./API-Editor.md)

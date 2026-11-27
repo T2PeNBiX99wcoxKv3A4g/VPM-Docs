@@ -12,9 +12,8 @@
 - [インスペクター](./Inspector.md)
 - [Unity のキー](./Unity-Keys.md)
 
-## リファレンス
+## API
 
-- [API](./API.md)
 - [アセット](./API-Assets.md)
 - [参照と更新](./API-Lookup.md)
 - [エディターツール](./API-Editor.md)

@@ -9,7 +9,7 @@ export const labels = {
     "en-US": {
         language: "English",
         nav: {packages: "Packages", github: "GitHub"},
-        group: {starting: "Getting started", guide: "Guide", reference: "Reference", help: "Help"},
+        group: {starting: "Getting started", guide: "Guide", api: "API", reference: "Reference", help: "Help"},
         footer: {message: "Released under the MIT License.", copyright},
         theme: {
             search: {
@@ -25,7 +25,7 @@ export const labels = {
     "ja-JP": {
         language: "日本語",
         nav: {packages: "パッケージ", github: "GitHub"},
-        group: {starting: "はじめに", guide: "ガイド", reference: "リファレンス", help: "ヘルプ"},
+        group: {starting: "はじめに", guide: "ガイド", api: "API", reference: "リファレンス", help: "ヘルプ"},
         footer: {message: "MIT ライセンスで公開しています。", copyright},
         theme: {
             outline: {label: "このページ"},
@@ -48,7 +48,7 @@ export const labels = {
     "zh-Hans": {
         language: "简体中文",
         nav: {packages: "包", github: "GitHub"},
-        group: {starting: "开始使用", guide: "指南", reference: "参考", help: "疑难解答"},
+        group: {starting: "开始使用", guide: "指南", api: "API", reference: "参考", help: "疑难解答"},
         footer: {message: "以 MIT 授权发布。", copyright},
         theme: {
             outline: {label: "本页内容"},
@@ -71,7 +71,7 @@ export const labels = {
     "zh-Hant": {
         language: "繁體中文",
         nav: {packages: "套件", github: "GitHub"},
-        group: {starting: "開始使用", guide: "指南", reference: "參考", help: "疑難排解"},
+        group: {starting: "開始使用", guide: "指南", api: "API", reference: "參考", help: "疑難排解"},
         footer: {message: "以 MIT 授權發布。", copyright},
         theme: {
             outline: {label: "本頁內容"},

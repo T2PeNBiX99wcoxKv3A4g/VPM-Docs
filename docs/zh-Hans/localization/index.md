@@ -12,9 +12,8 @@
 - [检视器](./Inspector.md)
 - [Unity 键](./Unity-Keys.md)
 
-## 参考
+## API
 
-- [API](./API.md)
 - [资产](./API-Assets.md)
 - [查找与更新](./API-Lookup.md)
 - [编辑器工具](./API-Editor.md)

@@ -12,9 +12,8 @@
 - [编辑器辅助工具](./Editor-Helpers.md)
 - [补丁](./Patches.md)
 
-## 参考
+## API
 
-- [API](./API.md)
 - [运行时](./API-Runtime.md)
 - [检视器与绘制器](./API-Editor.md)
 - [GUI 辅助工具](./API-GUI.md)

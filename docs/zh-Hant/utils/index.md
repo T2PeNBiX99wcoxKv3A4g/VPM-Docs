@@ -12,9 +12,8 @@
 - [編輯器輔助工具](./Editor-Helpers.md)
 - [修補](./Patches.md)
 
-## 參考
+## API
 
-- [API](./API.md)
 - [執行階段](./API-Runtime.md)
 - [檢視器與繪製器](./API-Editor.md)
 - [GUI 輔助工具](./API-GUI.md)

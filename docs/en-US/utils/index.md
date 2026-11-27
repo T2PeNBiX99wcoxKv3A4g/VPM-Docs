@@ -12,9 +12,8 @@
 - [Editor helpers](./Editor-Helpers.md)
 - [Patches](./Patches.md)
 
-## Reference
+## API
 
-- [API](./API.md)
 - [Runtime](./API-Runtime.md)
 - [Inspectors and drawers](./API-Editor.md)
 - [GUI helpers](./API-GUI.md)

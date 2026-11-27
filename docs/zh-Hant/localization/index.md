@@ -12,9 +12,8 @@
 - [檢視器](./Inspector.md)
 - [Unity 鍵](./Unity-Keys.md)
 
-## 參考
+## API
 
-- [API](./API.md)
 - [資產](./API-Assets.md)
 - [查詢與更新](./API-Lookup.md)
 - [編輯器工具](./API-Editor.md)

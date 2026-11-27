@@ -12,9 +12,8 @@
 - [エディタヘルパー](./Editor-Helpers.md)
 - [パッチ](./Patches.md)
 
-## リファレンス
+## API
 
-- [API](./API.md)
 - [ランタイム](./API-Runtime.md)
 - [インスペクターとドロワー](./API-Editor.md)
 - [GUI ヘルパー](./API-GUI.md)
