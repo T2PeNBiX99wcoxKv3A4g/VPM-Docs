@@ -5,12 +5,6 @@ Documentation site for the VPM packages: one site, one folder per package, one M
 
 Live at <https://t2penbix99wcoxkv3a4g.github.io/VPM-Docs/>.
 
-## Why a single site
-
-The packages share a design and often depend on each other, so they share one site instead of one per package. A
-package is a folder under `docs/` plus an entry in `site.config.mjs`; nothing in the site is tied to a specific
-package name.
-
 ## Layout
 
 | Path | What it is |

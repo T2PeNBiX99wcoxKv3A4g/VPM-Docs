@@ -62,10 +62,21 @@ function nav(language) {
 }
 
 function languageConfig(language) {
+    const theme = labels[language].theme;
+
     return {
         nav: nav(language),
         sidebar: sidebar(language),
         footer: labels[language].footer,
+        // The outline keeps the same depth in every language; only its caption is translated.
+        outline: {level: [2, 3], ...(theme.outline ?? {})},
+        docFooter: theme.docFooter,
+        lastUpdated: theme.lastUpdated,
+        darkModeSwitchLabel: theme.darkModeSwitchLabel,
+        sidebarMenuLabel: theme.sidebarMenuLabel,
+        returnToTopLabel: theme.returnToTopLabel,
+        langMenuLabel: theme.langMenuLabel,
+        search: {provider: "local", options: {translations: theme.search}},
     };
 }
 
@@ -78,8 +89,6 @@ export default defineConfig({
     cleanUrls: false,
     head: [["link", {rel: "icon", type: "image/svg+xml", href: `${base}favicon.svg`}]],
     themeConfig: {
-        outline: {level: [2, 3]},
-        search: {provider: "local"},
         ...languageConfig(defaultLanguage),
     },
     locales: Object.fromEntries(
