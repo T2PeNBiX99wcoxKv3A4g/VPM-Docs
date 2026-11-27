@@ -9,11 +9,11 @@ Live at <https://t2penbix99wcoxkv3a4g.github.io/VPM-Docs/>.
 
 | Path | What it is |
 | --- | --- |
-| `docs/` | The site: pages plus the VitePress configuration |
-| `docs/<package>/` | Pages of a package in English, the default language |
-| `docs/<language>/<package>/` | The same pages in `ja`, `zh-CN` or `zh-TW` |
+| `docs/` | The site: one folder per language, plus the VitePress configuration |
+| `docs/<language>/<package>/` | Pages of a package (`en`, `ja`, `zh-CN`, `zh-TW`) |
+| `docs/index.md` | Sends `/` to the default language |
 | `docs/.vitepress/config.mts` | Locales, navigation, sidebars, search |
-| `docs/.vitepress/labels.mjs` | Navigation, group and footer labels per language |
+| `docs/.vitepress/labels.mjs` | Navigation, group, footer and theme labels per language |
 | `docs/public/` | Files served as they are (favicon) |
 | `site.config.mjs` | Which packages exist and which pages each one has |
 
@@ -31,7 +31,7 @@ npm run docs:preview   # serves that build, http://localhost:4173/VPM-Docs/
 
 ## Adding a page
 
-1. Write `docs/<package>/<Page>.md`, and the same file under `docs/<language>/<package>/` for each translation.
+1. Write `docs/<language>/<package>/<Page>.md` for each language.
 2. Add the slug to the package's group in `site.config.mjs`; a page that is not listed there does not appear in the
    sidebar.
 3. Link to it as `./Page.md`. A page of another package is `../<package>/Page.md`. VitePress turns those into the
@@ -40,11 +40,11 @@ npm run docs:preview   # serves that build, http://localhost:4173/VPM-Docs/
 ## Adding a package
 
 1. Add an entry to `projects` in `site.config.mjs`, with the groups and the page slugs.
-2. Create `docs/<package>/` and the translated folders, then one file per page.
+2. Create `docs/<language>/<package>/` for every language, then one file per page.
 
 ## Adding a language
 
-1. Add the id to `languages` in `site.config.mjs` (`en` is the default and lives at the site root).
+1. Add the id to `languages` in `site.config.mjs`.
 2. Add its block to `docs/.vitepress/labels.mjs`.
 3. Create `docs/<language>/`, with an `index.md` landing page and one folder per package.
 

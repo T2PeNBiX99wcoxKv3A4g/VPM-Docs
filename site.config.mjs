@@ -2,8 +2,8 @@
  * Everything about this site that is not prose: where it lives, which languages it offers and which packages have
  * documentation. Plain JavaScript, so `docs/.vitepress/config.mts` can import it and build the navigation from it.
  *
- * To document a new package: add an entry to `projects`, create `docs/<id>/` (and `docs/<language>/<id>/` for the
- * translations) and list the page slugs in the project's `groups`; the page title comes from the markdown H1.
+ * To document a new package: add an entry to `projects`, create `docs/<language>/<id>/` for every language and list
+ * the page slugs in the project's `groups`; the page title comes from the markdown H1.
  */
 export const site = {
     name: "VPM Documentation",

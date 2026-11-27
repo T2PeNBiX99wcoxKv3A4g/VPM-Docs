@@ -13,8 +13,8 @@ const docsRoot = resolve(here, "..");
 const base = "/VPM-Docs/";
 const defaultLanguage = site.defaultLanguage;
 
-/** The default language is the site root, the other ones live in their own folder. */
-const prefixOf = (language) => (language === defaultLanguage ? "" : `/${language}`);
+/** Every language has its own folder; the site root only redirects to the default one. */
+const prefixOf = (language) => `/${language}`;
 
 /** Sidebar text comes from the page heading, so a page is written once and its title is not repeated here. */
 function titleOf(language, project, slug) {
@@ -93,11 +93,11 @@ export default defineConfig({
     },
     locales: Object.fromEntries(
         site.languages.map((language) => [
-            language === defaultLanguage ? "root" : language,
+            language,
             {
                 label: labels[language].language,
                 lang: language,
-                ...(language === defaultLanguage ? {} : {themeConfig: languageConfig(language)}),
+                themeConfig: languageConfig(language),
             },
         ]),
     ),
