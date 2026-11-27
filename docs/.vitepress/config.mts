@@ -39,7 +39,8 @@ function defaultLanguageRedirects() {
         `<meta http-equiv="refresh" content="0; url=${target}"></head>` +
         `<body><p><a href="${target}">${target}</a></p></body></html>`;
 
-    const withoutSlash = (path) => path.replace(/\/+$/, "");
+    // The dev server hands over the path without the leading slash, the build writes it with one.
+    const withoutSlash = (path) => `/${path.replace(/^\/+/, "").replace(/\/+$/, "")}`;
     const find = (path) => redirects.find((entry) => withoutSlash(entry.from) === withoutSlash(path));
 
     return {
