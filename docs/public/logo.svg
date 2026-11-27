@@ -1,14 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="VPM Documentation">
     <defs>
-        <linearGradient id="logo-left" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#8fa8ff"/>
-            <stop offset="1" stop-color="#5175ea"/>
+        <linearGradient id="logo-top" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#d3dfff"/>
+            <stop offset="1" stop-color="#a3bdff"/>
         </linearGradient>
-        <linearGradient id="logo-right" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#4f74ea"/>
-            <stop offset="1" stop-color="#2741a2"/>
+        <linearGradient id="logo-middle" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#82a0fc"/>
+            <stop offset="1" stop-color="#4f74ea"/>
+        </linearGradient>
+        <linearGradient id="logo-bottom" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#3a5bd0"/>
+            <stop offset="1" stop-color="#26409f"/>
         </linearGradient>
     </defs>
-    <path d="M32 52 L14 14" fill="none" stroke="url(#logo-left)" stroke-width="14" stroke-linecap="round"/>
-    <path d="M32 52 L50 14" fill="none" stroke="url(#logo-right)" stroke-width="14" stroke-linecap="round"/>
+    <path fill="url(#logo-top)" d="M32 2 L58 16 L32 30 L6 16 Z"/>
+    <path fill="url(#logo-middle)" d="M32 18 L58 32 L32 46 L6 32 Z"/>
+    <path fill="url(#logo-bottom)" d="M32 34 L58 48 L32 62 L6 48 Z"/>
 </svg>
