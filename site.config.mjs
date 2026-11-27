@@ -40,7 +40,7 @@ export const site = {
                 {id: "guide", docs: ["Editor-Helpers", "Patches"]},
                 {
                     id: "api",
-                    docs: ["API-Runtime", "API-Editor", "API-GUI", "API-Menus", "API-Packages", "API-Reflection", "API-Type-Index"],
+                    docs: ["API-Runtime", "API-Editor", "API-GUI", "API-Menus", "API-Packages", "API-Reflection", "API-Extensions", "API-Types"],
                 },
             ],
         },

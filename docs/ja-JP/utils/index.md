@@ -20,4 +20,5 @@
 - [メニューと拡張](./API-Menus.md)
 - [パッケージ操作](./API-Packages.md)
 - [リフレクション](./API-Reflection.md)
-- [型インデックス](./API-Type-Index.md)
+- [拡張メソッド](./API-Extensions.md)
+- [その他の型](./API-Types.md)

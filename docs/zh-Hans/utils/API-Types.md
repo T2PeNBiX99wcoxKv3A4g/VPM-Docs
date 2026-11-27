@@ -1,22 +1,8 @@
-# 类型索引
+# 其他类型
 
 ## 类型索引
 
 上述页面之外的公开类型，按命名空间分组。用途文本来自每个类型自身的摘要。
-
-### io.github.ykysnk.utils.Extensions
-
-| 类型                   | 用途                                                         |
-|------------------------|--------------------------------------------------------------|
-| `ComponentExtensions`  | GameObject 与 Transform 辅助方法的组件版本。                 |
-| `DictionaryExtensions` | 把缺失键视为默认值的字典读取。                               |
-| `FloatExtensions`      | `float` 的噪声移除、容差检查、钳制和取整。                   |
-| `GameObjectExtensions` | 层级路径、距离检查以及按索引访问组件。                       |
-| `ListExtensions`       | 列表和数组的带边界检查的索引访问与就地编辑辅助方法。         |
-| `StringExtensions`     | 分隔字符串（例如 `"Folder/Name/Extension"`）的切片辅助方法。 |
-| `Texture2DExtensions`  | 纹理的 GPU 缩放与 alpha 裁剪。                               |
-| `TransformExtensions`  | 层级名称、世界/本地缩放转换、未缩放坐标转换以及距离检查。    |
-| `Vector3Extensions`    | `Vector3` 的距离、逐分量运算、钳制、取整和方向辅助方法。     |
 
 ### io.github.ykysnk.utils.NonUdon
 

@@ -1,22 +1,8 @@
-# 型インデックス
+# その他の型
 
 ## 型インデックス
 
 上のページに含まれない公開型を、名前空間ごとにまとめたものです。目的のテキストは各型自身の概要から取っています。
-
-### io.github.ykysnk.utils.Extensions
-
-| 型                     | 目的                                                                               |
-|------------------------|------------------------------------------------------------------------------------|
-| `ComponentExtensions`  | GameObject と Transform のヘルパーのコンポーネント版。                             |
-| `DictionaryExtensions` | キーがない場合を既定値として扱う辞書の読み取り。                                   |
-| `FloatExtensions`      | `float` のノイズ除去、許容誤差の判定、クランプ、丸め。                             |
-| `GameObjectExtensions` | ヒエラルキーのパス、距離判定、インデックスによるコンポーネントアクセス。           |
-| `ListExtensions`       | 境界チェック付きのインデックスアクセスと、リストや配列をその場で編集するヘルパー。 |
-| `StringExtensions`     | `"Folder/Name/Extension"` のような区切り文字付き文字列の切り出しヘルパー。         |
-| `Texture2DExtensions`  | テクスチャの GPU リサイズとアルファのトリミング。                                  |
-| `TransformExtensions`  | ヒエラルキー名、ワールド/ローカルスケールの変換、非スケールの座標変換、距離判定。  |
-| `Vector3Extensions`    | `Vector3` の距離、成分ごとの演算、クランプ、丸め、方向のヘルパー。                 |
 
 ### io.github.ykysnk.utils.NonUdon
 

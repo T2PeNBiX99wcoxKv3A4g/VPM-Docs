@@ -1,22 +1,6 @@
-# 型別索引
-
-## Type index
+# 其他型別
 
 上述頁面之外的公開型別，依命名空間分組。用途文字取自各型別自身的摘要。
-
-### io.github.ykysnk.utils.Extensions
-
-| 型別                   | 用途                                                             |
-|------------------------|------------------------------------------------------------------|
-| `ComponentExtensions`  | GameObject 與 Transform 輔助工具的元件版本。                     |
-| `DictionaryExtensions` | 把缺少的鍵視為預設值的字典讀取。                                 |
-| `FloatExtensions`      | `float` 的雜訊移除、容差檢查、限制範圍與四捨五入。               |
-| `GameObjectExtensions` | 階層路徑、距離檢查與以索引存取元件。                             |
-| `ListExtensions`       | 對清單與陣列提供邊界檢查的索引存取與就地編輯輔助工具。           |
-| `StringExtensions`     | 對 `"Folder/Name/Extension"` 這類分隔字串的切片輔助工具。        |
-| `Texture2DExtensions`  | 材質的 GPU 縮放與 alpha 修剪。                                   |
-| `TransformExtensions`  | 階層名稱、世界／區域縮放轉換、未縮放點轉換與距離檢查。           |
-| `Vector3Extensions`    | `Vector3` 的距離、逐分量算術、限制範圍、四捨五入與方向輔助工具。 |
 
 ### io.github.ykysnk.utils.NonUdon
 

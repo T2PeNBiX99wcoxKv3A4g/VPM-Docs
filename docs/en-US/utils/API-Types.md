@@ -1,22 +1,6 @@
-# Type index
-
-## Type index
+# Other types
 
 Public types outside the pages above, grouped by namespace. The purpose text comes from each type's own summary.
-
-### io.github.ykysnk.utils.Extensions
-
-| Type                   | Purpose                                                                                       |
-|------------------------|-----------------------------------------------------------------------------------------------|
-| `ComponentExtensions`  | Component versions of the GameObject and Transform helpers.                                   |
-| `DictionaryExtensions` | Dictionary reads that treat a missing key as a default value.                                 |
-| `FloatExtensions`      | Noise removal, tolerance checks, clamping and rounding for `float`.                           |
-| `GameObjectExtensions` | Hierarchy paths, distance checks and index-based component access.                            |
-| `ListExtensions`       | Bounds-checked index access and in-place editing helpers for lists and arrays.                |
-| `StringExtensions`     | Slicing helpers for delimited strings such as `"Folder/Name/Extension"`.                      |
-| `Texture2DExtensions`  | GPU resizing and alpha trimming of textures.                                                  |
-| `TransformExtensions`  | Hierarchy names, world/local scale conversion, unscaled point conversion and distance checks. |
-| `Vector3Extensions`    | Distance, component-wise arithmetic, clamping, rounding and direction helpers for `Vector3`.  |
 
 ### io.github.ykysnk.utils.NonUdon
 

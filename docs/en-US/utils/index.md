@@ -20,4 +20,5 @@
 - [Menus and extensions](./API-Menus.md)
 - [Package handling](./API-Packages.md)
 - [Reflection](./API-Reflection.md)
-- [Type index](./API-Type-Index.md)
+- [Extension methods](./API-Extensions.md)
+- [Other types](./API-Types.md)

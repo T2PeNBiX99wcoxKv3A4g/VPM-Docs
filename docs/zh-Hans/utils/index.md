@@ -20,4 +20,5 @@
 - [菜单与扩展](./API-Menus.md)
 - [包处理](./API-Packages.md)
 - [反射](./API-Reflection.md)
-- [类型索引](./API-Type-Index.md)
+- [扩展方法](./API-Extensions.md)
+- [其他类型](./API-Types.md)
