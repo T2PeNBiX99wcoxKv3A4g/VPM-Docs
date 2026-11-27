@@ -3,7 +3,7 @@
 // `theme` holds the strings of the default theme (outline, footer, search, buttons); VitePress does not translate
 // them by itself, so every language carries its own copy here. English is the theme's default and only overrides
 // the strings whose wording this site changes.
-const copyright = "Copyright © 2025-present yukiyosanako / ゆきよさなこ";
+const copyright = "Copyright © 2026-present yukiyosanako / ゆきよさなこ";
 
 export const labels = {
     "en-US": {
