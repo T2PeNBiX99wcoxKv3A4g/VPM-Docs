@@ -37,7 +37,7 @@
 ```csharp
 using io.github.ykysnk.Localization.Editor;
 
-[assembly: LocalizationPackage("io.github.ykysnk.my-package")]
+[assembly: LocalizationPackage("com.example.my-package")]
 ```
 
 然后在绑定之前先做本地化：

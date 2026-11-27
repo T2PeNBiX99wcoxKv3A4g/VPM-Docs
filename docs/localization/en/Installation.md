@@ -40,7 +40,7 @@ In the editor assembly of the package that wants translations, declare the id on
 ```csharp
 using io.github.ykysnk.Localization.Editor;
 
-[assembly: LocalizationPackage("io.github.ykysnk.my-package")]
+[assembly: LocalizationPackage("com.example.my-package")]
 ```
 
 Then localize the UI before binding it:

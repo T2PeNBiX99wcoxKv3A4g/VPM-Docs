@@ -38,7 +38,7 @@
 ```csharp
 using io.github.ykysnk.Localization.Editor;
 
-[assembly: LocalizationPackage("io.github.ykysnk.my-package")]
+[assembly: LocalizationPackage("com.example.my-package")]
 ```
 
 続いて、UI をバインドする前にローカライズします。
